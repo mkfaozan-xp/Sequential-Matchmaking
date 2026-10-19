@@ -1,0 +1,77 @@
+name: exact-release-validation
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      attest:
+        description: Generate keyless attestations for real CI validation receipts
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  portable-tests:
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.12', '3.14']
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -r requirements-train.txt
+      - run: python scripts/environment_report.py
+      - run: python scripts/run_tests.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portability-${{ matrix.os }}-${{ matrix.python }}
+          path: results/tests*.json
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 125
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements-train.txt
+      - run: python scripts/run_research.py --minutes 120 --skip-training
+      - run: python scripts/write_ci_receipt.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-selected-release
+          path: |
+            results/*.json
+            results/*.md
+            results/*.log
+  attest:
+    if: github.event_name == 'workflow_dispatch' && inputs.attest
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+      attestations: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: evidence-*
+          path: evidence
+      - uses: actions/attest@v4
+        with:
+          subject-path: evidence/**/ci-receipt.json

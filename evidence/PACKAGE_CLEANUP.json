@@ -1,0 +1,85 @@
+{
+  "removed": [
+    {
+      "path": "research/evidence/Blackbox_ML_Prototype_v0_7_0_original.zip",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_8_attempts",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_6_preparation",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/Blackbox_ML_Prototype_v0_5_0_original.zip",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_5",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7_preparation",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_8_prepackage_amendment",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_8_delivery_verification.json",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7_run_logs",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7_first_attempt",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7_snapshot_interruption",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_6_fitting_failure",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7_partial_pilot",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_8_completed_host_results",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_6_interruption",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_7_transport_interruption",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/v0_6",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    },
+    {
+      "path": "research/evidence/Blackbox_ML_Prototype_v0_6_0_original.zip",
+      "reason": "Superseded historical snapshots, interruption logs or nested previous-version archives. Required observation data, collector source and current results retained separately."
+    }
+  ],
+  "research_executable_source_unchanged": true,
+  "nested_archives": 0,
+  "current_training_entrypoint": "tools/train_model.py",
+  "legacy_archive_audits": "Historical source retained for provenance; archive-dependent old audit commands are not the supported current workflow.",
+  "retained_test_fixtures": "Original frozen regression source/results and flat v0.5 label source, needed for evidence-transfer and unchanged-label tests."
+}

@@ -1,0 +1,16 @@
+{
+  "python": "3.12.14",
+  "supplied_pdfs": {
+    "Production_AI_Design_Guide(1).pdf": "816ef4aae153da8b7fd359797a47fbb182fd4f50fbd2c1a4b7326db5d422c890",
+    "Blackbox_Final_Research_Note(1).pdf": "cde837f3dd108d237ccb6def84d826eb6bd2f354126cec590ae46e758236f02f"
+  },
+  "tools": [
+    "ChatGPT/Codex assisted implementation, engineering review and local execution",
+    "pypdf used to extract supplied research evidence",
+    "GitHub connector used to retrieve the official pinned source",
+    "Jwalith toolkit MLE workflow used for implementation discipline"
+  ],
+  "external_models": [],
+  "training_compute": "CPU, NumPy 2.3.5 / SciPy 1.17.0; no GPU or external API",
+  "claim": "synthetic research prototype; no real-world relationship prediction"
+}

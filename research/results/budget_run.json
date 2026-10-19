@@ -1,0 +1,245 @@
+{
+  "budget_seconds": 7044.588653326035,
+  "completed_unix": 1792224065.3694415,
+  "docker_skipped": true,
+  "elapsed_seconds": 788.9004244389998,
+  "maximum_episode_workers": 2,
+  "new_collection_episodes": 0,
+  "origin": {
+    "budget_seconds": 7200.0,
+    "deadline_unix": 1792230321.054787,
+    "scope": "New user-requested v0.8 build. Historical v0.6/v0.7 budgets are unchanged, not reset or reclassified.",
+    "source_sha256": "553194ea10ea4c9657544573842fb726fe64648786a552e3fc666cb932fe17e3",
+    "started_unix": 1792223121.054787
+  },
+  "phases": [
+    {
+      "allocated_seconds": 300,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/train_rankers.py"
+      ],
+      "downstream_reserved_seconds": 2654,
+      "exit_code": 0,
+      "name": "training",
+      "seconds": 6.483417890000055,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 60,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/environment_report.py"
+      ],
+      "downstream_reserved_seconds": 2654,
+      "exit_code": 0,
+      "name": "environment_inventory",
+      "seconds": 0.369352594999782,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 120,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "official_data_training/train_public.py"
+      ],
+      "downstream_reserved_seconds": 2654,
+      "exit_code": 0,
+      "name": "public_training",
+      "seconds": 3.524603558999843,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 60,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "official_data_training/test_leakage.py"
+      ],
+      "downstream_reserved_seconds": 2654,
+      "exit_code": 0,
+      "name": "public_leakage_tests",
+      "seconds": 2.773162394999872,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 120,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/run_tests.py"
+      ],
+      "downstream_reserved_seconds": 2624,
+      "exit_code": 0,
+      "name": "tests",
+      "seconds": 4.729704295999909,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 30,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/audit_data.py"
+      ],
+      "downstream_reserved_seconds": 2622,
+      "exit_code": 0,
+      "name": "data_checksums",
+      "seconds": 0.16434089899985338,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 60,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/audit_review_v08.py"
+      ],
+      "downstream_reserved_seconds": 2612,
+      "exit_code": 0,
+      "name": "review_audit",
+      "seconds": 2.120781140999952,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 120,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/benchmark.py"
+      ],
+      "downstream_reserved_seconds": 2597,
+      "exit_code": 0,
+      "name": "runtime_probe",
+      "seconds": 4.727253912999913,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 180,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/check_snapshot_parity.py"
+      ],
+      "downstream_reserved_seconds": 2552,
+      "exit_code": 0,
+      "name": "snapshot_parity",
+      "seconds": 22.285392866000166,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 1800,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/run_matrix.py",
+        "--matrix",
+        "selection"
+      ],
+      "downstream_reserved_seconds": 1652,
+      "exit_code": 0,
+      "name": "selection_pilot",
+      "seconds": 185.73859087599976,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 20,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/select_candidate.py"
+      ],
+      "downstream_reserved_seconds": 1650,
+      "exit_code": 0,
+      "name": "selection_freeze",
+      "seconds": 0.1650136130001556,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 1200,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/run_matrix.py",
+        "--matrix",
+        "validation"
+      ],
+      "downstream_reserved_seconds": 1200,
+      "exit_code": 0,
+      "name": "validation",
+      "seconds": 146.37000716900002,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 2400,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/run_matrix.py",
+        "--matrix",
+        "final"
+      ],
+      "downstream_reserved_seconds": 300,
+      "exit_code": 0,
+      "name": "final_test",
+      "seconds": 307.1781344259998,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 600,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/run_matrix.py",
+        "--matrix",
+        "subprocess"
+      ],
+      "downstream_reserved_seconds": 0,
+      "exit_code": 0,
+      "name": "subprocess",
+      "seconds": 101.81098164000014,
+      "status": "completed"
+    },
+    {
+      "allocated_seconds": 15,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/release_gate.py"
+      ],
+      "downstream_reserved_seconds": 0,
+      "exit_code": 2,
+      "name": "release_gate",
+      "seconds": 0.21445615299990095,
+      "status": "failed"
+    },
+    {
+      "allocated_seconds": 15,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "scripts/build_report.py"
+      ],
+      "downstream_reserved_seconds": 0,
+      "exit_code": 0,
+      "name": "report",
+      "seconds": 0.16425768599992807,
+      "status": "completed"
+    }
+  ],
+  "reservations_seconds": {
+    "container": 900,
+    "data_checksums": 2,
+    "final_test": 900,
+    "review_audit": 10,
+    "runtime_probe": 15,
+    "selection_freeze": 2,
+    "selection_pilot": 900,
+    "snapshot_parity": 45,
+    "subprocess": 300,
+    "tests": 30,
+    "validation": 450
+  },
+  "run_id": "685ef7c7dd4c4c9e887279cc0711ace0",
+  "runtime": {
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "python": "3.12.14",
+    "reference_runtime": true,
+    "status": "reference family; inspect actual tests"
+  },
+  "schema_version": 7,
+  "started_unix": 1792223276.4692733,
+  "status": "completed",
+  "total_iteration_elapsed_seconds": 944.3146545886993,
+  "training_skipped": false,
+  "workflow": "v0.8 score-matched ranking and review ablations"
+}

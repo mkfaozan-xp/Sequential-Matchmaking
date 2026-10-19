@@ -1,0 +1,81 @@
+{
+  "candidate_promoted": false,
+  "documented_modes": [
+    "conservative",
+    "rank_aux"
+  ],
+  "files": {
+    ".dockerignore": "d907d2c31a9e631a36224ca4795102679e31778fa2fead8653183739a3c3cfcb",
+    ".gitattributes": "65b96ba8ab51f38efddd4e19d4cc680cb058f0d0a02776453a018c2163a3cbee",
+    "Dockerfile": "56c3990cd672f3e7eb4310c65be54b4b4e7d0f556493c954c82948957894bfc7",
+    "MODEL_STATUS.md": "5880b50a1749a5762249085e285e804dbd661bf610a857f2ca8f3c1d26031be6",
+    "PRIOR_EPISODE_PARITY.json": "2c2ff3bba64df54a2e5b68b778575658fa41ebba46dbae457438c6d8816c7369",
+    "README.md": "ca315ee1f8e2b03cdc7bcb3f0586f04e807b8ce141331f090da192e3a8314ffa",
+    "REVIEW_RESPONSE.md": "e51a588dc33d9a561f3a6147e56eed01ed18358a6df5c944f86a50bec84a4695",
+    "VERIFICATION.json": "47943c1b550e4812036993e5adb3552ccdad488b6be608201d918646fe2bed36",
+    "artifacts/deployment.json": "25aee7cb9412a72a354148e27ec1436994998194cf95acc52fd324e449eed2d2",
+    "artifacts/releases/2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9/answers.json": "065f8f12ab542850d8f750b9f4725f2bb26f4766946a3b6a42575662d0af489e",
+    "artifacts/releases/2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9/manifest.json": "a129f67a59e3a2625ea0c9fbdc023f6ce849a32183f733a748e7e58aba4aa2c4",
+    "artifacts/releases/2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9/model.json": "a0283d6101aca77d4f47ca19f712f815ab83423ec18a7b617e55035b2d46609c",
+    "blackbox/__init__.py": "2c12b8ea17aeb6f9f72a6b02aca218bbc4508a46df9e365a8f6c45ad769e0b34",
+    "blackbox/allocation.py": "54cdf6239217e52d6a301644913c7c2bd4b2b556d37c0f14bd6f9ceb0e4d5479",
+    "blackbox/basis.py": "104ed45c6f4a81c0ceb5ec2842bc4303b498e54bac9a71810a228c0817a7e293",
+    "blackbox/clarification.py": "df437bf18c86c85801bccea76ea7478e6f6307e2d35853011840a235b156d54e",
+    "blackbox/compatibility.py": "218900dc7248d0c637b3cdfce3cb260af6f599a717bed399e08805172c7cb986",
+    "blackbox/contracts.py": "eb15734a8cd0d67f8832cbb17bd6801cd7366033221601a30638864aae36e158",
+    "blackbox/domain.py": "207dd3eeffd5d3d7c370e01162230522e7512230b004c3c0cd2345e7d39831dd",
+    "blackbox/features.py": "ec50f105acd7297464321bd5316b743c3b5a5f9477fd11a7c1f1bc5362afda50",
+    "blackbox/model.py": "7517300d817e443594abac002193a84bb0caf92e865c16beb4b8fe337ccdfaa8",
+    "blackbox/outcome_history.py": "39d4dfb7269f82c0dcba1ff8dbc5f991492998c9263184b06cf5041e36b0d6cf",
+    "blackbox/policy.py": "b4ac52cdcd2ff80121420767f68c178bbee47d917a07f87766d7484612d1a9ab",
+    "blackbox/ranking.py": "9411cc8ad23cc7220a0793fc76dbb7b6f5353884aaa8da130ba605d064a754d8",
+    "blackbox/registry.py": "77ba438bf66237ebfd05738e8d080b7873b2552afe2411a665307b37f1c21387",
+    "blackbox/solve.py": "7fcab53e958c387c51d4cc974a6cc1d97b05fa73687d0d612f730669ff36ac27",
+    "blackbox/storage.py": "34048d6f41dbab1da92ab10db3a69c3aefe2dbf42fcf5d0a70ef54d1e1bce5f1",
+    "examples/day0_request.json": "876e9bb7b1c016e50eede50a53a9520de1806a569f44e024145317a06b91a8d0",
+    "examples/empty_request.json": "fe0a7c9f784389a4b47fa6e90ee8193bb4189c1a98cc3904ef6392c8b6043619",
+    "examples/refreshed_match_request.json": "8870d00b6d75aac0d643796f1f0438f4fbd6d78521b09453cb263e880c1cfc3d",
+    "policy.py": "84440650b0d74cc9629916bc246af2468b25194b63593845de774547e3a0cee7",
+    "requirements.txt": "5df808db2b1e89ff9dbb8d377167f6f692f8834def4af0bf0a6e042e9c50c5f3",
+    "starter/DATA_LICENSE.md": "d06b871724774ea4c7d69720bd17fe07a687dc88c510ee9c46728feab9935344",
+    "starter/LICENSE": "71977492afd4f6b1fac93e7876766e59d337a3fa582ac4995180fafdb22a36c9",
+    "verify_runtime.py": "219928fe5a80b30ffa5e051a3d03623a243e38350d103310af0cb62003e57a5e"
+  },
+  "golden_smoke_cases": [
+    {
+      "example": "examples/empty_request.json",
+      "mode": "conservative",
+      "response_sha256": "16c6ecce62258d1cc721a579b7bbb4708e4484f2e0a31fe05831efe682d43ef5"
+    },
+    {
+      "example": "examples/day0_request.json",
+      "mode": "conservative",
+      "response_sha256": "4758dd8d9c4050328926908caaa6945f8789af16f69b58a4c51729f92be6cdd6"
+    },
+    {
+      "example": "examples/refreshed_match_request.json",
+      "mode": "conservative",
+      "response_sha256": "14dbd86b7c319bcd8efed54243d46772979cf9237bb0e13a14728aa2c432059d"
+    },
+    {
+      "example": "examples/empty_request.json",
+      "mode": "rank_aux",
+      "response_sha256": "cdbfe43a2eb110fa330a324746c2245e03b8c173254f9df303dcb4ca219b1f1f"
+    },
+    {
+      "example": "examples/day0_request.json",
+      "mode": "rank_aux",
+      "response_sha256": "c35e19d527d0c4e1c5bed2bb4e1cd6e872257dd2065513cf22d13cba1a3a7264"
+    },
+    {
+      "example": "examples/refreshed_match_request.json",
+      "mode": "rank_aux",
+      "response_sha256": "cc444aaff161a20e4afa99f449d2f362f23795c0880567f1b5a7643d78d832d2"
+    }
+  ],
+  "profile": "standalone conservative / rank_aux; serving code unchanged",
+  "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+  "schema_version": 1,
+  "source_research_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4",
+  "trust_scope": "Unsigned local checksums; not external attestation."
+}

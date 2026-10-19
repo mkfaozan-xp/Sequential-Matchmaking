@@ -1,0 +1,24 @@
+{
+  "eligible": false,
+  "promoted": false,
+  "active_mode": "conservative",
+  "candidate": "funnel",
+  "decision": "Reject for deployment; candidate lost qualifying-couple count in the small fresh pilot.",
+  "checks": {
+    "complete_fresh_24_valid": true,
+    "official_oof_logloss_improved": true,
+    "minimum_10_seed_blocks": false,
+    "positive_paired_lower_bound_established": false,
+    "no_family_mean_regression": false,
+    "actual_windows": false,
+    "actual_exact_mode_docker": false
+  },
+  "failed_checks": [
+    "minimum_10_seed_blocks",
+    "positive_paired_lower_bound_established",
+    "no_family_mean_regression",
+    "actual_windows",
+    "actual_exact_mode_docker"
+  ],
+  "scope": "Two seed blocks, not a reliable full confirmation. Prior 480 episodes are not new-model evidence."
+}

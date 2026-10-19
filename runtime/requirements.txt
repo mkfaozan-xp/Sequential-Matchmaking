@@ -1,0 +1,2 @@
+# No third-party packages are required for conservative or rank_aux.
+# Training and optional native-solver modes require the separate research archive.

@@ -1,0 +1,42 @@
+{
+  "compared_fields": [
+    "action_sha256",
+    "assignments",
+    "mutual_acceptances",
+    "dates",
+    "mutual_second_meeting_intention",
+    "ask_cost",
+    "served_members"
+  ],
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "members": 200,
+  "passed": true,
+  "preparation_episodes": 4,
+  "rows": [
+    {
+      "action_sha256": "4ab53e77d2918abf9a79b5f8e80cb529ea5ef319865d24c0a6509bccd775a8a3",
+      "cold_wall_seconds": 5.86236662500005,
+      "mode": "conservative",
+      "snapshot_wall_seconds": 4.805938960999811
+    },
+    {
+      "action_sha256": "46280e6ea45a80305f059e17fd98b7ffc517b180a2d33390e5979d5f50b01915",
+      "cold_wall_seconds": 6.67659220600035,
+      "mode": "rank_ref",
+      "snapshot_wall_seconds": 4.601429824999741
+    }
+  ],
+  "scope": "Implementation parity, not independent efficacy evidence. Cold CLI/container verification remains separate.",
+  "seed": 1999,
+  "variant": "development"
+}

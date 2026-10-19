@@ -1,0 +1,74 @@
+{
+  "analysis_binding": null,
+  "candidate_mode": "rank_aux",
+  "candidate_promotion": {
+    "checks": {
+      "exact_candidate_container": false,
+      "minimum_seed_blocks": true,
+      "no_family_mean_regression": true,
+      "positive_paired_lower_bound": false,
+      "service_guardrail": true,
+      "validation_readiness": false
+    },
+    "eligible": false,
+    "evaluated": true,
+    "family_scores": {
+      "conservative": {
+        "cold_start": 0.25,
+        "delayed": 0.1,
+        "development": 0.4,
+        "drift": 0.4,
+        "shift": 0.55,
+        "sparse": 0.1
+      },
+      "rank_aux": {
+        "cold_start": 0.5,
+        "delayed": 0.1,
+        "development": 0.45,
+        "drift": 0.45,
+        "shift": 0.65,
+        "sparse": 0.1
+      }
+    },
+    "paired_interval": {
+      "ci95": [
+        -0.008333333333333333,
+        0.15833333333333333
+      ],
+      "delta": 0.075,
+      "seed_blocks": 10,
+      "status": "descriptive_seed_block_bootstrap",
+      "warning": "Descriptive percentile bootstrap; sample count alone does not establish statistical power."
+    },
+    "reason": "Predeclared gates; 10 blocks is a minimum guardrail, not a statistical-power guarantee",
+    "scenario_guardrail": true,
+    "service_guardrail": true
+  },
+  "checks": {
+    "actual_test_suites": true,
+    "complete_validation_matrix": true,
+    "exact_container_release": false,
+    "trained_candidate_assets": true,
+    "trained_ranking_assets": true,
+    "verified_public_snapshot": true,
+    "verified_runtime_inventory": true
+  },
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "missing_or_failed": [
+    "exact_container_release"
+  ],
+  "mode": "conservative",
+  "schema_version": 2,
+  "status": "blocked",
+  "warning": "Validation readiness is not production certification or private-organiser eligibility."
+}

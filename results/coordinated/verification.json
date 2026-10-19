@@ -1,0 +1,24 @@
+{
+  "active_mode": "conservative",
+  "actual_docker": false,
+  "actual_windows": false,
+  "cli_contract_checks": 14,
+  "cold_cli_invocations": 720,
+  "complete_comparison_episodes": 204,
+  "features": 32,
+  "inherited_serving_files_verified_identical_to_research": 20,
+  "model_id": "coordinated-b76b5aa08f1d17e1",
+  "paired_final": {
+    "ci95": [
+      -0.11666666666666667,
+      0.35833333333333334
+    ],
+    "delta": 0.10833333333333334,
+    "seed_blocks": 10,
+    "status": "descriptive_seed_block_bootstrap",
+    "warning": "Descriptive percentile bootstrap; sample count alone does not establish statistical power."
+  },
+  "passed": true,
+  "source_and_assets_sha256": "22eb16211071cc8a9d0f8bf3275a84501202e90cfef174c907ef37e137311660",
+  "training_only_rows": 21367
+}

@@ -1,0 +1,67 @@
+{
+  "candidate_promoted": false,
+  "historical_results_identical_to_current_results": false,
+  "inherited_checks": {
+    "episodes": 12,
+    "reason": "All serving files, release artifacts, deployment and example inputs match the verified profile byte for byte.",
+    "record": "PRIOR_EPISODE_PARITY.json",
+    "rerun_for_this_repair": false,
+    "restarted_policy_calls": 1440,
+    "sha256": "2c2ff3bba64df54a2e5b68b778575658fa41ebba46dbae457438c6d8816c7369"
+  },
+  "input_zip_sha256": "f875af95e866ea3a84d12ae4ae3c48c2e5cce8d905c8e4f2770e15e2a6acd6e2",
+  "new_checks": {
+    "all_docker_copy_inputs_present": true,
+    "fresh_zip_extraction_smoke": true,
+    "golden_examples": 6,
+    "invalid_inputs_rejected": 3,
+    "packaging_verifier_smoke": true,
+    "stdlib_only": true,
+    "tamper_cases_rejected": 7,
+    "windows_path_collision_check": true,
+    "zip_crc": true
+  },
+  "new_efficacy_evaluation": false,
+  "new_model_training": false,
+  "profile": "reviewed standalone v0.8 runtime",
+  "python": "3.12.14",
+  "removed_nonserving_files": {
+    "artifacts/candidate.json": {
+      "bytes": 154,
+      "sha256": "2154b91e8e7bd9991b4c62b88a5d33502bf67408269a4e4a6348c1427bf6b564"
+    },
+    "blackbox/runtime.py": {
+      "bytes": 849,
+      "sha256": "c3d9316319ea75316f319ee04a4aabc57ff93ddda77c8c88cf5fc2fd531559d2"
+    }
+  },
+  "serving_files_verified_identical_to_research": {
+    "artifacts/deployment.json": "25aee7cb9412a72a354148e27ec1436994998194cf95acc52fd324e449eed2d2",
+    "artifacts/releases/2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9/answers.json": "065f8f12ab542850d8f750b9f4725f2bb26f4766946a3b6a42575662d0af489e",
+    "artifacts/releases/2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9/manifest.json": "a129f67a59e3a2625ea0c9fbdc023f6ce849a32183f733a748e7e58aba4aa2c4",
+    "artifacts/releases/2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9/model.json": "a0283d6101aca77d4f47ca19f712f815ab83423ec18a7b617e55035b2d46609c",
+    "blackbox/__init__.py": "2c12b8ea17aeb6f9f72a6b02aca218bbc4508a46df9e365a8f6c45ad769e0b34",
+    "blackbox/allocation.py": "54cdf6239217e52d6a301644913c7c2bd4b2b556d37c0f14bd6f9ceb0e4d5479",
+    "blackbox/basis.py": "104ed45c6f4a81c0ceb5ec2842bc4303b498e54bac9a71810a228c0817a7e293",
+    "blackbox/clarification.py": "df437bf18c86c85801bccea76ea7478e6f6307e2d35853011840a235b156d54e",
+    "blackbox/compatibility.py": "218900dc7248d0c637b3cdfce3cb260af6f599a717bed399e08805172c7cb986",
+    "blackbox/contracts.py": "eb15734a8cd0d67f8832cbb17bd6801cd7366033221601a30638864aae36e158",
+    "blackbox/domain.py": "207dd3eeffd5d3d7c370e01162230522e7512230b004c3c0cd2345e7d39831dd",
+    "blackbox/features.py": "ec50f105acd7297464321bd5316b743c3b5a5f9477fd11a7c1f1bc5362afda50",
+    "blackbox/model.py": "7517300d817e443594abac002193a84bb0caf92e865c16beb4b8fe337ccdfaa8",
+    "blackbox/outcome_history.py": "39d4dfb7269f82c0dcba1ff8dbc5f991492998c9263184b06cf5041e36b0d6cf",
+    "blackbox/policy.py": "b4ac52cdcd2ff80121420767f68c178bbee47d917a07f87766d7484612d1a9ab",
+    "blackbox/ranking.py": "9411cc8ad23cc7220a0793fc76dbb7b6f5353884aaa8da130ba605d064a754d8",
+    "blackbox/registry.py": "77ba438bf66237ebfd05738e8d080b7873b2552afe2411a665307b37f1c21387",
+    "blackbox/solve.py": "7fcab53e958c387c51d4cc974a6cc1d97b05fa73687d0d612f730669ff36ac27",
+    "blackbox/storage.py": "34048d6f41dbab1da92ab10db3a69c3aefe2dbf42fcf5d0a70ef54d1e1bce5f1",
+    "policy.py": "84440650b0d74cc9629916bc246af2468b25194b63593845de774547e3a0cee7"
+  },
+  "source_research_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4",
+  "unverified": [
+    "actual Docker build and constrained execution",
+    "Windows execution",
+    "hosted CI",
+    "external signing"
+  ]
+}

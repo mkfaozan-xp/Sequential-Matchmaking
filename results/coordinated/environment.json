@@ -1,0 +1,13 @@
+{
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "packages": {
+    "numpy": "2.3.5",
+    "scipy": "1.17.0"
+  },
+  "inference": "standard library only",
+  "numerical_threads": 1,
+  "evaluation_workers": 2,
+  "actual_windows": false,
+  "actual_docker": false
+}

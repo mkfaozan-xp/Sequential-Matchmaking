@@ -1,0 +1,6 @@
+{
+  "original_v05_archive_sha256": "dbebe6b690d69ef6252ec5abfddb24208aa19f838780b84f9a180ed2fa47b204",
+  "label_v05_sha256": "b2aa9cf89611cc457e13b2b8d5f7600a655ca3d8d4991999fbe3bc101618fc0a",
+  "frozen_final_sha256": "f7eeceb84c77fa68ba742449680f153a6601977a50f609159ecf84939e53d764",
+  "scope": "Minimal original fixtures retained for numeric-interval and unchanged-label tests. No nested archives."
+}

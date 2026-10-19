@@ -1,0 +1,268 @@
+{
+  "deployment_changed": false,
+  "donors": 787,
+  "limits": [
+    "Response acceptance is not MSMI or preference truth.",
+    "Unknown historical propensities; selected introductions only.",
+    "No historical MSMI negatives fabricated from day-30 censoring.",
+    "Conservative timestamp masking may lose previously known reconfirmed fields.",
+    "Validation has two independent pools; no superiority claim or automatic promotion.",
+    "Candidate is separate from the frozen simulator-policy experiments."
+  ],
+  "lineage": {
+    "development_test_pools_not_read": [
+      "public_09",
+      "public_10"
+    ],
+    "inputs": {
+      "public_01": {
+        "mature_response_rows": 102,
+        "members": 200,
+        "pending_response_rows_excluded": 12,
+        "sha256": "c4d98aa46ed59f1ca55c857a07fe41e8ffa1643b330db02a6851bfa14d042ba6",
+        "split": "train"
+      },
+      "public_02": {
+        "mature_response_rows": 100,
+        "members": 200,
+        "pending_response_rows_excluded": 14,
+        "sha256": "6ed77f04351a66377169d1fc2ae8e332e158648f90b235432bd0d74c2029416d",
+        "split": "train"
+      },
+      "public_03": {
+        "mature_response_rows": 100,
+        "members": 200,
+        "pending_response_rows_excluded": 12,
+        "sha256": "d93d2cd87c33a236f7ce280958d56e3d30aea7e7fd3f222126dca70b7d046b55",
+        "split": "train"
+      },
+      "public_04": {
+        "mature_response_rows": 108,
+        "members": 200,
+        "pending_response_rows_excluded": 16,
+        "sha256": "d8cc75bfb1ffc867615268f892dbe108fd61170459c1542b07554ee14054ecbf",
+        "split": "train"
+      },
+      "public_05": {
+        "mature_response_rows": 146,
+        "members": 200,
+        "pending_response_rows_excluded": 24,
+        "sha256": "4de4326be51d86077b800fe88ed383ef85ecdc112c6a580b38a8201ab29354e3",
+        "split": "train"
+      },
+      "public_06": {
+        "mature_response_rows": 102,
+        "members": 200,
+        "pending_response_rows_excluded": 16,
+        "sha256": "78ead519366bbd0a11614c28c8686fddb076dccf7d6a9b29d123c6fd56bac3a6",
+        "split": "train"
+      },
+      "public_07": {
+        "mature_response_rows": 112,
+        "members": 200,
+        "pending_response_rows_excluded": 16,
+        "sha256": "9369f964112a565da03523d2e5635bc83b3f455ab15ac1acf7a5031e66e1e15b",
+        "split": "validation"
+      },
+      "public_08": {
+        "mature_response_rows": 92,
+        "members": 200,
+        "pending_response_rows_excluded": 14,
+        "sha256": "52683b78fe8aa8819485b7be51fa9d5094436fce0f64723db14d26fd3b3a29ed",
+        "split": "validation"
+      }
+    },
+    "manifest_sha256": "1083e2295ae13530b3e48585381c9f1f902bac34347be992e058ffac225a7733",
+    "official_commit": "a8e26b35118cfa8e886a02f93984923e43ab64f6",
+    "row_sha256": "f5c7a32c46ec4fda5b2a72ff6fd54c1211a36ff4ce9bf697abddfbb32f0c6d7f",
+    "runtime": {
+      "packages": {
+        "numpy": "2.3.5",
+        "scipy": "1.17.0"
+      },
+      "python": "3.12.14"
+    },
+    "source": {
+      "blackbox/basis.py": "104ed45c6f4a81c0ceb5ec2842bc4303b498e54bac9a71810a228c0817a7e293",
+      "blackbox/domain.py": "207dd3eeffd5d3d7c370e01162230522e7512230b004c3c0cd2345e7d39831dd",
+      "blackbox/features.py": "ec50f105acd7297464321bd5316b743c3b5a5f9477fd11a7c1f1bc5362afda50",
+      "blackbox/fitting.py": "85ce9607e2cf56cfc06f2600133999eacebae25fdd18fb62ef146a3a59b3b875",
+      "blackbox/metrics.py": "f97fa597dd9859bf9898aa895f5071d4b1dca34f5b04a6cd286db97f0b48b82c",
+      "blackbox/model.py": "7517300d817e443594abac002193a84bb0caf92e865c16beb4b8fe337ccdfaa8",
+      "blackbox/outcome_history.py": "39d4dfb7269f82c0dcba1ff8dbc5f991492998c9263184b06cf5041e36b0d6cf",
+      "blackbox/storage.py": "34048d6f41dbab1da92ab10db3a69c3aefe2dbf42fcf5d0a70ef54d1e1bce5f1",
+      "official_data_training/train_public.py": "bd3e58a318b3788392f8337bbb59cdf8cf0ddaa1f53d6eb77d396048bfb04eb1",
+      "train.py": "e8de066344aaad07ce6ae843484be68062e3f11c91c4c95772b62a0b4732f5e0"
+    },
+    "train_pools": [
+      "public_01",
+      "public_02",
+      "public_03",
+      "public_04",
+      "public_05",
+      "public_06"
+    ],
+    "validation_pools": [
+      "public_07",
+      "public_08"
+    ]
+  },
+  "model_sha256": "deb8679818797f4163a35ed7faea6ff615480bf6dada4944fdf64ffbd92718ef",
+  "schema_version": 1,
+  "selected_basis": "signal_projection",
+  "selected_l2": 10,
+  "train_positives": 246,
+  "train_rows": 658,
+  "validation": {
+    "bins": [
+      {
+        "hi": 0.32,
+        "lo": 0.16,
+        "n": 32,
+        "observed": 0.4375,
+        "predicted": 0.30903856830288495
+      },
+      {
+        "hi": 0.64,
+        "lo": 0.32,
+        "n": 172,
+        "observed": 0.38372093023255816,
+        "predicted": 0.38770448825003556
+      }
+    ],
+    "brier": 0.23949302401290298,
+    "ece": 0.023509498986832328,
+    "log_loss": 0.6722934665236789,
+    "n": 204,
+    "positives": 80,
+    "prediction_quantiles": {
+      "0": 0.2735341186508476,
+      "0.05": 0.31111570963541607,
+      "0.5": 0.361539986772997,
+      "0.95": 0.5344211123330829,
+      "1": 0.5755171747648159
+    },
+    "ranking": {
+      "auc": 0.5129032258064516,
+      "average_precision": 0.4336683909442088,
+      "n": 204,
+      "prevalence": 0.39215686274509803,
+      "scope": "mature selected introductions; no population/counterfactual claim",
+      "top_decile_lift": 1.1500000000000001
+    },
+    "scope": "selected mature introductions only"
+  },
+  "validation_by_pool": {
+    "public_07": {
+      "bins": [
+        {
+          "hi": 0.32,
+          "lo": 0.16,
+          "n": 10,
+          "observed": 0.5,
+          "predicted": 0.30889409791415245
+        },
+        {
+          "hi": 0.64,
+          "lo": 0.32,
+          "n": 102,
+          "observed": 0.43137254901960786,
+          "predicted": 0.3969725321674809
+        }
+      ],
+      "brier": 0.2522148778947191,
+      "ece": 0.04839161374799487,
+      "log_loss": 0.6984687285850842,
+      "n": 112,
+      "positives": 49,
+      "prediction_quantiles": {
+        "0": 0.29416256417499764,
+        "0.05": 0.315670703668488,
+        "0.5": 0.361539986772997,
+        "0.95": 0.5358970579815051,
+        "1": 0.5755171747648159
+      },
+      "ranking": {
+        "auc": 0.4977324263038549,
+        "average_precision": 0.4731022387738759,
+        "n": 112,
+        "prevalence": 0.4375,
+        "scope": "mature selected introductions; no population/counterfactual claim",
+        "top_decile_lift": 1.1428571428571428
+      },
+      "scope": "selected mature introductions only"
+    },
+    "public_08": {
+      "bins": [
+        {
+          "hi": 0.32,
+          "lo": 0.16,
+          "n": 22,
+          "observed": 0.4090909090909091,
+          "predicted": 0.30910423666139974
+        },
+        {
+          "hi": 0.64,
+          "lo": 0.32,
+          "n": 70,
+          "observed": 0.3142857142857143,
+          "predicted": 0.3741996242560437
+        }
+      ],
+      "brier": 0.22400554972199643,
+      "ece": 0.06949652708013332,
+      "log_loss": 0.6404279301010987,
+      "n": 92,
+      "positives": 31,
+      "prediction_quantiles": {
+        "0": 0.2735341186508476,
+        "0.05": 0.31111570963541607,
+        "0.5": 0.3601715788532516,
+        "0.95": 0.44165581059902226,
+        "1": 0.5610312695705872
+      },
+      "ranking": {
+        "auc": 0.5142781597038604,
+        "average_precision": 0.38372657728434767,
+        "n": 92,
+        "prevalence": 0.33695652173913043,
+        "scope": "mature selected introductions; no population/counterfactual claim",
+        "top_decile_lift": 1.4838709677419355
+      },
+      "scope": "selected mature introductions only"
+    }
+  },
+  "validation_constant": {
+    "bins": [
+      {
+        "hi": 0.64,
+        "lo": 0.32,
+        "n": 204,
+        "observed": 0.39215686274509803,
+        "predicted": 0.3738601823708207
+      }
+    ],
+    "brier": 0.23870462625973882,
+    "ece": 0.01829668037427734,
+    "log_loss": 0.6704136656687962,
+    "n": 204,
+    "positives": 80,
+    "prediction_quantiles": {
+      "0": 0.3738601823708207,
+      "0.05": 0.3738601823708207,
+      "0.5": 0.3738601823708207,
+      "0.95": 0.3738601823708207,
+      "1": 0.3738601823708207
+    },
+    "ranking": {
+      "auc": 0.5,
+      "average_precision": 0.39215686274509803,
+      "n": 204,
+      "prevalence": 0.39215686274509803,
+      "scope": "mature selected introductions; no population/counterfactual claim",
+      "top_decile_lift": 1.0
+    },
+    "scope": "selected mature introductions only"
+  },
+  "validation_rows": 204
+}

@@ -1,0 +1,46 @@
+{
+  "experiment": {
+    "decision_days": 60,
+    "follow_up_days": 40,
+    "identity": {
+      "inference_release": {
+        "deployment": {
+          "mode": "conservative",
+          "release_id": "729ca785dcb175066ad9f209e08882385cf8c4386c175ca0fcac1873e309a796",
+          "schema_version": 2
+        },
+        "manifest_sha256": "3f1114e8d866e95f835a6013f5be364f0ce8635e9fbf3c01ae557b33ca171bbc"
+      },
+      "source_sha256": "153f3ae756683b3484721be78a5bc53d2cada84c6a0bf2f3f6e698c03be7051e"
+    },
+    "members": 200,
+    "methods": [
+      "conservative",
+      "learned"
+    ],
+    "seeds": [
+      3101,
+      3102,
+      3103,
+      3104,
+      3105,
+      3106,
+      3107,
+      3108,
+      3109,
+      3110
+    ],
+    "transport": "inprocess",
+    "variants": [
+      "development",
+      "sparse",
+      "cold_start",
+      "delayed",
+      "shift",
+      "drift"
+    ]
+  },
+  "frozen_before_results": true,
+  "note": "Commit this plan before executing. This file cannot prove that seeds were never inspected elsewhere.",
+  "schema_version": 2
+}

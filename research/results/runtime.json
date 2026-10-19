@@ -1,0 +1,440 @@
+{
+  "child_peak_rss_kib": 24940,
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "legacy_included": false,
+  "modes": [
+    "conservative",
+    "rank_tie",
+    "rank_aux",
+    "rank_ref",
+    "rank_nohistory",
+    "rank_legacy"
+  ],
+  "rows": [
+    {
+      "diagnostics": {},
+      "mode": "conservative",
+      "n": 0,
+      "phase": "ask",
+      "request_bytes": 221,
+      "response_bytes": 211,
+      "shape": "empty",
+      "startup_seconds": 0.046667612999954144
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "conservative",
+      "n": 0,
+      "phase": "match",
+      "request_bytes": 223,
+      "response_bytes": 246,
+      "shape": "empty",
+      "startup_seconds": 0.04354873599959319
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_tie",
+      "n": 0,
+      "phase": "ask",
+      "request_bytes": 221,
+      "response_bytes": 217,
+      "shape": "empty",
+      "startup_seconds": 0.05286886300018523
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_tie",
+      "n": 0,
+      "phase": "match",
+      "request_bytes": 223,
+      "response_bytes": 252,
+      "shape": "empty",
+      "startup_seconds": 0.05771031100039181
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_aux",
+      "n": 0,
+      "phase": "ask",
+      "request_bytes": 221,
+      "response_bytes": 217,
+      "shape": "empty",
+      "startup_seconds": 0.05656920700039336
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_aux",
+      "n": 0,
+      "phase": "match",
+      "request_bytes": 223,
+      "response_bytes": 252,
+      "shape": "empty",
+      "startup_seconds": 0.05441417900010492
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_ref",
+      "n": 0,
+      "phase": "ask",
+      "request_bytes": 221,
+      "response_bytes": 217,
+      "shape": "empty",
+      "startup_seconds": 0.05518324600006963
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_ref",
+      "n": 0,
+      "phase": "match",
+      "request_bytes": 223,
+      "response_bytes": 252,
+      "shape": "empty",
+      "startup_seconds": 0.06065785200007667
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_nohistory",
+      "n": 0,
+      "phase": "ask",
+      "request_bytes": 221,
+      "response_bytes": 223,
+      "shape": "empty",
+      "startup_seconds": 0.05042180999998891
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_nohistory",
+      "n": 0,
+      "phase": "match",
+      "request_bytes": 223,
+      "response_bytes": 258,
+      "shape": "empty",
+      "startup_seconds": 0.05978263800034256
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_legacy",
+      "n": 0,
+      "phase": "ask",
+      "request_bytes": 221,
+      "response_bytes": 220,
+      "shape": "empty",
+      "startup_seconds": 0.05180356599976221
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_legacy",
+      "n": 0,
+      "phase": "match",
+      "request_bytes": 223,
+      "response_bytes": 255,
+      "shape": "empty",
+      "startup_seconds": 0.053826948999812885
+    },
+    {
+      "diagnostics": {},
+      "mode": "conservative",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 330419,
+      "response_bytes": 211,
+      "shape": "dense",
+      "startup_seconds": 0.10461881499986703
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "conservative",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 330421,
+      "response_bytes": 8245,
+      "shape": "dense",
+      "startup_seconds": 0.14669059599964385
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_tie",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 330419,
+      "response_bytes": 217,
+      "shape": "dense",
+      "startup_seconds": 0.116455187000156
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_tie",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 330421,
+      "response_bytes": 8251,
+      "shape": "dense",
+      "startup_seconds": 0.16100521199996365
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_aux",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 330419,
+      "response_bytes": 217,
+      "shape": "dense",
+      "startup_seconds": 0.11044898399995873
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_aux",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 330421,
+      "response_bytes": 8251,
+      "shape": "dense",
+      "startup_seconds": 0.42895197299958454
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_ref",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 330419,
+      "response_bytes": 217,
+      "shape": "dense",
+      "startup_seconds": 0.11352549200000794
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_ref",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 330421,
+      "response_bytes": 8251,
+      "shape": "dense",
+      "startup_seconds": 0.4658547260000887
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_nohistory",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 330419,
+      "response_bytes": 223,
+      "shape": "dense",
+      "startup_seconds": 0.11347704299987527
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_nohistory",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 330421,
+      "response_bytes": 8257,
+      "shape": "dense",
+      "startup_seconds": 0.16645252100033758
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_legacy",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 330419,
+      "response_bytes": 220,
+      "shape": "dense",
+      "startup_seconds": 0.11638995800012708
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_legacy",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 330421,
+      "response_bytes": 8254,
+      "shape": "dense",
+      "startup_seconds": 0.4572750789998281
+    },
+    {
+      "diagnostics": {},
+      "mode": "conservative",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 329019,
+      "response_bytes": 510,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.12320700200007195
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "conservative",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 329021,
+      "response_bytes": 246,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.10055157399983727
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_tie",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 329019,
+      "response_bytes": 516,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.12613695100026234
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_tie",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 329021,
+      "response_bytes": 252,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.11831953899991277
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_aux",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 329019,
+      "response_bytes": 516,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.12873081599991565
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_aux",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 329021,
+      "response_bytes": 252,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.10881524499973239
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_ref",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 329019,
+      "response_bytes": 516,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.13084667700013597
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_ref",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 329021,
+      "response_bytes": 252,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.10849697499998001
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_nohistory",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 329019,
+      "response_bytes": 522,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.13338481400023738
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_nohistory",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 329021,
+      "response_bytes": 258,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.11419096600002376
+    },
+    {
+      "diagnostics": {},
+      "mode": "rank_legacy",
+      "n": 200,
+      "phase": "ask",
+      "request_bytes": 329019,
+      "response_bytes": 519,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.12640855199970247
+    },
+    {
+      "diagnostics": {
+        "fallback": false,
+        "solver": "greedy"
+      },
+      "mode": "rank_legacy",
+      "n": 200,
+      "phase": "match",
+      "request_bytes": 329021,
+      "response_bytes": 255,
+      "shape": "dense_unknown",
+      "startup_seconds": 0.10308693700017102
+    }
+  ],
+  "scope": "host subprocess, not Docker, not a worst-case proof"
+}

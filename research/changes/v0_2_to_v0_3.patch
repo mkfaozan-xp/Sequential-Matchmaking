@@ -1,0 +1,1342 @@
+--- v0.2/.dockerignore
++++ v0.3/.dockerignore
+@@ -6,3 +6,6 @@
+ public_snapshot
+ upload
+ .git
++.venv
++evidence
++**/*.owners
+--- v0.2/CHANGELOG.md
++++ v0.3/CHANGELOG.md
+@@ -1,3 +1,15 @@
++# v0.3
++
++- Correct exact-zero bootstrap boundaries and retain original frozen execution with separate, hash/AST-verified analysis provenance.
++
++- Verified Gemini's review against the delivered v0.2 hash manifest; corrected unsupported illegal-action, signature and assessed bind-mount claims.
++- Recover hard-killed ledger owners through OS-held locks, retaining leases for legacy owners and stale-write protection. Version-2-to-3 migrations preserve audit history.
++- Prepare Docker base before training; protect downstream time, assess both policies before pilot validation and attempt gate/report finalization after upstream failure.
++- Require separate exact learned-container evidence for promotion.
++- Select joint/directional L2 over a fixed training-only seed-grouped cross-validation grid. Record constant-prevalence comparators, feature means, mature missingness and score quantiles.
++- Add real process-death, migration, reservation, finalization and training-split regression tests.
++- Preserve v0.2 evidence and default conservative deployment; document the fixed ten-block final diagnostic and consumed seeds.
++
+ # Blackbox v0.2
+ 
+ This version implements the engineering fixes identified in the v0.1 review, under the user's Windows/Docker Desktop/WSL2 and two-hour CPU budget.
+--- v0.2/ITERATION_COMPACT.md
++++ v0.3/ITERATION_COMPACT.md
+@@ -1,4 +1,4 @@
+-# Iteration 0.2 - repair the audit findings within a two-hour workstation budget
++# Iteration 0.3 - repair the audit findings within a two-hour workstation budget
+ 
+ Goal: a more dependable, artifact-bound ML research pipeline for the unchanged public kit.
+ Environment: Windows laptop, Docker Desktop/WSL2, at most two hours of uninterrupted CPU work.
+@@ -14,3 +14,9 @@
+ and actual image assessment on a Docker host before a container pass.
+ Remaining research: rare-event estimation, equal-compute complementary-question tests,
+ allocation tie ablations, conditional answer-model errors, service and runtime tradeoffs.
++
++Review-specific final: frozen 3101-3110 x six families x conservative/learned, no refit or outcome-dependent expansion.
++Recovery: per-owner OS guard locks plus legacy lease fallback; retained audit history.
++Budget: prepare base before train; both Docker policies before pilot; 20m Docker and 5m validation reserves.
++Selection: L2 {1,10,100}, leave-one-training-seed-out log loss per head.
++Promotion additionally needs exact learned-container evidence.
+--- v0.2/README.md
++++ v0.3/README.md
+@@ -1,4 +1,4 @@
+-# Blackbox ML prototype v0.2
++# Blackbox ML prototype v0.3
+ 
+ A small offline policy and an auditable training/evaluation pipeline for the Sequential Matching Problem. The public v1 protocol and supplied reference semantics are preserved. The default policy remains conservative; learned models are experimental until held-out evidence supports promotion.
+ 
+@@ -55,8 +55,10 @@
+ 
+ ## Research status
+ 
+-Read `results/REPORT.md` for current measured outcomes. v0.1 experiments are retained under `evidence/v0_1`; they are not passed off as v0.2 validation. No final-test seeds >=3101 are run by the two-hour workflow. The answer model remains a selected empirical approximation; broader misspecification and equal-compute complementary-question experiments remain research work.
++Read `results/REPORT.md` for current measured outcomes. v0.1 experiments are retained under `evidence/v0_1`; they are not passed off as v0.3 validation. The default two-hour workflow does not execute final seeds. The separately preregistered v0.3 review uses 3101-3110; those seeds are consumed and cannot be treated as unseen in future tuning. The answer model remains a selected empirical approximation; broader misspecification and equal-compute complementary-question experiments remain research work.
+ 
+ The source architecture is a modular monolith. Training and the experiment ledger stay outside the offline inference image. No vector database, LLM, distributed training stack or online API is necessary for the assessed task.
+ 
+ See `docs/ARCHITECTURE.md`, `docs/DATA_MODEL_CARD.md`, `docs/EVALUATION.md`, and `docs/RUNBOOK.md` for exact boundaries. Official source/data licences remain in `starter/`. Team-original work has no additional public commercial-use licence granted by this archive. ChatGPT/Codex assisted implementation, review and local evaluation; no external personal dataset or LLM-generated outcome labels were used.
++
++The v0.3 review fixes and corrections are in `docs/REVIEW_RESPONSE.md`. Episode recovery uses OS locks plus lease fallback, the budget protects container assessment, and model regularization selection uses training seeds only. Baseline and learned Docker evidence are separate. Historical v0.2 evidence is retained under `evidence/v0_2`.
+--- v0.2/WINDOWS_START.md
++++ v0.3/WINDOWS_START.md
+@@ -1,76 +1,77 @@
+-# Blackbox v0.2 - Windows / Docker Desktop / WSL2
++# Blackbox v0.3 - Windows / Docker Desktop / WSL2
+ 
+-The workload is capped at a requested 120 minutes. Completion depends on CPU speed, Docker startup and downloads. A timeout preserves partial evidence and reports an incomplete run. It never labels incomplete work successful.
++Use Python 3.12.x, Docker Desktop Linux containers and WSL2 integration. The global workflow budget includes environment installation, image download, training, tests, both Docker assessments, validation, cleanup and reporting. A deadline is a cap, not a completion guarantee.
+ 
+-## Prerequisites
++## Recommended WSL filesystem workflow
+ 
+-- Python 3.12.x and the Windows `py` launcher. This build was checked on Python 3.12.14. If Python 3.14 is your default, select Python 3.12 explicitly for this package.
+-- Docker Desktop running with Linux containers and its WSL2 backend enabled.
+-- Enough disk space for the Python environment and image download. No GPU is used by the assessed policy.
++Extract `Blackbox_ML_Prototype_v0_3_0.zip` into a fresh directory under your WSL Linux home, such as `~/blackbox-v03/`. If you extracted it on Windows first, use WSL File Explorer or copy the extracted directory into that Linux directory before starting. Open WSL in the copied `Blackbox_ML_Prototype` directory and run:
+ 
+-Install Python 3.12 from the official Python installer if `py -3.12 --version` fails. This package does not install Docker Desktop or change Windows/WSL settings automatically.
++```bash
++python3.12 scripts/run_budget.py --bootstrap --minutes 120
++```
+ 
+-## Run from PowerShell
++Confirm `pwd` is under `/home/…`, rather than `/mnt/c/…`. Python 3.12 and Docker Desktop WSL integration must already be available in that distribution. This command creates only the project's local `.venv`; it does not install system Python or change Docker settings.
+ 
+-Extract the ZIP, open PowerShell in the extracted `Blackbox_ML_Prototype` directory, then run:
++Docker documents a performance advantage for Linux-hosted bind mounts. Our assessed containers mount no host source or data, so that specific bind-mount bottleneck does not apply to inference. A Linux workspace can reduce host collection/cache/build-context overhead; no Windows-versus-WSL speedup is claimed without measurement.
++
++## PowerShell alternative
++
++Open PowerShell in the extracted `Blackbox_ML_Prototype` directory:
+ 
+ ```powershell
+ powershell -NoProfile -ExecutionPolicy Bypass -File .\Start-Blackbox.ps1 -Minutes 120
+ ```
+ 
+-The execution-policy setting applies to this launched PowerShell process. The script creates a local `.venv`; it does not change the global Python environment. It installs pinned NumPy/SciPy, checks the Docker engine, trains, executes real tests, checks the public data, runs validation, then assesses the conservative image if budget remains.
++Requires `py -3.12` or Python 3.12 on PATH. The execution-policy setting applies only to the launched process. Native PowerShell/WSL/Docker Desktop execution was not available in the authoring environment.
+ 
+-## The fixed pilot workload
++## Workload and time protection
+ 
+-| Phase | Maximum phase allowance | Actual work |
+-| --- | --- | --- |
+-| Environment setup | 20 min, plus up to 3 min for venv | Local environment and pinned CPU dependencies |
+-| Training | 25 min | Seeds 1101-1108 x six families: 48 full episodes |
+-| Tests / data | 5 min / 30 s | Actual suite records and 71 released checksum files |
+-| Validation | 35 min | Seeds 2101-2104 x six families x five methods: 120 episodes |
+-| Docker | 40 min | Six full episodes on exploratory seed 101, under official constraints |
+-| Reporting | Remaining time | Identity checks, measured report, promotion stays separate |
++| Order | Phase | Maximum | Downstream protection |
++| --- | --- | --- | --- |
++| 1 | Local environment | 3 min venv + 20 min dependencies | Later reserves remain protected |
++| 2 | Engine check / base image | 30 sec / 10 min | Pull fails before spending training time |
++| 3 | Train | 25 min | Eight seeds x six families; training-only L2 selection |
++| 4 | Tests / checksums | 5 min / 30 sec | Actual suite counts, 71 public files |
++| 5 | Both Docker policies | 40 min combined | Before long pilot validation; 20 min reserved upstream |
++| 6 | Pilot validation | 35 min | Four seeds x six families x five policies; 5 min reserved upstream |
++| 7 | Gate / report | Up to 20 sec each | Finalizers attempted after upstream failure within cleanup reserve |
+ 
+-Phase maxima are not promises or allocations added together: one global deadline limits the entire workflow, including setup. The supervisor reserves time to stop its child process group and remove only containers labelled with its own run ID. It never changes scope or adds test seeds to chase significance.
++Maxima are ceilings, not durations added together. Each phase records its actual allowance, downstream reserve and wall time. Slow setup can still cause an honest incomplete run. Base-image identity and per-family Docker durations are logged. BLAS threads remain one per process to avoid oversubscription; the official container limits remain two CPUs, 1 GiB and 64 PIDs. Both images use zero network, read-only rootfs and no host data/source mounts.
+ 
+-The validation methods are the supplied greedy/no-asks/random policies, conservative, and learned-greedy. CPU library thread counts are capped at one; policy containers enforce the official 2 CPUs / 1 GiB / 64-process limits. Containers use no network, a read-only image and no host data/source mounts.
++## Read the evidence
+ 
+-## Read the result
++- `results/budget_run.json`: phase status, actual time, reservation and any unrun stages.
++- `results/REPORT.md`: measured outcomes for the exact source/model identity.
++- `results/model_selection.json`: training-only folds and constant-prevalence comparator.
++- `results/container_attestation.json` and `container_learned.json`: separate image assessments. Local hashes and image IDs are integrity evidence, not digitally signed certificates.
++- `results/release_readiness.json`: validation checks plus separate promotion checks. A candidate Docker pass is required for promotion.
+ 
+-- `results/budget_run.json`: each phase's status, duration and log location.
+-- `results/REPORT.md`: actual ML and engineering evidence for the exact selected release.
+-- `results/validation.json`: full episodes and retained attempt history.
+-- `results/release_readiness.json`: missing validation gates and separate candidate-promotion status.
+-- `results/container_attestation.json`: exact image ID and artifact-bound container evidence, only after real execution.
++A host test pass is not a container pass. The bundled candidate remains experimental; the deployment default remains conservative. `--skip-docker` is only for host debugging and explicitly records both policies as unverified.
+ 
+-A supplied Dockerfile or green host tests do not constitute a Docker pass. Native PowerShell and Docker Desktop execution must happen on this laptop; they were not executed in the authoring environment.
++## Validate the exact shipped candidate
+ 
+-## Resume or use already trained assets
++To preserve the shipped candidate's frozen final-test identity, use the included fitted assets instead of refitting. From WSL:
+ 
+-After setup, run:
++```bash
++python3.12 scripts/run_budget.py --bootstrap --minutes 120 --skip-training
++```
++
++Or from PowerShell with the Windows Python launcher:
+ 
+ ```powershell
+-.\.venv\Scripts\python.exe scripts\run_budget.py --minutes 120
++py -3.12 scripts/run_budget.py --bootstrap --minutes 120 --skip-training
+ ```
+ 
+-Caches are keyed by code, collection policy and episode configuration. Completed identical evaluation runs are reused, failed/interrupted attempts remain in the ledger, and an active owner cannot be overwritten. A hard-killed owner may retain its lease for up to 120 seconds before another worker can reclaim it. Do not launch two workflows that share the same output directory.
++This still runs tests, checksums, both container policies and the full pilot. If you refit, a changed candidate must earn its own fresh frozen final evaluation; the old final results cannot be transferred to it.
+ 
+-To reuse the included model without refitting:
++## Resume safely
+ 
+-```powershell
+-.\.venv\Scripts\python.exe scripts\run_budget.py --minutes 120 --skip-training
+-```
++After initial setup, use `.venv/bin/python scripts/run_budget.py --minutes 120` in WSL, or `.\.venv\Scripts\python.exe scripts\run_budget.py --minutes 120` in PowerShell. Add `--skip-training` to reuse the supplied fitted assets. Retraining changes release identity; old evaluations are then not current evidence.
+ 
+-The bundled model remains experimental. No run automatically promotes it above conservative.
++Keep the SQLite ledger and its `.owners` directory together. OS-held workflow and owner locks release when a worker dies; a new-format abandoned episode can be reclaimed immediately without waiting 120 seconds. Legacy version-2 owners retain lease fallback. Live duplicate claims and stale commits remain rejected. Do not remove lock files while workers run. This is a local-filesystem workflow, not a multi-host queue.
+ 
+-## WSL alternative
++The normal workstation command does not launch final-test seeds. The shipped review final test is a fixed ten-block diagnostic; changing code/assets invalidates its identity. Do not reuse 3101-3110 as unseen test seeds in later model development.
+ 
+-Use an existing Python 3.12 environment in the WSL Linux filesystem, with Docker Desktop integration enabled:
++References: [Docker WSL best practices](https://docs.docker.com/desktop/features/wsl/best-practices/), [resource limits](https://docs.docker.com/engine/containers/resource_constraints/), and the pinned starter's `docs/POLICY_INTERFACE.md` and `docker_command` implementation.
+ 
+-```bash
+-python3.12 scripts/run_budget.py --bootstrap --minutes 120
+-```
+-
+-Docker's official guidance recommends keeping bind-mounted development code in the Linux filesystem for WSL performance. The assessed policy here does not mount host source or data.
+-
+-References: https://docs.docker.com/desktop/features/wsl/ and https://docs.docker.com/desktop/features/wsl/best-practices/ . Runtime limits: the pinned official starter's POLICY_INTERFACE.md and docker_command implementation.
++The shipped report includes an exact-arithmetic reanalysis of the original frozen run. `results/reanalysis.json` keeps original execution and corrected analysis identities separate. A refit or policy/feature/simulator change invalidates this transfer; correcting reporting arithmetic does not rewrite old episode records.
+--- v0.2/blackbox/experiment.py
++++ v0.3/blackbox/experiment.py
+@@ -6,7 +6,7 @@
+ from kit import Simulator,generate,VERSION,HARD
+ from evaluate import invoke,summarise
+ from blackbox.policy import decide
+-from blackbox.features import pair_features,direction_features,response_history
++from blackbox.features import pair_features,direction_features,response_history,NAMES
+ from blackbox.labels import msmi_label,response_label
+ from blackbox.model import load_model
+ from blackbox.metrics import calibration,quantile
+@@ -98,4 +98,6 @@
+         wall_seconds=time.perf_counter()-started,max_response_bytes=max_bytes,max_request_bytes=max_request,
+         diagnostics=diag_counts,reason_counts=reason_counts,action_sha256=hashlib.sha256(json.dumps(trace,sort_keys=True).encode()).hexdigest(),
+         calibration=calibration(predictions),directional_response_calibration=calibration(direction_predictions))
++    metrics['mature_feature_missingness']={name:sum(r['x'][i] for r in joint)/len(joint) if joint else None
++        for i,name in enumerate(NAMES) if name.endswith(':missing')}
+     return metrics,joint,direction,list(donors.values())
+--- v0.2/blackbox/metrics.py
++++ v0.3/blackbox/metrics.py
+@@ -1,5 +1,6 @@
+ """Calibration and paired seed-block uncertainty; no row-wise policy significance."""
+ import math,random,statistics
++from fractions import Fraction
+ 
+ def quantile(values,q):
+     if not values:return None
+@@ -17,7 +18,9 @@
+     return {'n':len(rows),'positives':sum(x['label'] for x in rows),
+         'brier':statistics.mean((x['prediction']-x['label'])**2 for x in rows),
+         'log_loss':-statistics.mean(x['label']*math.log(max(1e-12,x['prediction']))+(1-x['label'])*math.log(max(1e-12,1-x['prediction'])) for x in rows),
+-        'ece':ece,'bins':bins,'scope':'selected mature introductions only'}
++        'ece':ece,'bins':bins,
++        'prediction_quantiles':{str(q):quantile([r['prediction'] for r in rows],q) for q in (0,.05,.5,.95,1)},
++        'scope':'selected mature introductions only'}
+ 
+ def paired_interval(rows,candidate,baseline='conservative',draws=2000):
+     values={}
+@@ -26,7 +29,15 @@
+     seeds=sorted({k[0] for k in values});families=sorted({k[1] for k in values})
+     if not seeds or any(set(v)!={candidate,baseline} or not all(r['valid'] for r in v.values()) for v in values.values()) or len(values)!=len(seeds)*len(families):
+         return {'status':'incomplete_or_invalid'}
+-    diffs={seed:statistics.mean(values[(seed,v)][candidate]['msmi_per_100_arrived_members']-values[(seed,v)][baseline]['msmi_per_100_arrived_members'] for v in families) for seed in seeds}
++    # Preserve exact zero at the promotion boundary. Family/seed averaging of
++    # binary floats can otherwise turn a zero percentile into +2.8e-18.
++    def exact_score(row):
++        if 'mutual_second_meeting_intention' in row and 'arrived_members' in row:
++            return Fraction(100*row['mutual_second_meeting_intention'],row['arrived_members'])
++        return Fraction(str(row['msmi_per_100_arrived_members']))
++    diffs={seed:statistics.mean(exact_score(values[(seed,v)][candidate])-
++        exact_score(values[(seed,v)][baseline]) for v in families) for seed in seeds}
+     rng=random.Random(17);boot=[statistics.mean(diffs[rng.choice(seeds)] for _ in seeds) for _ in range(draws)]
+-    return {'status':'pilot_only','seed_blocks':len(seeds),'delta':statistics.mean(diffs.values()),
+-        'ci95':[quantile(boot,.025),quantile(boot,.975)],'warning':'Few blocks; descriptive bootstrap, not a powered confirmation.'}
++    return {'status':'descriptive_seed_block_bootstrap','seed_blocks':len(seeds),'delta':float(statistics.mean(diffs.values())),
++        'ci95':[float(quantile(boot,.025)),float(quantile(boot,.975))],
++        'warning':'Descriptive percentile bootstrap; sample count alone does not establish statistical power.'}
+--- v0.2/blackbox/policy.py
++++ v0.3/blackbox/policy.py
+@@ -49,7 +49,7 @@
+         else:actions,diag=allocate(s,score,model,solver,wait,available_since)
+         key='pairs'
+     validate_actions(s,request['phase'],actions)
+-    memory={'version':'blackbox-0.2.0','release_id':deployment['release_id'],'mode':mode,'model':model.version if model else 'observed-agreement',
++    memory={'version':'blackbox-0.3.0','release_id':deployment['release_id'],'mode':mode,'model':model.version if model else 'observed-agreement',
+             'last_day':s['day'],'diagnostics':diag}
+     if mode=='waiting':memory['available_since']=available_since
+     return {key:actions,'memory':memory}
+--- v0.2/blackbox/provenance.py
++++ v0.3/blackbox/provenance.py
+@@ -12,6 +12,7 @@
+         files += [p for p in (root/directory).rglob('*.py') if '__pycache__' not in p.parts]
+     files += list(root.glob('*.ps1'))+list(root.glob('requirements*.txt'))+list(root.glob('Dockerfile*'))
+     files += list((root/'.github/workflows').glob('*.yml'))
++    files += list(root.glob('.dockerignore'))
+     files += [root/'starter/data_manifest.json',root/'starter/data_checksums.json']
+     return sorted(set(files))
+ 
+--- v0.2/blackbox/reanalysis.py
++++ v0.3/blackbox/reanalysis.py
+@@ -0,0 +1,74 @@
++"""Bind an analysis-only correction to the unchanged, originally frozen execution.
++
++Never relabel historical episode execution as current-source execution. The
++original source preimage must match the hash in its pre-outcome frozen plan.
++Only reporting/gating, this verifier, tests, and paired_interval may differ.
++"""
++import ast
++import json
++from pathlib import Path
++from .provenance import execution_identity,source_files
++from .registry import sha
++from .storage import digest,atomic_json
++
++ROOT=Path(__file__).resolve().parent.parent
++SNAPSHOT=ROOT/'evidence/v0_3_frozen_original'
++
++
++def non_interval_ast(text):
++    tree=ast.parse(text)
++    tree.body=[node for node in tree.body if not
++        (isinstance(node,ast.FunctionDef) and node.name=='paired_interval') and not
++        (isinstance(node,ast.ImportFrom) and node.module=='fractions')]
++    return ast.dump(tree,include_attributes=False)
++
++
++def binding(root=None):
++    root=Path(root) if root else ROOT
++    snapshot=root/'evidence/v0_3_frozen_original'
++    manifest_path=snapshot/'source_manifest.json'
++    if not manifest_path.exists():return None
++    manifest=json.loads(manifest_path.read_text(encoding='utf-8'))
++    old=manifest['execution_identity'];previous=manifest['source_files'];current=execution_identity(root=root)
++    plan=json.loads((snapshot/'final_test_plan.json').read_text(encoding='utf-8'))
++    if digest(previous)!=old['source_sha256'] or plan['experiment']['identity']!=old or plan.get('frozen_before_results') is not True:
++        raise ValueError('Original source manifest is not bound to the frozen plan')
++    if old['inference_release']!=current['inference_release']:
++        raise ValueError('Reanalysis cannot transfer evidence to different inference assets')
++    if any(sha(snapshot/'source'/name)!=expected for name,expected in previous.items()):
++        raise ValueError('Original execution source snapshot was changed')
++    now={p.relative_to(root).as_posix():sha(p) for p in source_files(root)}
++    changed=sorted(name for name in set(previous)|set(now) if previous.get(name)!=now.get(name))
++    allowed={'blackbox/metrics.py','blackbox/reanalysis.py','scripts/release_gate.py','scripts/build_report.py','test_numeric_interval.py'}
++    if not set(changed)<=allowed:raise ValueError('Changes extend beyond the declared analysis correction')
++    old_metrics=(snapshot/'source/blackbox/metrics.py').read_text(encoding='utf-8')
++    new_metrics=(root/'blackbox/metrics.py').read_text(encoding='utf-8')
++    if non_interval_ast(old_metrics)!=non_interval_ast(new_metrics):
++        raise ValueError('Metrics changes extend beyond paired_interval; episode execution evidence cannot transfer')
++    return {'kind':'analysis_only_recomputation','execution_identity':old,'analysis_identity':current,
++            'changed_files':changed,'original_source_manifest_sha256':sha(manifest_path),
++            'original_final_sha256':sha(snapshot/'final_test.json'),'original_plan_sha256':sha(snapshot/'final_test_plan.json'),
++            'note':'No policy, model, simulator, feature or episode execution code changed. Local hash evidence; not a digital signature.'}
++
++
++def accepts_matrix(data):
++    if not data:return False
++    identity=data.get('config',{}).get('identity')
++    if identity==execution_identity():return True
++    try:
++        proof=binding()
++        if not proof or identity!=proof['execution_identity']:return False
++        name='final_test.json' if data.get('scope')=='frozen final test' else 'validation.json'
++        return data==json.loads((SNAPSHOT/name).read_text(encoding='utf-8'))
++    except (OSError,ValueError,KeyError,TypeError):
++        return False
++
++
++if __name__=='__main__':
++    proof=binding()
++    if not proof:raise SystemExit('No frozen execution snapshot')
++    from .metrics import paired_interval
++    proof['recomputed_intervals']={name:paired_interval(json.loads((SNAPSHOT/(name+'.json')).read_text(encoding='utf-8'))['episodes'],'learned')
++        for name in ('validation','final_test')}
++    atomic_json(ROOT/'results/reanalysis.json',proof)
++    print(json.dumps(proof,indent=2))
+--- v0.2/blackbox/storage.py
++++ v0.3/blackbox/storage.py
+@@ -46,7 +46,7 @@
+         self.db.execute('PRAGMA foreign_keys=ON')
+         self.db.execute('PRAGMA journal_mode=WAL')
+         version = self.db.execute('PRAGMA user_version').fetchone()[0]
+-        if version not in (0, 2):
++        if version not in (0, 2, 3):
+             self.db.close()
+             raise ValueError('Legacy ledger: archive it and use a new v0.2 ledger path')
+         self.db.executescript('''
+@@ -59,13 +59,39 @@
+                 owner TEXT NOT NULL, status TEXT NOT NULL, started REAL NOT NULL,
+                 heartbeat REAL NOT NULL, lease_until REAL NOT NULL,
+                 completed REAL, result TEXT, error TEXT);
+-            PRAGMA user_version=2;
+         ''')
+-        self.db.commit()
++        self.db.execute('BEGIN IMMEDIATE')
++        try:
++            columns = {r[1] for r in self.db.execute('PRAGMA table_info(attempts)')}
++            if 'guard_version' not in columns:
++                self.db.execute('ALTER TABLE attempts ADD COLUMN guard_version INTEGER NOT NULL DEFAULT 0')
++            self.db.execute('PRAGMA user_version=3')
++            self.db.commit()
++        except BaseException:
++            self.db.rollback();self.db.close();raise
+         self.clock = clock
+         self.lease_seconds = lease_seconds
+         self.owner = uuid.uuid4().hex
+         self.claims = {}
++        self.guard_directory = Path(str(path) + '.owners')
++        self.guard_directory.mkdir(parents=True, exist_ok=True)
++        self.guard = WorkflowLock(self.guard_directory / (self.owner + '.lock'))
++        self.guard.__enter__()
++
++    def owner_stopped(self, owner, guard_version):
++        """An abandoned OS lock proves death without PID reuse or namespace ambiguity.
++
++        Unknown/legacy owners retain lease recovery. Never unlink lock files: that
++        could create two independently locked inodes for the same owner.
++        """
++        path = self.guard_directory / (owner + '.lock')
++        if guard_version != 1 or not path.is_file():
++            return False
++        try:
++            with WorkflowLock(path):
++                return True
++        except RunBusy:
++            return False
+ 
+     def claim(self, config):
+         key, now = digest(config), self.clock()
+@@ -79,13 +105,14 @@
+                 return key, json.loads(row[2])
+             if row and row[0] == 'running':
+                 attempt = self.db.execute(
+-                    'SELECT lease_until FROM attempts WHERE attempt_id=?', (row[1],)
++                    'SELECT lease_until,owner,guard_version FROM attempts WHERE attempt_id=?', (row[1],)
+                 ).fetchone()
+-                if attempt and attempt[0] > now:
++                stopped = bool(attempt and self.owner_stopped(attempt[1], attempt[2]))
++                if attempt and attempt[0] > now and not stopped:
+                     raise RunBusy('Another worker owns this episode; wait for its lease or use its result')
+                 self.db.execute(
+                     'UPDATE attempts SET status=?,completed=?,error=? WHERE attempt_id=?',
+-                    ('interrupted', now, 'owner lease expired', row[1]),
++                    ('interrupted', now, 'owner OS lock released' if stopped else 'owner lease expired', row[1]),
+                 )
+             attempt_id = uuid.uuid4().hex
+             if row:
+@@ -96,9 +123,9 @@
+             else:
+                 self.db.execute('INSERT INTO runs VALUES (?,?,?,?,?,?)',
+                                 (key, canonical(config), 'running', attempt_id, None, now))
+-            self.db.execute('INSERT INTO attempts VALUES (?,?,?,?,?,?,?,?,?,?)',
++            self.db.execute('INSERT INTO attempts VALUES (?,?,?,?,?,?,?,?,?,?,?)',
+                             (attempt_id, key, self.owner, 'running', now, now,
+-                             now + self.lease_seconds, None, None, None))
++                             now + self.lease_seconds, None, None, None, 1))
+             self.db.commit()
+             self.claims[key] = attempt_id
+             return key, None
+@@ -154,6 +181,7 @@
+                                 (now, key, attempt_id))
+         self.claims.clear()
+         self.db.close()
++        self.guard.__exit__()
+ 
+ 
+ class WorkflowLock:
+--- v0.2/docs/ARCHITECTURE.md
++++ v0.3/docs/ARCHITECTURE.md
+@@ -1,4 +1,4 @@
+-# Blackbox v0.2 architecture
++# Blackbox v0.3 architecture
+ 
+ The assessed artifact is a restart-per-call offline CPU policy. Training, the job ledger and reports are a separate trusted control plane. The wire protocol remains official v1.0.0.
+ 
+@@ -50,7 +50,7 @@
+ 
+ ## Recovery and ownership
+ 
+-A budget workflow holds an OS file lock for the results directory, released on normal exit or process death. Episode claims use SQLite `BEGIN IMMEDIATE`, owner tokens, expiring leases and heartbeats. Only the active, unexpired attempt owner can complete an episode. Each retry creates another attempt; a prior failed or interrupted record remains visible. A hard-killed episode can be reclaimed after its 120-second lease expires. Graceful close marks the owner's unfinished attempt interrupted.
++A budget workflow holds an OS file lock for the results directory, released on normal exit or process death. Episode claims use SQLite `BEGIN IMMEDIATE`, owner tokens, expiring leases and heartbeats. Only the active, unexpired attempt owner can complete an episode. Each retry creates another attempt; a prior failed or interrupted record remains visible. Each new ledger owner also holds an OS file lock. Another worker can reclaim an abandoned attempt immediately after that lock is released by process death, without PID reuse or namespace assumptions. Lock files remain on disk to avoid inode replacement races. Legacy version-2 attempts retain the 120-second lease fallback. Version-3 migration is transactional and preserves every attempt. SQLite and owner locks belong on one local filesystem; this is not a distributed/network-filesystem queue. Graceful close marks the owner's unfinished attempt interrupted.
+ 
+ Successful results are reused only for identical execution identity and episode configuration. A previous failed policy attempt prevents that same experiment matrix from receiving a clean validation pass, even if a later retry succeeds. Budget interruptions remain explicit incomplete work.
+ 
+@@ -66,10 +66,14 @@
+ 
+ ## Two-hour workstation workflow
+ 
+-One supervisor handles setup, eight training seeds, four validation seeds across six families and five methods, actual tests, public-byte verification and six Docker episodes on exploratory seed 101. It caps CPU math library threads and retains a global wall-clock deadline with cleanup reserve. Slow machines/downloads can produce an incomplete run rather than a smaller selectively reported sample. No final-test seeds are executed automatically.
++One supervisor handles setup, eight training seeds, four validation seeds across six families and five methods, actual tests, public-byte verification and twelve Docker episodes on exploratory seed 101 (six each for conservative and learned). It prepares the Docker base before training, runs container assessment before the long pilot, caps CPU math library threads and retains a global wall-clock deadline with downstream reservations and cleanup reserve. Slow machines/downloads can produce an incomplete run rather than a smaller selectively reported sample. No final-test seeds are executed automatically.
+ 
+ Docker assessment pins the actual image ID and declared mode, with official network/read-only/resource restrictions and no host source or data mounts. Each container receives only observable JSON. Cleanup targets only the supervisor's own run label. CI defines separate conservative and learned-greedy jobs. Supplied scripts and CI are not evidence of actual Windows, Docker or hosted-CI execution.
+ 
+ ## Remaining limits
+ 
+ Rare-event learning, selective observations, donor-model assumptions, unequal service, optimizer tie choices and simulator transfer remain research limitations. The sampler is an approximate empirical model, not unbiased exact EVSI. An append-only local audit is not a replicated disaster-recovery system. Base-image digest pinning, fully hashed dependency distributions, dependency-licence review and deployment-level restore exercises remain further hardening work. None is hidden behind a production-ready claim.
++
++Version labels are not evidence identities: this workflow delivery is v0.3, while the compatible package API marker in `blackbox/__init__.py` remains 0.2.0. The full source SHA and asset manifest identify exactly what was executed.
++
++Analysis-only numerical corrections use an explicit source-preimage and AST-checked reanalysis binding. Original episode execution identity is retained separately from current analysis identity. Changing inference assets or any policy/simulator/feature/execution source invalidates transfer; see docs/EVALUATION.md.
+--- v0.2/docs/DATA_MODEL_CARD.md
++++ v0.3/docs/DATA_MODEL_CARD.md
+@@ -1,4 +1,4 @@
+-# v0.2 data/model card
++# v0.3 data/model card
+ 
+ Intended use: the synthetic Sequential Matching Problem only. No real relationship prediction or personal dataset is claimed.
+ 
+@@ -6,12 +6,14 @@
+ 
+ Joint positives may mature once both timely intentions are observed. Otherwise joint labels remain unknown until assignment+33 days. Features come from the state captured immediately before assignment and share the same implementation with inference. IDs are join/randomness keys, not predictive embeddings. Exact gender/zone identities are excluded from learned scoring while stated hard constraints remain binding.
+ 
+-The v0.2 default training plan uses seeds 1101-1108 in all six families, supplied greedy/random collection, L2-regularized logistic fitting, unweighted log loss, 49 symmetric joint features and 52 directional features. No minimum positive count is asserted as sufficient. The actual fitted row/event counts are stored in the selected model and generated report, not hardcoded here.
++The v0.3 default training plan uses seeds 1101-1108 in all six families, supplied greedy/random collection, L2-regularized logistic fitting, unweighted log loss, leave-one-training-seed-out regularization selection over the fixed grid {1,10,100} for each head, 49 symmetric joint features and 52 directional features. No minimum positive count is asserted as sufficient. The actual fitted row/event counts are stored in the selected model and generated report, not hardcoded here.
+ 
+ Static public snapshots retain the supplied train/validation/development-test manifest. The actual fitted dataset consists of fresh temporally valid rollout snapshots, identified by content digests and collecting policy. Generator, feature/label code and Python version enter cache identity. Training package versions, host platform and full source identity enter release lineage. Different hardware/library execution can change coefficient bytes; content identity does not promise cross-platform bitwise numerical equivalence.
+ 
+ Calibration applies only to mature selected introductions and may change under a different collection/allocation policy. The empirical answer reservoir contains selected disclosed complete hard bundles; age-offset transfer, own-zone transfer and retaining current observations are explicit assumptions. Nondisclosers are not imputed in real matching. Unknown propensities prevent an unbiased inverse-propensity evaluation claim.
+ 
+-Each model and sampler is stored in one immutable directory with a content-identified manifest. A change in either asset or the feature transform invalidates the bundle. Old releases are retained for rollback. An imported v0.1 model is labelled as such in lineage; only a fresh v0.2 fit is called v0.2 training. Current evidence is in results/REPORT.md; prior evidence stays under evidence/v0_1.
++Each model and sampler is stored in one immutable directory with a content-identified manifest. A change in either asset or the feature transform invalidates the bundle. Old releases are retained for rollback. An imported v0.1 model is labelled as such in lineage; only a fresh v0.3 fit is called v0.3 training. Current evidence is in results/REPORT.md; prior evidence stays under evidence/v0_1.
+ 
+ Remaining limitations: rare positives, selection bias, uncertain answer-model transfer, sparse supply, delayed feedback, unequal information, surrogate-objective ties and changing environments. No external inference model, LLM-generated labels or hidden simulator coefficient is used by the policy.
++
++The constant-prevalence comparator is fitted separately inside each training fold. Selection minimizes equal-seed mean held-out log loss; it does not optimize the pilot or final-test metric. `results/model_selection.json` records every fold, feature means and the selected penalty. Fifty-three observed positive training events remain a serious estimation limit; cross-validation cannot create new labels.
+--- v0.2/docs/EVALUATION.md
++++ v0.3/docs/EVALUATION.md
+@@ -1,4 +1,4 @@
+-# v0.2 evaluation contract
++# v0.3 evaluation contract
+ 
+ Primary: equal-family mean recorded qualifying MSMI pairs per 100 members arriving by day 59. Each pair counts once; first date by assignment+30 and both timely Yes intentions by date+3. Coverage, dates and acceptance remain secondary.
+ 
+@@ -18,8 +18,18 @@
+ python scripts/release_gate.py --final results/final_test.json --plan plans/final_test.json
+ ```
+ 
+-The placeholder is intentional: this package does not invent a powered final-test sample count. The plan file must be committed before execution. A boolean cannot prove the team never inspected seeds elsewhere.
++The placeholder is intentional: this package does not invent a powered final-test sample count. Retain and hash the plan before execution (commit it when using git). A boolean cannot prove the team never inspected seeds elsewhere.
+ 
+ The conservative promotion gate requires a positive paired lower interval, at least ten seed blocks as a minimum evidence guardrail (not a power guarantee), no lower family mean MSMI, and no more than five percentage points of aggregate coverage loss in an initial-information group. These are declared engineering choices, not organiser ranking rules. No method is auto-promoted and no test budget is expanded in response to significance.
+ 
+ The answer stress mode changes hypothetical nondisclosure assumptions; it does not perturb the true simulator. The complementary-question and allocation tie experiments are available research directions, not established improvements. Model calibration is assessed only on mature selected introductions. A constant prevalence predictor remains a required diagnostic comparator before claiming improved probabilities.
++
++For the v0.3 review, `plans/REVIEW_PROTOCOL.md` declares exactly ten final seed blocks, 3101-3110, before outcomes. This is a bounded diagnostic confirmatory run, not a powered sample-size claim. No test-driven refit, threshold change or seed expansion is allowed in this iteration. Promotion additionally requires the exact learned image to pass six sandbox episodes; a conservative-image pass cannot substitute.
++
++## Numerical correction and execution provenance
++
++The original v0.3 final run completed before an arithmetic bug was found: a mathematically zero bootstrap lower endpoint became +2.8e-18 through floating-point averaging. The corrected paired interval averages exact rational scores derived from integer events and arrivals. Its final lower endpoint is exactly 0.0, so the unchanged strict-positive gate fails.
++
++Raw episodes, the original pre-outcome plan, every original source/configuration file and its manifest are preserved under `evidence/v0_3_frozen_original`. `blackbox/reanalysis.py` verifies that the manifest preimage matches the original frozen source hash, inference assets match, and changes are limited to paired-interval arithmetic, reporting/gating, the verifier and its regression test. AST comparison requires all other metrics functions to be identical. Historical raw matrices must equal the archived records; altered records or changed policy/model/simulator/feature code cannot transfer through this route. Current tests and Docker records still require current identity.
++
++Execution identity and analysis identity remain separate in `results/reanalysis.json`, readiness and the generated report. This is a transparent reanalysis of the original ten-block execution, not a new test run or a relabelled source identity. No policy, fitted coefficient, seed list, outcome criterion or promotion threshold was changed after outcomes.
+--- v0.2/docs/REVIEW_RESPONSE.md
++++ v0.3/docs/REVIEW_RESPONSE.md
+@@ -0,0 +1,72 @@
++# v0.3 response to the Gemini review
++
++This review was checked against the hash-verified delivered v0.2 ZIP, not an unidentified older checkout. Its source SHA-256 was `41cb8bf3592b0a2d500121e6bbaf732f0340c9f2a3e001affe05b29385b73049`; selected asset release was `160d0b52e9e00593fce83ab872967da45893a681af59455989bccc95dfad2575`, with conservative deployment mode. Existing v0.2 results are preserved under `evidence/v0_2`.
++
++## Claim-by-claim audit
++
++| Gemini concern | Verified evidence | Resolution in v0.3 |
++| --- | --- | --- |
++| Learned policy is unpromoted because of illegal questions/budget overruns | All 120 v0.2 validation episodes were valid. Learned scored 21 versus conservative 15 MSMI pairs over the same 24 worlds. Four-block interval for gain included zero. No frozen final test or Docker pass existed. Illegal asks were not an observed cause. | Keep promotion blocked until evidence supports it. Fit a fixed regularization grid using training seeds only; report a fixed unseen-seed evaluation without test-driven tuning. |
++| One BLAS thread causes the 2-CPU container bottleneck | Official containers permit at most 2 CPUs; pure Python greedy inference does not use BLAS. One BLAS thread limits oversubscription in fitting/solver subprocesses. No Windows CPU profile established a bottleneck. | Keep legal resource limits. Record actual stage, call and Docker-family times. Protect downstream stages instead of assuming unsafe extra compute will solve it. |
++| Docker starts too late and cold pulls consume the budget | Confirmed scheduling weakness: validation preceded Docker, with only a cleanup reserve. | Check the Linux engine and prepare the base image before training. Assess conservative and learned containers before the long pilot. Reserve 20 minutes for the combined Docker stage and 5 minutes for pilot validation upstream; cap the full workflow at the requested wall budget. |
++| Container evidence needs real cryptographic signatures | The existing mechanism hashes content and records immutable image IDs. No signing key, trusted signer or signature requirement was configured by the public protocol. Host success does not prove sandbox compliance. | Label proof type explicitly. Never invent a signature. Preserve unverified status without actual Docker. A separate learned-container record is now mandatory for candidate promotion. |
++| NTFS bind mounts slow assessed inference | The pinned official `docker_command` mounts no source/data host volumes. NTFS overhead can affect host collection, cache and build context; that is separate from assessed container inference. | Provide native WSL Linux filesystem instructions and reduce Docker build context. No measured cross-platform speedup is asserted. |
++| Replace cache leases with PID locks | The lease is in `blackbox/storage.py`, not rollout `cache.py`. The workflow already had an OS-held lock. New episode owners could still wait 120 seconds after a hard kill. PID checks alone risk reuse and namespace ambiguity. | Add per-owner OS locks; process death releases the lock immediately. Preserve token ownership, heartbeats and stale-commit rejection. Transactionally migrate version-2 ledgers, retaining lease fallback for legacy owners and all attempt history. Real hard-kill tests exercise recovery. |
++
++## Architecture and scope
++
++The hackathon implementation remains an offline modular monolith with a trusted control plane for collection, fitting, verification and release selection. Inference receives only observations; immutable model/sampler bundles and exact source identities bind evidence. SQLite is a local experiment ledger, not a distributed queue. Keep its owner-lock directory on the same local filesystem. No Kubernetes, remote feature store, Redis or online model service is necessary for this offline CPU submission.
++
++Deployment selection is independent of fitting. Candidate quality gates remain a positive paired lower interval, at least ten independent seed blocks, no family mean MSMI regression and no more than five percentage points of information-group coverage decline. v0.3 additionally closes the gap that let a conservative Docker pass stand in for learned-policy sandbox validation. Nothing automatically promotes the model.
++
++The feature transform stays at the previously audited point-in-time schema. With only 53 positive training events, expanding feature dimensions or tuning an action threshold merely to clear a small pilot would need additional evidence. The implemented change selects joint/directional L2 penalties by leave-one-training-seed-out log loss, compares constant prevalence inside each fold, and records mature feature missingness, score quantiles and calibration. Predictive metrics do not substitute for MSMI policy outcomes.
++
++## Verification boundaries
++
++The authoring host provides Python 3.12 CPU execution but no Docker CLI/daemon or native Windows PowerShell. Real Docker Desktop/WSL2 execution remains necessary on the laptop. Hashes prove local content correspondence, not a trusted external certification. `results/REPORT.md` is generated from current evidence; current results are never inferred from older archived runs.
++
++`plans/REVIEW_PROTOCOL.md` declares a fixed ten-block final evaluation before this iteration's outcomes. Its plan is bound to final fitted assets before execution. Ten blocks satisfy the existing minimum count but are not claimed to be a powered sample. Seeds 3101-3110 become consumed test data after this review and must not be called unseen in later tuning.
++
++## Sources
++
++- Pinned starter source and protocol: `starter/SOURCE.json`, `starter/docs/POLICY_INTERFACE.md`, `starter/evaluate.py`, `starter/test_runner.py`.
++- Delivered evidence: `evidence/v0_2/REPORT.md`, `validation.json`, `release_readiness.json`.
++- [Docker WSL filesystem guidance](https://docs.docker.com/desktop/features/wsl/best-practices/).
++- [Docker CPU/memory limits](https://docs.docker.com/engine/containers/resource_constraints/).
++
++## Measured model diagnosis after fitting
++
++Fresh collection produced 3,385 mature joint labels with 53 positives (about 1.57%). Training took 244.2 seconds on the authoring host, including collection and grouped regularization selection. This is a host observation, not a Docker Desktop timing promise.
++
++Both heads selected L2=100 from the fixed grid. Equal-training-seed mean held-out joint log loss was 0.0814420 versus 0.0814568 for fold-fitted constant prevalence: only about 0.018% relative reduction. Directional log loss was 0.6597599 versus constant 0.6593687, about 0.059% worse. These comparisons are conditional on selected mature introductions; they do not establish population-level probability quality.
++
++For every soft field, approximately 68.4%-70.7% of training pair comparisons have at least one missing observation. Rare labels plus weak observed feature signal are a more concrete ML limitation than an unobserved illegal-question claim. Changing a threshold to force promotion would not resolve it. The directional head remains experimental and is not used by learned-greedy's pair score.
++
++The next research changes would require fresh evaluation: collect additional training-only seed blocks, compare point-in-time information-acquisition policies under equal compute/budget, and test whether better disclosed soft features improve mature ranking. Final seeds consumed in this iteration cannot be recycled as unseen data for those changes.
++
++## Completed pilot result
++
++The complete v0.3 pilot has 120/120 valid episodes and no failed attempts. Conservative scored 15 MSMI pairs, learned 18, on the same 24 worlds (0.3125 versus 0.3750 per 100 arrivals). The four-block descriptive gain interval is [-0.25, 0.25] per 100; it includes zero. Shift-family means are 0.5000 conservative versus 0.3750 learned. The prior v0.2 learned pilot scored 21; v0.3's improved regularization-selection procedure does not imply improved policy outcomes. No refit or threshold change follows this pilot in the frozen review protocol.
++
++## Final result and promotion decision
++
++All 120 frozen final episodes completed, with no failed attempts. Across ten seed blocks/six families, learned recorded **59 MSMI pairs** versus conservative **46** (0.4917 versus 0.3833 per 100 arrivals). The seed-block bootstrap gain interval is **[0.0000, 0.2333]** per 100; its lower bound is zero, so it does not clear the strict-positive gate.
++
++| Family | Conservative MSMI per 100 | Learned MSMI per 100 |
++| --- | ---: | ---: |
++| development | 0.45 | 0.80 |
++| sparse | 0.05 | 0.05 |
++| cold_start | 0.30 | 0.15 |
++| delayed | 0.45 | 0.40 |
++| shift | 0.60 | 0.70 |
++| drift | 0.45 | 0.85 |
++
++Cold-start and delayed family regressions also fail the predeclared guardrail. Information-group coverage passed. Both Docker policies remain unverified because no Docker CLI or daemon socket exists on this host. Conservative remains the deployment default.
++
++The final run exposed a numerical bug in interval averaging: floating-point cancellation produced +2.8e-18 instead of zero. Exact rational arithmetic now prevents a false strict-positive flag. The original raw runs, pre-outcome plan and full execution source preimage are retained. An explicit analysis-only verifier proves that policy/model/simulator/feature/episode-execution code did not change; current-source analysis and original-source execution are labelled separately. No raw outcome or identity was rewritten, and the gate thresholds remain unchanged.
++
++Twelve additional host subprocess episodes (two policies x six families on exploratory seed 101) completed successfully: 1,440 fresh policy invocations. These verify restart-per-call host transport, not Docker resource compliance. The supervised host workflow took 1,002.0 seconds, the frozen final run 991.0 seconds and the subprocess checks 279.9 seconds. They partly overlapped and must not be added as elapsed wall time. Their combined phase allowances were 70 minutes, below the user's two-hour allocation; Windows/Docker timings remain unmeasured.
++
++## Current assessment
++
++**7/10 as an ML hackathon engineering prototype**, a qualitative judgment rather than a certification. The source/evidence controls, recovery, bounded execution and reproducible verification are considerably stronger. Readiness remains blocked by missing real Docker evidence and model quality gates. It is not honest to call all empirical issues solved: the weak observed feature signal, rare positive labels and two family regressions remain the ML research work. The unchanged conservative default is the appropriate result of the current gates.
+--- v0.2/docs/RUNBOOK.md
++++ v0.3/docs/RUNBOOK.md
+@@ -1,4 +1,4 @@
+-# v0.2 runbook
++# v0.3 runbook
+ 
+ Use WINDOWS_START.md for the bounded Windows/Docker Desktop/WSL2 workflow. Supported authoring runtime: Python 3.12.x; tested on 3.12.14. No GPU is needed for the policy.
+ 
+@@ -10,7 +10,7 @@
+ 
+ ## Resume
+ 
+-A clean stop releases the workflow lock and records unfinished episode attempts as interrupted. A crash releases the OS workflow lock, but the episode lease can last up to 120 seconds. Start the same command after expiry. Completed identical episodes are reused; each failed/interrupted attempt is preserved. Two owners cannot legitimately complete the same episode. Do not copy an active SQLite WAL database directly.
++A clean stop releases the workflow lock and records unfinished episode attempts as interrupted. A crash releases both workflow and per-owner OS locks. New attempts can be reclaimed immediately; old version-2 attempts still require their lease to expire. Retry the same command, retaining the ledger and its .owners directory together. Do not delete or replace owner lock files while any worker is active. Completed identical episodes are reused; each failed/interrupted attempt is preserved. Two owners cannot legitimately complete the same episode. Do not copy an active SQLite WAL database directly.
+ 
+ For backup use SQLite `Connection.backup()`, reopen the copy, run `PRAGMA integrity_check`, and verify that completed results plus attempt history can be resumed. A regression test exercises this locally; a deployment-level disaster-recovery exercise is separate.
+ 
+--- v0.2/plans/REVIEW_PROTOCOL.md
++++ v0.3/plans/REVIEW_PROTOCOL.md
+@@ -0,0 +1,12 @@
++# v0.3 preregistered review evaluation
++
++Declared before this iteration's training/pilot/final outcomes.
++
++- Keep the public generator, point-in-time 49/52 feature transforms and primary MSMI definition unchanged.
++- Collect eight training seed blocks 1101-1108 across six families, alternating supplied greedy/random by seed parity. Select joint and directional L2 independently from {1,10,100} by leave-one-training-seed-out mean log loss. Refit on all training rows once.
++- Run the existing four-seed/five-policy pilot on 2101-2104 without selecting model changes from its outcomes.
++- Freeze source, assets and exact experiment with scripts/freeze_plan.py after fitting, before final outcomes.
++- Run exactly conservative and learned on seeds 3101-3110 and all six families: 120 final executions, ten independent seed blocks. No early success stop, outcome-dependent seed expansion, refit or threshold adjustment.
++- Ten blocks is the existing minimum gate count, not demonstrated statistical power. Report confidence interval, family regressions and service guardrails even if the model loses. Retain conservative unless all original quality checks and both required sandbox evidence checks pass; never automatically change deployment.
++- At most 120 minutes total evaluation allocation for this review. Use a 30-minute supervised host pilot allowance and a separate maximum 30-minute final-run allowance; reserve the rest for diagnosis. If either times out, retain partial/failed evidence and do not replace it with a pass.
++- Docker and Windows/WSL execution cannot be inferred from this Linux authoring host. Those checks remain unverified until run on a host providing Docker.
+--- v0.2/scripts/build_report.py
++++ v0.3/scripts/build_report.py
+@@ -1,4 +1,4 @@
+-"""A v0.2 report generated from actual, identity-matched evidence only."""
++"""A v0.3 report generated from actual, identity-matched evidence only."""
+ import json
+ from pathlib import Path
+ import sys
+@@ -7,6 +7,7 @@
+ from blackbox.registry import load_artifact,selected
+ from blackbox.storage import atomic_json
+ from blackbox.metrics import paired_interval
++from blackbox.reanalysis import accepts_matrix,binding
+ 
+ 
+ def read(name):
+@@ -18,10 +19,12 @@
+     current=execution_identity();config,manifest=selected();model=load_artifact('model.json')
+     tests=read('tests.json');validation=read('validation.json');data=read('data_check.json')
+     container=read('container_attestation.json');gate=read('release_readiness.json');training=read('training.json')
++    final=read('final_test.json')
+     tests_current=bool(tests and tests.get('identity')==current)
+-    validation_current=bool(validation and validation.get('config',{}).get('identity')==current)
++    validation_current=accepts_matrix(validation)
++    historical_analysis=any(accepts_matrix(record) and record['config']['identity']!=current for record in (validation,final))
+     container_current=bool(container and container.get('identity')==execution_identity(mode='conservative'))
+-    lines=['# Blackbox v0.2 - engineering and ML evidence','',
++    lines=['# Blackbox v0.3 - engineering and ML evidence','',
+         'All outcomes are synthetic. Validation is distinct from candidate promotion and production readiness.','',
+         '## Build changes','',
+         '- Strict typed hard constraints and observable timestamps; malformed hard fields fail before matching.',
+@@ -32,13 +35,33 @@
+         '- Tests, validation matrices, frozen plans and Docker attestations bind exact code and inference assets.',
+         '- Windows/WSL runner supervises child processes within a requested maximum 120-minute budget.',
+         '- Test-pass counts are read from real test results, never hardcoded.','',
++        '- Hard-killed episode owners recover through OS-held owner locks without a lease wait; legacy owners retain lease fallback.',
++        '- Docker base-image preparation precedes training; baseline and learned container assessments precede validation, with downstream reservations.',
++        '- Joint and directional regularization use leave-one-training-seed-out selection; final-test outcomes never enter fitting.',
++        '- Promotion requires independent learned-policy container evidence, in addition to statistical and service gates.','',
+         '## Current identity','',f'Release: `{config["release_id"]}`.',f'Model: `{model["model_id"]}`.',
+         f'Full source/configuration: `{current["source_sha256"]}`.','',
+         '## Training','',f'Bundle model training rows: {model["joint"]["n"]}; positive MSMI outcomes: {model["joint"]["positives"]}.',
+         'Training lineage and package versions are embedded in the immutable release manifest. Imported v0.1 assets are identified explicitly when applicable.']
+     if training and training.get('release_id')==config['release_id']:
+         lines += [f'Training evidence covers {len(training["episodes"])} episodes; training-pipeline wall time (cache reuse may apply) {training["wall_seconds"]:.1f} seconds.']
++    selection=read('model_selection.json')
++    if selection and selection.get('release_id')==config['release_id']:
++        lines+=['','Training-only regularization selection (equal seed weight):','',
++                '| Head | L2 | Seed-held-out log loss | Constant-prevalence log loss |','| --- | --- | --- | --- |']
++        for head in ('joint','direction'):
++            detail=selection[head];chosen=next(c for c in detail['candidates'] if c['l2']==detail['selected_l2'])
++            constant=sum(f['constant_baseline']['log_loss'] for f in chosen['folds'])/len(chosen['folds'])
++            lines += [f'| {head} | {detail["selected_l2"]} | {chosen["mean_seed_log_loss"]:.6f} | {constant:.6f} |']
++        lines+=['','These are predictive diagnostics on selected introductions, not evidence that the policy improves MSMI.']
+     lines += ['', '## Tests and data','']
++    if historical_analysis:
++        proof=binding()
++        lines += ['Execution and analysis identities are separate after a numerical correction.',
++                  f'Original frozen episode execution source: `{proof["execution_identity"]["source_sha256"]}`.',
++                  f'Current tests/reporting/reanalysis source: `{current["source_sha256"]}`.',
++                  'Every original source file is retained and hash-bound to the pre-outcome plan. Only paired-interval arithmetic, reporting/gating, the verifier and its regression test differ; policy, model, simulator and episode execution code are unchanged.',
++                  'Historical episodes are not relabelled as current-source executions. `results/reanalysis.json` records the exact binding.','']
+     if tests_current:
+         lines += [f'Actual tests run: {tests["tests_run"]}; success: {tests["success"]}.']
+         for suite in tests['suites']:
+@@ -62,10 +85,15 @@
+             interval=paired_interval(validation['episodes'],'learned')
+             lines += ['',f'Learned-minus-conservative paired pilot result: `{json.dumps(interval)}`.',
+                       'A pilot does not establish statistical power or justify test-seed tuning.']
++        lines+=['','Per-family pilot scores (MSMI per 100):','','| Family | Conservative | Learned |','| --- | --- | --- |']
++        for variant in validation['variants']:
++            means={m: [r['msmi_per_100_arrived_members'] for r in validation['episodes'] if r['method']==m and r['variant']==variant and r['valid']] for m in ('conservative','learned')}
++            if all(means.values()):lines += [f'| {variant} | {sum(means["conservative"])/len(means["conservative"]):.4f} | {sum(means["learned"])/len(means["learned"]):.4f} |']
+     else:lines += ['No current validation matrix is available; older results are not attributed to this build.']
+     lines += ['', '## Container and release state','',
+         f'Container evidence: {container.get("status") if container_current else "unverified or stale"}.',
+         f'Validation gate: {gate.get("status") if gate and gate.get("identity")==current else "not assessed for this identity"}.',
++        'Attestation records bind local content hashes and immutable image IDs. They are not digitally signed certificates.',
+         'No candidate is automatically promoted by this workflow. The default remains conservative.',
+         'The Docker image must run on the Windows/WSL2 host before Docker/resource compliance can be claimed. Hosted CI and native PowerShell execution are not inferred from supplied configuration.','',
+         '## Remaining research limits','',
+@@ -73,9 +101,15 @@
+         '- The answer model is a selected empirical bundle approximation, not unbiased exact EVSI.',
+         '- Equal-compute complementary-question tests and controlled allocation tie ablations remain necessary.',
+         '- A larger frozen final test is not automatically included in the two-hour pilot budget.',
+-        '- Feature null rates, score distributions, mature calibration and service slices must be reviewed by family.',
++        '- Episode JSON includes mature feature missingness, score quantiles, calibration and service slices by family; selective labels still limit interpretation.',
+         '- Base-image digest pinning and a full third-party dependency-license audit remain release-hardening tasks.','',
+-        'v0.1 results are retained under evidence/v0_1 and are not counted as v0.2 verification.','']
++        'Prior v0.1/v0.2 evidence is archived under evidence and is not counted as v0.3 verification.','']
++    if accepts_matrix(final):
++        lines+=['## Frozen final test','',f'Complete: {final["complete"]}; valid: {final["all_valid"]}; episodes: {len(final["episodes"])}.',
++                f'Paired learned-minus-conservative result: `{json.dumps(paired_interval(final["episodes"],"learned"))}`.',
++                'Ten seed blocks meet the minimum gate count; this does not establish adequate statistical power.']
++        if gate and gate.get('identity')==current:lines += ['',f'Promotion assessment: `{json.dumps(gate["candidate_promotion"])}`.']
++        lines+=['']
+     (ROOT/'results').mkdir(exist_ok=True)
+     (ROOT/'results/REPORT.md').write_text('\n'.join(lines),encoding='utf-8')
+     atomic_json(ROOT/'results/verification_summary.json',{'schema_version':2,'identity':current,
+@@ -83,6 +117,8 @@
+         'public_data_verified':data_ok,'evaluated_episodes':len(validation['episodes']) if validation_current else 0,
+         'validation_complete':validation['complete'] if validation_current else False,
+         'all_evaluated_valid':validation['all_valid'] if validation_current else False,
++        'validation_execution_identity':validation['config']['identity'] if validation_current else None,
++        'analysis_binding':binding() if historical_analysis else None,
+         'container_verified':bool(container_current and container.get('validated') is True),
+         'candidate_promoted':False})
+     print(ROOT/'results/REPORT.md')
+--- v0.2/scripts/docker_preflight.py
++++ v0.3/scripts/docker_preflight.py
+@@ -1,11 +1,16 @@
+ """Fast, read-only Docker Desktop/WSL2 engine check before spending training time."""
+ import json
++import argparse
++from pathlib import Path
+ import shutil
+ import subprocess
+ import sys
+ 
+ 
+ def main():
++    parser=argparse.ArgumentParser()
++    parser.add_argument('--prepare-base',action='store_true',help='Fetch the Dockerfile base before training, inside the global budget')
++    args=parser.parse_args()
+     if not shutil.which('docker'):
+         print('Docker CLI unavailable. Start Docker Desktop and enable Linux containers/WSL2.',file=sys.stderr)
+         return 2
+@@ -14,6 +19,17 @@
+         if info.get('OSType')!='linux':
+             print('Switch Docker Desktop to Linux containers with its WSL2 backend.',file=sys.stderr);return 2
+         print(json.dumps({k:info.get(k) for k in ('OSType','ServerVersion','NCPU','MemTotal')}))
++        if args.prepare_base:
++            recipe=(Path(__file__).resolve().parents[1]/'Dockerfile').read_text()
++            base=next(line.split()[1] for line in recipe.splitlines() if line.startswith('FROM '))
++            try:
++                subprocess.run(['docker','image','inspect',base],check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL,timeout=15)
++                cached=True
++            except subprocess.CalledProcessError:
++                subprocess.run(['docker','pull',base],check=True,timeout=540)
++                cached=False
++            meta=json.loads(subprocess.check_output(['docker','image','inspect',base],text=True,timeout=15))[0]
++            print(json.dumps({'base':base,'base_image_id':meta['Id'],'already_cached':cached}))
+         return 0
+     except (OSError,ValueError,subprocess.SubprocessError) as error:
+         print('Docker engine not ready: '+str(error),file=sys.stderr);return 2
+--- v0.2/scripts/package.py
++++ v0.3/scripts/package.py
+@@ -22,7 +22,7 @@
+     for path in sorted(ROOT.rglob('*')):
+         if not path.is_file():continue
+         rel=path.relative_to(ROOT)
+-        if excluded.intersection(rel.parts) or path.suffix in ('.pyc','.sqlite','.log','.tmp') or '.sqlite-' in path.name:
++        if excluded.intersection(rel.parts) or path.suffix in ('.pyc','.sqlite','.log','.tmp','.lock') or '.sqlite-' in path.name:
+             continue
+         if path.name=='PACKAGE_SHA256.json':continue
+         if rel.parts[0]=='results' and path.suffix not in ('.json','.md'):continue
+@@ -32,7 +32,7 @@
+         name:hashlib.sha256(path.read_bytes()).hexdigest() for path,name in files}}
+     atomic_json(ROOT/'PACKAGE_SHA256.json',manifest)
+     files.append((ROOT/'PACKAGE_SHA256.json','PACKAGE_SHA256.json'))
+-    target=output/'Blackbox_ML_Prototype_v0_2_0.zip'
++    target=output/'Blackbox_ML_Prototype_v0_3_0.zip'
+     with zipfile.ZipFile(target,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as archive:
+         for path,name in files:archive.write(path,'Blackbox_ML_Prototype/'+name)
+     with zipfile.ZipFile(target) as archive:
+@@ -40,7 +40,7 @@
+         if len(archive.namelist())!=len(set(archive.namelist())):raise ValueError('duplicate archive members')
+         for name,expected in manifest['files'].items():
+             if hashlib.sha256(archive.read('Blackbox_ML_Prototype/'+name)).hexdigest()!=expected:raise ValueError('archive hash mismatch: '+name)
+-    for source,name in [('WINDOWS_START.md','Blackbox_v0_2_Windows_Start.md'),('results/REPORT.md','Blackbox_v0_2_Report.md')]:
++    for source,name in [('WINDOWS_START.md','Blackbox_v0_3_Windows_Start.md'),('results/REPORT.md','Blackbox_v0_3_Report.md')]:
+         shutil.copy2(ROOT/source,output/name)
+     print(json.dumps({'archive':str(target),'bytes':target.stat().st_size,'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'files':len(files)}))
+ 
+--- v0.2/scripts/release_gate.py
++++ v0.3/scripts/release_gate.py
+@@ -9,6 +9,7 @@
+ from blackbox.storage import atomic_json,digest
+ from blackbox.metrics import paired_interval
+ from blackbox.experiment import VARIANTS
++from blackbox.reanalysis import accepts_matrix,binding
+ 
+ 
+ def read(path):
+@@ -17,7 +18,7 @@
+ 
+ 
+ def valid_matrix(data, require_baselines=False):
+-    if not data or data.get('complete') is not True or data.get('config',{}).get('identity')!=execution_identity():return False
++    if not data or data.get('complete') is not True or not accepts_matrix(data):return False
+     if require_baselines and not {'baseline_greedy','baseline_no_asks','baseline_random','conservative','learned'} <= set(data.get('methods',[])):return False
+     if set(data.get('variants',[]))!=set(VARIANTS):return False
+     expected={(s,v,m) for s in data['seeds'] for v in VARIANTS for m in data['methods']}
+@@ -49,12 +50,7 @@
+     except (OSError,ValueError):return False
+ 
+ 
+-def assess(tests,validation,container,mode='conservative',final=None,plan=None,data_check=None):
+-    current=execution_identity()
+-    suites=(tests or {}).get('suites',[])
+-    test_ok=(tests is not None and tests.get('identity')==current and {s['suite'] for s in suites}=={'project','starter'}
+-        and len(suites)==2 and all(s.get('identity')==current and s.get('success') is True and s.get('tests_run',0)>0
+-        and s.get('failures')==0 and s.get('errors')==0 and s.get('skipped')==0 for s in suites))
++def container_valid(container,mode):
+     expected_constraints={'network':'none','cpus':2,'memory_bytes':1024**3,'pids':64,'read_only':True,'tmpfs_bytes':64*1024**2}
+     container_ok=(container is not None and container.get('identity')==execution_identity(mode=mode)
+         and container.get('status')=='completed' and container.get('constraints')==expected_constraints
+@@ -63,13 +59,22 @@
+     if container_ok:
+         rows=container.get('episodes',[])
+         container_ok=len(rows)==6 and {(r['seed'],r['variant']) for r in rows}=={(101,v) for v in VARIANTS} and all(r.get('valid') is True for r in rows)
++    return bool(container_ok)
++
++
++def assess(tests,validation,container,mode='conservative',final=None,plan=None,data_check=None,candidate_container=None):
++    current=execution_identity()
++    suites=(tests or {}).get('suites',[])
++    test_ok=(tests is not None and tests.get('identity')==current and {s['suite'] for s in suites}=={'project','starter'}
++        and len(suites)==2 and all(s.get('identity')==current and s.get('success') is True and s.get('tests_run',0)>0
++        and s.get('failures')==0 and s.get('errors')==0 and s.get('skipped')==0 for s in suites))
+     checks={'actual_test_suites':bool(test_ok),'complete_validation_matrix':valid_matrix(validation,require_baselines=True),
+             'verified_public_snapshot':data_snapshot_valid(data_check,current),
+-            'exact_container_release':bool(container_ok)}
++            'exact_container_release':container_valid(container,mode)}
+     promotion={'evaluated':False,'eligible':False,'reason':'No bound frozen final-test evidence'}
+     if final is not None and plan is not None and valid_matrix(final) and final.get('plan_hash')==digest(plan):
+         experiment=plan.get('experiment',{})
+-        bound=(plan.get('frozen_before_results') is True and experiment.get('identity')==current
++        bound=(plan.get('frozen_before_results') is True and experiment.get('identity')==final.get('config',{}).get('identity')
+             and experiment.get('seeds')==final['seeds'] and experiment.get('methods')==final['methods']
+             and experiment.get('variants')==list(VARIANTS) and all(s>=3101 for s in final['seeds']))
+         if bound and {'conservative','learned'}<=set(final['methods']):
+@@ -90,22 +95,31 @@
+             sufficient=interval.get('seed_blocks',0)>=10
+             gain=interval.get('ci95',[0])[0]>0
+             scenario_ok=all(scenarios['learned'][v]>=scenarios['conservative'][v] for v in VARIANTS)
+-            promotion={'evaluated':True,'eligible':bool(sufficient and gain and scenario_ok and service_ok and all(checks.values())),
++            candidate_sandbox=container_valid(candidate_container,'learned') or (mode=='learned' and container_valid(container,'learned'))
++            promotion_checks={'minimum_seed_blocks':sufficient,'positive_paired_lower_bound':gain,
++                'no_family_mean_regression':scenario_ok,'service_guardrail':service_ok,
++                'exact_learned_container':candidate_sandbox,'validation_readiness':all(checks.values())}
++            promotion={'evaluated':True,'eligible':all(promotion_checks.values()),'checks':promotion_checks,
+                 'paired_interval':interval,'scenario_guardrail':scenario_ok,'service_guardrail':service_ok,
++                'family_scores':scenarios,
+                 'reason':'Predeclared gates; 10 blocks is a minimum guardrail, not a statistical-power guarantee'}
+     return {'schema_version':2,'identity':current,'mode':mode,'checks':checks,
+         'status':'validation_checks_passed' if all(checks.values()) else 'blocked',
+         'missing_or_failed':[k for k,v in checks.items() if not v], 'candidate_promotion':promotion,
++        'analysis_binding':binding() if any(data and data.get('config',{}).get('identity')!=current and accepts_matrix(data)
++            for data in (validation,final)) else None,
+         'warning':'Validation readiness is not production certification or private-organiser eligibility.'}
+ 
+ 
+ def main():
+     p=argparse.ArgumentParser();p.add_argument('--validation',default='results/validation.json')
+     p.add_argument('--tests',default='results/tests.json');p.add_argument('--container',default='results/container_attestation.json')
+-    p.add_argument('--final');p.add_argument('--plan');p.add_argument('--mode',default='conservative')
++    p.add_argument('--final',default='results/final_test.json');p.add_argument('--plan',default='plans/final_test.json');p.add_argument('--mode',default='conservative')
++    p.add_argument('--candidate-container',default='results/container_learned.json')
+     p.add_argument('--output',default='results/release_readiness.json');a=p.parse_args()
+     result=assess(read(ROOT/a.tests),read(ROOT/a.validation),read(ROOT/a.container),a.mode,
+-                  read(ROOT/a.final) if a.final else None,read(ROOT/a.plan) if a.plan else None,read(ROOT/'results/data_check.json'))
++                  read(ROOT/a.final) if a.final else None,read(ROOT/a.plan) if a.plan else None,read(ROOT/'results/data_check.json'),
++                  read(ROOT/a.candidate_container))
+     atomic_json(ROOT/a.output,result);print(json.dumps(result,indent=2));return 0 if result['status']=='validation_checks_passed' else 2
+ 
+ if __name__=='__main__':raise SystemExit(main())
+--- v0.2/scripts/run_budget.py
++++ v0.3/scripts/run_budget.py
+@@ -47,21 +47,28 @@
+     except (OSError,subprocess.SubprocessError):pass
+ 
+ 
+-def execute_phases(phases,deadline,record,environment,runner=run_command,clock=time.monotonic):
+-    for name,command,cap,required in phases:
+-        remaining=deadline-clock()-60
+-        phase={'name':name,'command':command,'status':'running'}
++def execute_phases(phases,deadline,record,environment,runner=run_command,clock=time.monotonic,reservations=None):
++    reservations=reservations or {}
++    for index,(name,command,cap,required) in enumerate(phases):
++        tail_reserve=sum(reservations.get(p[0],0) for p in phases[index+1:])
++        remaining=deadline-clock()-60-tail_reserve
++        allowance=max(0,min(cap,remaining))
++        phase={'name':name,'command':command,'status':'running','allocated_seconds':allowance,
++               'downstream_reserved_seconds':tail_reserve}
+         record['phases'].append(phase)
+         atomic_json(ROOT/'results/budget_run.json',record)
+         started=clock()
+         try:
+-            code=runner(command,min(cap,remaining),ROOT/'results'/f'{name}.log',environment)
++            if allowance<=0:raise TimeoutError('Downstream reservations leave no budget for this phase')
++            code=runner(command,allowance,ROOT/'results'/f'{name}.log',environment)
+             phase.update(status='completed' if code==0 else 'failed',exit_code=code,seconds=clock()-started)
+         except (OSError,TimeoutError,subprocess.SubprocessError) as error:
+             phase.update(status='timed_out' if isinstance(error,TimeoutError) else 'failed',error=str(error),seconds=clock()-started)
+         atomic_json(ROOT/'results/budget_run.json',record)
+         print(json.dumps(phase),flush=True)
+-        if required and phase['status']!='completed':return False
++        if required and phase['status']!='completed':
++            record['phases'].extend({'name':p[0],'status':'not_run','reason':'required upstream phase incomplete'} for p in phases[index+1:])
++            return False
+     return True
+ 
+ 
+@@ -86,7 +93,7 @@
+     (ROOT/'results').mkdir(exist_ok=True)
+     run_id=uuid.uuid4().hex
+     environment=dict(os.environ,OPENBLAS_NUM_THREADS='1',OMP_NUM_THREADS='1',MKL_NUM_THREADS='1',BLACKBOX_RUN_ID=run_id)
+-    record={'schema_version':2,'run_id':run_id,'budget_seconds':args.minutes*60,'phases':[],
++    record={'schema_version':3,'run_id':run_id,'budget_seconds':args.minutes*60,'phases':[],
+             'status':'running','training_skipped':args.skip_training,'docker_skipped':args.skip_docker}
+     phases=[]
+     python=sys.executable
+@@ -97,27 +104,37 @@
+         phases.append(('install_dependencies',[python,'-m','pip','install','-r','requirements-train.txt'],1200,True))
+     if not args.skip_docker:
+         phases.append(('docker_preflight',[python,'scripts/docker_preflight.py'],30,True))
++        phases.append(('docker_base_image',[python,'scripts/docker_preflight.py','--prepare-base'],600,True))
+     if not args.skip_training:
+         phases.append(('training',[python,'train.py','--seeds','1101,1102,1103,1104,1105,1106,1107,1108','--activate-candidate'],1500,True))
+     phases += [
+         ('tests',[python,'scripts/run_tests.py'],300,True),
+         ('data_checksums',[python,'scripts/audit_data.py'],30,True),
+-        ('validation',[python,'evaluate.py','--seeds','2101,2102,2103,2104','--variants','all','--output','results/validation.json'],2100,True),
+     ]
+     if not args.skip_docker:
+-        phases.append(('container',[python,'validate_container.py','--mode','conservative'],2400,True))
+-    else:
+-        from blackbox.provenance import execution_identity
+-        atomic_json(ROOT/'results/container_attestation.json',{'schema_version':2,'identity':execution_identity(mode='conservative'),
+-            'status':'unverified','validated':False,'episodes':[],'error':'Explicitly skipped; no Docker claim'})
++        phases.append(('container',[python,'scripts/validate_policies.py'],2400,True))
++    phases.append(('validation',[python,'evaluate.py','--seeds','2101,2102,2103,2104','--variants','all','--output','results/validation.json'],2100,True))
+     # Gate exit 2 can mean an honestly blocked prototype. Record it, do not call it a passed release.
+-    phases += [('release_gate',[python,'scripts/release_gate.py'],30,False),
+-               ('report',[python,'scripts/build_report.py'],30,True)]
++    # Finalizers run even after a failed required phase; stale artifacts cannot masquerade as current.
++    finalizers=[('release_gate',[python,'scripts/release_gate.py'],20,False),
++                ('report',[python,'scripts/build_report.py'],20,True)]
++    reservations={'container':1200,'validation':300,'tests':30,'data_checksums':5}
++    record['reservations_seconds']=reservations
+     try:
+-        completed=execute_phases(phases,deadline,record,environment)
++        completed=execute_phases(phases,deadline,record,environment,reservations=reservations)
+         record['status']='completed' if completed else 'incomplete'
+     finally:
+         cleanup_docker(run_id)
++        if args.skip_docker:
++            from blackbox.provenance import execution_identity
++            for mode,name in (('conservative','container_attestation.json'),('learned','container_learned.json')):
++                atomic_json(ROOT/'results'/name,{'schema_version':2,'identity':execution_identity(mode=mode),
++                    'status':'unverified','validated':False,'episodes':[],'error':'Explicitly skipped; no Docker claim'})
++        # Use the running interpreter for stdlib-only finalizers if bootstrap failed.
++        for name,command,cap,required in finalizers:
++            command[0]=sys.executable
++        finished=execute_phases(finalizers,deadline+45,record,environment)
++        if not finished and record['status']=='completed':record['status']='incomplete'
+         record['elapsed_seconds']=time.monotonic()-started
+         if record['status']=='running':record['status']='interrupted'
+         atomic_json(ROOT/'results/budget_run.json',record)
+--- v0.2/scripts/validate_policies.py
++++ v0.3/scripts/validate_policies.py
+@@ -0,0 +1,15 @@
++"""Assess baseline and candidate images independently; retain both sets of evidence."""
++from pathlib import Path
++import subprocess
++import sys
++ROOT=Path(__file__).resolve().parents[1]
++
++
++def main():
++    codes=[]
++    for mode,output in (('conservative','results/container_attestation.json'),('learned','results/container_learned.json')):
++        codes.append(subprocess.run([sys.executable,str(ROOT/'validate_container.py'),'--mode',mode,
++            '--image','blackbox:v0.3-'+mode,'--output',output],cwd=ROOT).returncode)
++    return 0 if all(code==0 for code in codes) else 2
++
++if __name__=='__main__':raise SystemExit(main())
+--- v0.2/test_crash_recovery.py
++++ v0.3/test_crash_recovery.py
+@@ -0,0 +1,63 @@
++"""Real process-death recovery, plus backward-compatible lease safety."""
++import subprocess
++import sys
++import tempfile
++import time
++import unittest
++from pathlib import Path
++from blackbox.storage import Ledger, RunBusy, WorkflowLock
++
++
++class CrashRecoveryTests(unittest.TestCase):
++    def child(self, program, path):
++        process=subprocess.Popen([sys.executable,'-u','-c',program,str(path)],stdout=subprocess.PIPE,text=True)
++        self.addCleanup(lambda: process.poll() is None and process.kill())
++        self.assertEqual(process.stdout.readline().strip(),'ready')
++        return process
++
++    def test_hard_killed_episode_reclaimed_before_lease_expiry(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=Path(directory)/'runs.sqlite'
++            process=self.child("from blackbox.storage import Ledger; import sys,time; l=Ledger(sys.argv[1]); l.claim({'seed':1}); print('ready',flush=True); time.sleep(60)",path)
++            ledger=Ledger(path)
++            with self.assertRaises(RunBusy):ledger.claim({'seed':1})
++            process.kill();process.wait(timeout=5);process.stdout.close()
++            self.assertGreater(ledger.db.execute('SELECT lease_until FROM attempts').fetchone()[0],time.time())
++            key,_=ledger.claim({'seed':1});ledger.finish(key,{'valid':True})
++            attempts=ledger.audit()
++            self.assertEqual([a['status'] for a in attempts],['interrupted','completed'])
++            self.assertEqual(attempts[0]['error'],'owner OS lock released')
++            ledger.close()
++
++    def test_supervisor_lock_released_on_hard_kill(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=Path(directory)/'workflow.lock'
++            process=self.child("from blackbox.storage import WorkflowLock; import sys,time; l=WorkflowLock(sys.argv[1]); l.__enter__(); print('ready',flush=True); time.sleep(60)",path)
++            with self.assertRaises(RunBusy):
++                with WorkflowLock(path):pass
++            process.kill();process.wait(timeout=5);process.stdout.close()
++            with WorkflowLock(path):pass
++
++    def test_legacy_attempt_keeps_lease_fallback(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=Path(directory)/'runs.sqlite';first=Ledger(path);second=Ledger(path)
++            first.claim({'seed':1})
++            # Version-2 owners have no guard protocol; absence must not imply death.
++            first.db.execute('UPDATE attempts SET guard_version=0');first.db.commit()
++            with self.assertRaises(RunBusy):second.claim({'seed':1})
++            first.close();second.close()
++
++    def test_version_two_ledger_migration_preserves_attempts(self):
++        with tempfile.TemporaryDirectory() as directory:
++            path=Path(directory)/'runs.sqlite';old=Ledger(path)
++            key,_=old.claim({'seed':1});old.finish(key,{'valid':True,'score':3});old.close()
++            import sqlite3
++            db=sqlite3.connect(path);db.execute('ALTER TABLE attempts DROP COLUMN guard_version')
++            db.execute('PRAGMA user_version=2');db.commit();db.close()
++            migrated=Ledger(path)
++            self.assertEqual(migrated.claim({'seed':1})[1]['score'],3)
++            self.assertEqual(len(migrated.audit()),1)
++            self.assertEqual(migrated.db.execute('PRAGMA user_version').fetchone()[0],3)
++            migrated.close()
++
++if __name__=='__main__':unittest.main()
+--- v0.2/test_numeric_interval.py
++++ v0.3/test_numeric_interval.py
+@@ -0,0 +1,40 @@
++"""A mathematically zero lower endpoint must never pass strict positive gain."""
++import json
++import tempfile
++import unittest
++import copy
++from unittest.mock import patch
++from pathlib import Path
++from blackbox.metrics import paired_interval
++from blackbox.reanalysis import binding,accepts_matrix,ROOT
++from blackbox.provenance import source_hash
++
++
++class NumericIntervalTests(unittest.TestCase):
++    def test_frozen_exact_zero_is_not_tiny_positive(self):
++        original=json.loads((ROOT/'evidence/v0_3_frozen_original/final_test.json').read_text())
++        result=paired_interval(original['episodes'],'learned')
++        self.assertEqual(result['ci95'][0],0.0)
++        self.assertFalse(result['ci95'][0]>0)
++        self.assertAlmostEqual(result['delta'],13/120)
++
++    def test_reanalysis_preserves_original_identity_and_rejects_modified_raw_record(self):
++        original=json.loads((ROOT/'evidence/v0_3_frozen_original/final_test.json').read_text())
++        # Keep this regression independent of a workstation refitting/selecting
++        # a different candidate; registry integrity has its own real-file tests.
++        current={'source_sha256':source_hash(),'inference_release':original['config']['identity']['inference_release']}
++        with patch('blackbox.reanalysis.execution_identity',return_value=current):
++            proof=binding()
++            self.assertEqual(proof['execution_identity'],original['config']['identity'])
++            self.assertNotEqual(proof['analysis_identity'],proof['execution_identity'])
++            self.assertTrue(accepts_matrix(original))
++            original['episodes'][0]['coverage']=0.123
++            self.assertFalse(accepts_matrix(original))
++
++    def test_different_candidate_cannot_reuse_frozen_results(self):
++        original=json.loads((ROOT/'evidence/v0_3_frozen_original/final_test.json').read_text())
++        changed=copy.deepcopy(original['config']['identity']);changed['inference_release']['deployment']['release_id']='f'*64
++        with patch('blackbox.reanalysis.execution_identity',return_value=changed):
++            self.assertFalse(accepts_matrix(original))
++
++if __name__=='__main__':unittest.main()
+--- v0.2/test_release_controls.py
++++ v0.3/test_release_controls.py
+@@ -3,6 +3,7 @@
+ from pathlib import Path
+ import tempfile
+ import unittest
++from argparse import Namespace
+ from unittest.mock import patch
+ from blackbox.registry import ROOT
+ from blackbox.provenance import execution_identity
+@@ -31,6 +32,15 @@
+         result=gate.assess(None,None,container)
+         self.assertFalse(result['checks']['exact_container_release'])
+ 
++    def test_conservative_container_does_not_attest_learned_policy(self):
++        gate=module('release_gate')
++        container={'identity':execution_identity(mode='conservative'),'status':'completed',
++            'image_id':'sha256:'+'1'*64,'image_size_bytes':100,
++            'constraints':{'network':'none','cpus':2,'memory_bytes':1024**3,'pids':64,'read_only':True,'tmpfs_bytes':64*1024**2},
++            'episodes':[{'seed':101,'variant':v,'valid':True} for v in gate.VARIANTS]}
++        self.assertTrue(gate.container_valid(container,'conservative'))
++        self.assertFalse(gate.container_valid(container,'learned'))
++
+     def test_partial_validation_matrix_cannot_pass(self):
+         gate=module('release_gate')
+         data={'complete':True,'config':{'identity':execution_identity()},'seeds':[2101],
+@@ -57,4 +67,30 @@
+             self.assertFalse(result);self.assertEqual(calls,[['first']])
+             self.assertEqual(record['phases'][0]['status'],'timed_out')
+ 
++    def test_budget_protects_downstream_reservations(self):
++        budget=module('run_budget');allowances=[]
++        def runner(command,seconds,log,environment):
++            allowances.append(seconds);return 0
++        with tempfile.TemporaryDirectory() as d,patch.object(budget,'ROOT',Path(d)):
++            (Path(d)/'results').mkdir()
++            result=budget.execute_phases([('training',['train'],9000,True),('container',['docker'],2400,True)],
++                4000,{'phases':[]},{},runner=runner,clock=lambda:100,reservations={'container':1200})
++            self.assertTrue(result);self.assertEqual(allowances,[2640,2400])
++
++    def test_failed_workflow_still_finalizes_and_marks_skipped_docker_current(self):
++        budget=module('run_budget');calls=[]
++        def execute(phases,deadline,record,environment,**kwargs):
++            calls.append([p[0] for p in phases]);return len(calls)>1
++        with tempfile.TemporaryDirectory() as d,patch.object(budget,'ROOT',Path(d)),\
++                patch.object(budget,'execute_phases',side_effect=execute),\
++                patch.object(budget,'cleanup_docker'),\
++                patch('blackbox.provenance.execution_identity',side_effect=lambda mode=None:{'current':True,'mode':mode}):
++            code=budget.run_workflow(Namespace(minutes=120,bootstrap=False,skip_training=False,skip_docker=True))
++            import json
++            self.assertEqual(code,2)
++            self.assertEqual(calls[1],['release_gate','report'])
++            evidence=json.loads((Path(d)/'results/container_learned.json').read_text())
++            self.assertEqual(evidence['identity'],{'current':True,'mode':'learned'})
++            self.assertFalse(evidence['validated'])
++
+ if __name__=='__main__':unittest.main()
+--- v0.2/test_training.py
++++ v0.3/test_training.py
+@@ -0,0 +1,21 @@
++import unittest
++from train import select_fit
++
++
++class TrainingSelectionTests(unittest.TestCase):
++    def test_cross_validation_excludes_entire_seed_and_keeps_feature_schema(self):
++        rows=[{'seed':seed,'x':[float(i%2)],'label':int(i%3==0)} for seed in (1101,1102,1103) for i in range(12)]
++        head,selection=select_fit(rows,['observed'])
++        self.assertEqual(head['n'],36)
++        self.assertEqual(head['feature_names'],['observed'])
++        self.assertIn(head['l2'],(1,10,100))
++        for candidate in selection['candidates']:
++            for fold in candidate['folds']:
++                self.assertNotIn(fold['held_out_seed'],fold['training_seeds'])
++                self.assertEqual(fold['score']['n'],12)
++        self.assertEqual(head['l2'],min(selection['candidates'],key=lambda c:(c['mean_seed_log_loss'],-c['l2']))['l2'])
++
++    def test_insufficient_independent_training_seeds_rejected(self):
++        with self.assertRaises(ValueError):select_fit([{'seed':1101,'x':[0],'label':0}],['x'])
++
++if __name__=='__main__':unittest.main()
+--- v0.2/train.py
++++ v0.3/train.py
+@@ -16,19 +16,48 @@
+ from blackbox.provenance import source_hash
+ ROOT=Path(__file__).resolve().parent
+ 
+-def fit(rows,names):
++def fit(rows,names,l2=10):
+     if not rows or len({r['label'] for r in rows})<2:raise ValueError('need both label classes')
+     x=np.array([r['x'] for r in rows]);y=np.array([r['label'] for r in rows],dtype=float)
+     # Sum loss + L2, no class reweighting that distorts the rare-event base rate.
+     def objective(theta):
+-        z=theta[0]+x@theta[1:];loss=np.logaddexp(0,z).sum()-y@z+5*np.dot(theta[1:],theta[1:])
+-        p=1/(1+np.exp(-np.clip(z,-40,40)));g=np.r_[(p-y).sum(),x.T@(p-y)+10*theta[1:]]
++        z=theta[0]+x@theta[1:];loss=np.logaddexp(0,z).sum()-y@z+(l2/2)*np.dot(theta[1:],theta[1:])
++        p=1/(1+np.exp(-np.clip(z,-40,40)));g=np.r_[(p-y).sum(),x.T@(p-y)+l2*theta[1:]]
+         return loss,g
+     init=np.zeros(x.shape[1]+1);init[0]=math.log((y.sum()+.5)/(len(y)-y.sum()+.5))
+     result=minimize(objective,init,jac=True,method='L-BFGS-B',options={'maxiter':400,'ftol':1e-10})
+     if not result.success:raise RuntimeError(result.message)
+     return {'feature_names':names,'intercept':float(result.x[0]),'weights':result.x[1:].tolist(),
+-        'n':len(rows),'positives':int(y.sum()),'training_prevalence':float(y.mean()),'optimizer_converged':True}
++        'n':len(rows),'positives':int(y.sum()),'training_prevalence':float(y.mean()),'l2':l2,'optimizer_converged':True}
++
++
++def select_fit(rows,names):
++    """Leave one whole training seed out; no validation/final outcomes enter selection."""
++    from blackbox.metrics import calibration
++    from blackbox.model import sigmoid
++    seeds=sorted({r['seed'] for r in rows})
++    if len(seeds)<3:raise ValueError('At least three training seed blocks required for regularization selection')
++    candidates=[]
++    for l2 in (1,10,100):
++        folds=[]
++        for seed in seeds:
++            training=[r for r in rows if r['seed']!=seed]
++            held=[r for r in rows if r['seed']==seed]
++            head=fit(training,names,l2)
++            predictions=[{'prediction':sigmoid(head['intercept']+sum(w*x for w,x in zip(head['weights'],r['x']))),'label':r['label']} for r in held]
++            score=calibration(predictions)
++            constant=calibration([{'prediction':head['training_prevalence'],'label':r['label']} for r in held])
++            folds.append({'held_out_seed':seed,'training_seeds':[s for s in seeds if s!=seed],
++                          'score':score,'constant_baseline':constant})
++        # Equal weight per independent seed block, not per selected introduction.
++        candidates.append({'l2':l2,'mean_seed_log_loss':sum(f['score']['log_loss'] for f in folds)/len(folds),'folds':folds})
++    best=min(candidates,key=lambda c:(c['mean_seed_log_loss'],-c['l2']))
++    head=fit(rows,names,best['l2'])
++    diagnostics={'selection':'leave-one-training-seed-out log loss; stronger regularization breaks exact ties',
++                 'selected_l2':best['l2'],'candidates':candidates,
++                 'feature_mean':dict(zip(names,np.mean([r['x'] for r in rows],axis=0).tolist())),
++                 'warning':'Selected introductions only. Predictive log loss is not evidence of policy MSMI superiority.'}
++    return head,diagnostics
+ 
+ 
+ def main():
+@@ -37,8 +66,8 @@
+     parser.add_argument('--activate-candidate', action='store_true', help='Select candidate assets for offline evaluation; default policy remains conservative')
+     args=parser.parse_args()
+     seeds=[int(s) for s in args.seeds.split(',')]
+-    if not seeds or len(set(seeds))!=len(seeds) or any(not 1101<=s<=1150 for s in seeds):
+-        parser.error('unique training seeds 1101-1150 required')
++    if len(seeds)<3 or len(set(seeds))!=len(seeds) or any(not 1101<=s<=1150 for s in seeds):
++        parser.error('at least three unique training seeds 1101-1150 required')
+     started=time.perf_counter()
+     rows=[];directions=[];donors=[];episodes=[];cache_ids=[]
+     for seed in seeds:
+@@ -55,13 +84,16 @@
+             rows.extend(record['joint']);directions.extend(record['direction']);donors.extend(record['donors'])
+             episodes.append(record['metrics'])
+             print(json.dumps({'seed':seed,'variant':variant,'rows':len(rows),'positives':sum(r['label'] for r in rows),'cache_id':cache_id}),flush=True)
+-    config={'seeds':seeds,'variants':list(VARIANTS),'l2':10,'feature_version':FEATURE_VERSION,
++    joint_head,joint_selection=select_fit(rows,NAMES)
++    direction_head,direction_selection=select_fit(directions,DIRECTION_NAMES)
++    config={'seeds':seeds,'variants':list(VARIANTS),'l2':{'joint':joint_head['l2'],'direction':direction_head['l2']},
++            'regularization_grid':[1,10,100],'selection_scope':'training seeds only','feature_version':FEATURE_VERSION,
+             'data_hash':digest(rows),'direction_hash':digest(directions),'inference_seed':17,
+             'selection':'odd-seed supplied greedy; even-seed supplied random','cache_ids':cache_ids}
+     packages={name:importlib.metadata.version(name) for name in ('numpy','scipy')}
+     lineage={'source_sha256':source_hash(),'python':platform.python_version(),'packages':packages,'platform':platform.platform(),'machine':platform.machine(),'training':config}
+     model={'schema_version':'1.0.0','feature_version':FEATURE_VERSION,'model_id':'logit-'+digest({'config':config,'lineage':lineage})[:16],
+-           'config':config,'joint':fit(rows,NAMES),'direction':fit(directions,DIRECTION_NAMES),
++           'config':config,'joint':joint_head,'direction':direction_head,
+            'status':'experimental_not_promoted','selection_warning':'Selected introductions; null propensities. No unbiased IPS claims.'}
+     unique={digest(d):d for d in donors}
+     answers={'donors':list(unique.values()),'training_seeds':seeds,
+@@ -77,6 +109,8 @@
+             'donor_count':len(unique),'release_id':release_id,'wall_seconds':time.perf_counter()-started,
+             'candidate_promoted':False}
+     atomic_json(ROOT/'results/training.json',result)
++    atomic_json(ROOT/'results/model_selection.json',{'release_id':release_id,'config':config,
++        'joint':joint_selection,'direction':direction_selection})
+     print(json.dumps({'model':model['model_id'],'release_id':release_id,'positives':model['joint']['positives']}))
+ 
+ if __name__=='__main__':main()
+--- v0.2/validate_container.py
++++ v0.3/validate_container.py
+@@ -8,6 +8,7 @@
+ import subprocess
+ import sys
+ import uuid
++import time
+ ROOT=Path(__file__).resolve().parent
+ sys.path.insert(0,str(ROOT))
+ from blackbox.provenance import execution_identity
+@@ -30,7 +31,7 @@
+ 
+ def main():
+     parser=argparse.ArgumentParser()
+-    parser.add_argument('--image',default='blackbox:v0.2')
++    parser.add_argument('--image',default='blackbox:v0.3')
+     parser.add_argument('--dockerfile',default='Dockerfile')
+     parser.add_argument('--mode',choices=MODES,default='conservative')
+     parser.add_argument('--output',default='results/container_attestation.json')
+@@ -41,7 +42,9 @@
+     run_id=os.environ.get('BLACKBOX_RUN_ID') or uuid.uuid4().hex
+     identity=execution_identity(mode=args.mode)
+     evidence={'schema_version':2,'identity':identity,'mode':args.mode,'seed':101,'variants':list(VARIANTS),
+-              'expected_episodes':6,'episodes':[],'validated':False,'status':'running'}
++              'expected_episodes':6,'episodes':[],'validated':False,'status':'running',
++              'proof_type':'local content hashes and image ID; no digital signature or external signer',
++              'timings_seconds':{}}
+     atomic_json(path,evidence)
+     if not shutil.which('docker'):
+         evidence.update(status='unverified',error='Docker unavailable on this host')
+@@ -49,7 +52,9 @@
+     try:
+         system=json.loads(subprocess.check_output(['docker','info','--format','{{json .}}'],text=True,timeout=15))
+         if system.get('OSType')!='linux':raise ValueError('Docker must use Linux containers (Docker Desktop WSL2 backend)')
++        started=time.perf_counter()
+         subprocess.run(['docker','build','-f',args.dockerfile,'--build-arg','POLICY_MODE='+args.mode,'-t',args.image,'.'],cwd=ROOT,check=True)
++        evidence['timings_seconds']['build']=time.perf_counter()-started
+         meta=json.loads(subprocess.check_output(['docker','image','inspect',args.image],text=True,timeout=15))[0]
+         if meta['Size']>2*1024**3:raise ValueError('image exceeds 2 GiB')
+         env=dict(item.split('=',1) for item in meta['Config'].get('Env',[]) if '=' in item)
+@@ -62,7 +67,9 @@
+             # Pin the immutable image ID. No source/data volumes are mounted.
+             command=official.docker_command(meta['Id'])
+             command=command[:-1]+['--label','blackbox.run='+run_id,command[-1]]
++            started=time.perf_counter()
+             row=official.episode(generate(101,200,'evaluation',variant),command)
++            evidence['timings_seconds'][variant]=time.perf_counter()-started
+             row.update(seed=101,variant=variant)
+             evidence['episodes'].append(row);atomic_json(path,evidence)
+             print(json.dumps({'variant':variant,'valid':row['valid'],'msmi':row['mutual_second_meeting_intention']}),flush=True)

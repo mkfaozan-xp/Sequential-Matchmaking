@@ -1,0 +1,11 @@
+**/__pycache__
+*.log
+results
+artifacts/training_cache
+starter/data
+public_snapshot
+upload
+.git
+.venv
+evidence
+**/*.owners

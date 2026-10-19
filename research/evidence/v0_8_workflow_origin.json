@@ -1,0 +1,7 @@
+{
+  "budget_seconds": 7200.0,
+  "deadline_unix": 1792230321.054787,
+  "scope": "New user-requested v0.8 build. Historical v0.6/v0.7 budgets are unchanged, not reset or reclassified.",
+  "source_sha256": "553194ea10ea4c9657544573842fb726fe64648786a552e3fc666cb932fe17e3",
+  "started_unix": 1792223121.054787
+}

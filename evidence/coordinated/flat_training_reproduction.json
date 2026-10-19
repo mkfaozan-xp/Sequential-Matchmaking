@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "source_model_sha256_identical_after_flat_data_refit": true,
+  "source_release_identical_after_flat_data_refit": true,
+  "training_rows": 21367,
+  "auxiliary_positives": 612,
+  "official_positives": 224,
+  "new_collection_episodes": 0,
+  "nested_zips_required": false,
+  "scope": "Verified flat training data and repeated fixed fit; this is reproducibility, not additional efficacy evidence."
+}

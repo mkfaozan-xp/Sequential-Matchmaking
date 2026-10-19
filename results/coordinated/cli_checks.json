@@ -1,0 +1,78 @@
+{
+  "actual_docker": false,
+  "actual_windows": false,
+  "cases": [
+    {
+      "case": "missing_contract",
+      "correctly_rejected": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "nonfinite",
+      "correctly_rejected": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "oversized",
+      "correctly_rejected": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "hidden_state_key",
+      "correctly_rejected": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "future_feedback",
+      "correctly_rejected": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "zero_budget",
+      "passed": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "declined_hard_field",
+      "passed": true,
+      "program": "policy.py"
+    },
+    {
+      "case": "missing_contract",
+      "correctly_rejected": true,
+      "program": "tools/run_coordinated_compiled.py"
+    },
+    {
+      "case": "nonfinite",
+      "correctly_rejected": true,
+      "program": "tools/run_coordinated_compiled.py"
+    },
+    {
+      "case": "oversized",
+      "correctly_rejected": true,
+      "program": "tools/run_coordinated_compiled.py"
+    },
+    {
+      "case": "hidden_state_key",
+      "correctly_rejected": true,
+      "program": "tools/run_coordinated_compiled.py"
+    },
+    {
+      "case": "future_feedback",
+      "correctly_rejected": true,
+      "program": "tools/run_coordinated_compiled.py"
+    },
+    {
+      "case": "zero_budget",
+      "passed": true,
+      "program": "tools/run_coordinated_compiled.py"
+    },
+    {
+      "case": "declined_hard_field",
+      "passed": true,
+      "program": "tools/run_coordinated_compiled.py"
+    }
+  ],
+  "checks": 14,
+  "passed": true
+}

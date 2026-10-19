@@ -1,0 +1,9 @@
+........................................{"name": "training", "command": ["train"], "status": "completed", "allocated_seconds": 2640, "downstream_reserved_seconds": 1200, "exit_code": 0, "seconds": 0}
+{"name": "container", "command": ["docker"], "status": "completed", "allocated_seconds": 2400, "downstream_reserved_seconds": 0, "exit_code": 0, "seconds": 0}
+.{"name": "first", "command": ["first"], "status": "timed_out", "allocated_seconds": 10, "downstream_reserved_seconds": 0, "error": "test deadline", "seconds": 0}
+.......................................................
+----------------------------------------------------------------------
+Ran 96 tests in 2.923s
+
+OK
+{"passed": true, "tests_run": 96, "failures": 0, "errors": 0, "flat_fixture_adaptations": 1, "skipped": 0}

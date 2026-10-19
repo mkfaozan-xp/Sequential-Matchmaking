@@ -1,0 +1,27 @@
+{
+  "executable_source_and_active_release_unchanged": true,
+  "historical_collection_episodes": 288,
+  "historical_observed_rows": 21367,
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "new_training": false,
+  "original_matrices_still_bound_and_valid": {
+    "final_test": true,
+    "selection_pilot": true,
+    "subprocess": true,
+    "validation": true
+  },
+  "regression_passed": true,
+  "regression_tests": 118,
+  "review_audit_runs_and_output_identical": true,
+  "training_dataset_integrity_passed": true
+}

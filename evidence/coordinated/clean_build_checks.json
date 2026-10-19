@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "research_project": 96,
+  "organizer_starter": 22,
+  "planning": 13,
+  "current_cli": 14,
+  "skipped": 0,
+  "research_fixture_adapter": "tools/check_research.py reads the unchanged-label AST fixture as a flat file; no assertion is skipped.",
+  "source_model_release_refit_identical": true,
+  "nested_zip_files": 0,
+  "windows": "unverified",
+  "docker": "unverified"
+}

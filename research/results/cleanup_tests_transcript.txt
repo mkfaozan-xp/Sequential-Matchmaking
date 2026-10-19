@@ -1,0 +1,131 @@
+test_hard_killed_episode_reclaimed_before_lease_expiry (test_crash_recovery.CrashRecoveryTests.test_hard_killed_episode_reclaimed_before_lease_expiry) ... ok
+test_legacy_attempt_keeps_lease_fallback (test_crash_recovery.CrashRecoveryTests.test_legacy_attempt_keeps_lease_fallback) ... ok
+test_supervisor_lock_released_on_hard_kill (test_crash_recovery.CrashRecoveryTests.test_supervisor_lock_released_on_hard_kill) ... ok
+test_version_two_ledger_migration_preserves_attempts (test_crash_recovery.CrashRecoveryTests.test_version_two_ledger_migration_preserves_attempts) ... ok
+test_backup_restores_audit_and_completed_result (test_mlops.MLOpsTests.test_backup_restores_audit_and_completed_result) ... ok
+test_cache_identity_tracks_feature_and_generator_changes (test_mlops.MLOpsTests.test_cache_identity_tracks_feature_and_generator_changes) ... ok
+test_corrupt_cache_payload_rejected (test_mlops.MLOpsTests.test_corrupt_cache_payload_rejected) ... ok
+test_duplicate_worker_cannot_claim_live_run (test_mlops.MLOpsTests.test_duplicate_worker_cannot_claim_live_run) ... ok
+test_expired_owner_cannot_commit_reclaimed_run (test_mlops.MLOpsTests.test_expired_owner_cannot_commit_reclaimed_run) ... ok
+test_failure_retained_after_retry (test_mlops.MLOpsTests.test_failure_retained_after_retry) ... ok
+test_feature_code_change_prevents_serving_old_bundle (test_mlops.MLOpsTests.test_feature_code_change_prevents_serving_old_bundle) ... ok
+test_hard_field_type_and_category_rejection (test_mlops.MLOpsTests.test_hard_field_type_and_category_rejection) ... ok
+test_heartbeat_prevents_early_reclaim (test_mlops.MLOpsTests.test_heartbeat_prevents_early_reclaim) ... ok
+test_inverted_age_bounds_and_negative_observation_rejected (test_mlops.MLOpsTests.test_inverted_age_bounds_and_negative_observation_rejected) ... ok
+test_nonfinite_memory_and_boolean_arrival_rejected (test_mlops.MLOpsTests.test_nonfinite_memory_and_boolean_arrival_rejected) ... ok
+test_published_release_is_readable_by_container_user (test_mlops.MLOpsTests.test_published_release_is_readable_by_container_user) ... ok
+test_release_is_content_identified_and_existing_version_unchanged (test_mlops.MLOpsTests.test_release_is_content_identified_and_existing_version_unchanged) ... ok
+test_sampler_tamper_invalidates_entire_release (test_mlops.MLOpsTests.test_sampler_tamper_invalidates_entire_release) ... ok
+test_select_and_rollback_recover_exact_identity (test_mlops.MLOpsTests.test_select_and_rollback_recover_exact_identity) ... ok
+test_workflow_lock_is_exclusive_and_releases_on_close (test_mlops.MLOpsTests.test_workflow_lock_is_exclusive_and_releases_on_close) ... ok
+test_different_candidate_cannot_reuse_frozen_results (test_numeric_interval.NumericIntervalTests.test_different_candidate_cannot_reuse_frozen_results) ... ok
+test_frozen_exact_zero_is_not_tiny_positive (test_numeric_interval.NumericIntervalTests.test_frozen_exact_zero_is_not_tiny_positive) ... ok
+test_new_research_source_cannot_reuse_prior_frozen_results (test_numeric_interval.NumericIntervalTests.test_new_research_source_cannot_reuse_prior_frozen_results) ... ok
+test_baseline_match_parity (test_policy.PolicyTests.test_baseline_match_parity) ... ok
+test_declined_not_asked (test_policy.PolicyTests.test_declined_not_asked) ... ok
+test_eligibility_parity (test_policy.PolicyTests.test_eligibility_parity) ... ok
+test_empty_all_modes (test_policy.PolicyTests.test_empty_all_modes) ... ok
+test_failure_precedes_missing (test_policy.PolicyTests.test_failure_precedes_missing) ... ok
+test_feature_symmetry_and_no_id_features (test_policy.PolicyTests.test_feature_symmetry_and_no_id_features) ... ok
+test_future_or_hidden_observation_rejected (test_policy.PolicyTests.test_future_or_hidden_observation_rejected) ... ok
+test_global_path_counterexample (test_policy.PolicyTests.test_global_path_counterexample) ... ok
+test_ledger_resume_and_interrupted_run (test_policy.PolicyTests.test_ledger_resume_and_interrupted_run) ... ok
+test_maturity_and_event_window (test_policy.PolicyTests.test_maturity_and_event_window) ... ok
+test_missing_cannot_be_overridden (test_policy.PolicyTests.test_missing_cannot_be_overridden) ... ok
+test_model_integrity (test_policy.PolicyTests.test_model_integrity) ... ok
+test_no_repeat_overlap_or_stale_availability (test_policy.PolicyTests.test_no_repeat_overlap_or_stale_availability) ... ok
+test_paired_questions_are_chosen_before_answers (test_policy.PolicyTests.test_paired_questions_are_chosen_before_answers) ... ok
+test_solver_timeout_returns_prebuilt_legal_fallback (test_policy.PolicyTests.test_solver_timeout_returns_prebuilt_legal_fallback) ... ok
+test_stdout_single_json_restart_and_nan_rejection (test_policy.PolicyTests.test_stdout_single_json_restart_and_nan_rejection) ... ok
+test_waiting_cap_for_reavailable_members (test_policy.PolicyTests.test_waiting_cap_for_reavailable_members) ... ok
+test_budget_protects_downstream_reservations (test_release_controls.ReleaseControlTests.test_budget_protects_downstream_reservations) ... {"name": "training", "command": ["train"], "status": "completed", "allocated_seconds": 2640, "downstream_reserved_seconds": 1200, "exit_code": 0, "seconds": 0}
+{"name": "container", "command": ["docker"], "status": "completed", "allocated_seconds": 2400, "downstream_reserved_seconds": 0, "exit_code": 0, "seconds": 0}
+ok
+test_budget_timeout_prevents_later_phase (test_release_controls.ReleaseControlTests.test_budget_timeout_prevents_later_phase) ... {"name": "first", "command": ["first"], "status": "timed_out", "allocated_seconds": 10, "downstream_reserved_seconds": 0, "error": "test deadline", "seconds": 0}
+ok
+test_conservative_container_does_not_attest_learned_policy (test_release_controls.ReleaseControlTests.test_conservative_container_does_not_attest_learned_policy) ... ok
+test_failed_workflow_still_finalizes_and_marks_skipped_docker_current (test_release_controls.ReleaseControlTests.test_failed_workflow_still_finalizes_and_marks_skipped_docker_current) ... ok
+test_identity_includes_exact_model_and_sampler_manifest (test_release_controls.ReleaseControlTests.test_identity_includes_exact_model_and_sampler_manifest) ... ok
+test_old_source_or_asset_attestation_is_rejected (test_release_controls.ReleaseControlTests.test_old_source_or_asset_attestation_is_rejected) ... ok
+test_partial_validation_matrix_cannot_pass (test_release_controls.ReleaseControlTests.test_partial_validation_matrix_cannot_pass) ... ok
+test_report_never_claims_pass_without_test_execution (test_release_controls.ReleaseControlTests.test_report_never_claims_pass_without_test_execution) ... ok
+test_unbound_pass_flags_cannot_pass_gate (test_release_controls.ReleaseControlTests.test_unbound_pass_flags_cannot_pass_gate) ... ok
+test_calibration_is_pooled_by_bin_before_ece (test_research.ResearchTests.test_calibration_is_pooled_by_bin_before_ece) ... ok
+test_factorial_changes_only_asking_and_matching (test_research.ResearchTests.test_factorial_changes_only_asking_and_matching) ... ok
+test_fully_spent_hard_budget_leaves_zero_soft_asks (test_research.ResearchTests.test_fully_spent_hard_budget_leaves_zero_soft_asks) ... ok
+test_pair_and_single_search_have_equal_completed_hypothetical_work (test_research.ResearchTests.test_pair_and_single_search_have_equal_completed_hypothetical_work) ... ok
+test_soft_fill_keeps_hard_priority_and_never_reads_new_answers (test_research.ResearchTests.test_soft_fill_keeps_hard_priority_and_never_reads_new_answers) ... ok
+test_soft_fill_respects_refusals_and_deduplicates_pair_endpoints (test_research.ResearchTests.test_soft_fill_respects_refusals_and_deduplicates_pair_endpoints) ... ok
+test_cross_validation_excludes_entire_seed_and_keeps_feature_schema (test_training.TrainingSelectionTests.test_cross_validation_excludes_entire_seed_and_keeps_feature_schema) ... ok
+test_insufficient_independent_training_seeds_rejected (test_training.TrainingSelectionTests.test_insufficient_independent_training_seeds_rejected) ... ok
+test_base_digest_is_resolved_and_matched (test_v05_controls.RevisionControls.test_base_digest_is_resolved_and_matched) ... ok
+test_hybrid_model_cannot_invert_observed_heuristic_order (test_v05_controls.RevisionControls.test_hybrid_model_cannot_invert_observed_heuristic_order) ... ok
+test_newer_runtime_is_recorded_instead_of_silently_certified (test_v05_controls.RevisionControls.test_newer_runtime_is_recorded_instead_of_silently_certified) ... ok
+test_nonlinear_json_export_and_basis_integrity (test_v05_controls.RevisionControls.test_nonlinear_json_export_and_basis_integrity) ... ok
+test_nonlinear_lift_is_symmetric_bounded_and_keeps_base_features (test_v05_controls.RevisionControls.test_nonlinear_lift_is_symmetric_bounded_and_keeps_base_features) ... ok
+test_spent_final_seeds_cannot_be_rebound (test_v05_controls.RevisionControls.test_spent_final_seeds_cannot_be_rebound) ... ok
+test_tie_aware_ranking_and_constant_comparator (test_v05_controls.RevisionControls.test_tie_aware_ranking_and_constant_comparator) ... ok
+test_uniform_draw_logging_is_conditional_and_disjoint (test_v05_controls.RevisionControls.test_uniform_draw_logging_is_conditional_and_disjoint) ... ok
+test_exported_nohistory_head_ignores_second_history_at_inference (test_v06_outcomes.OutcomeTests.test_exported_nohistory_head_ignores_second_history_at_inference) ... ok
+test_future_second_feedback_cannot_change_decision_features (test_v06_outcomes.OutcomeTests.test_future_second_feedback_cannot_change_decision_features) ... ok
+test_late_yes_is_auxiliary_positive_but_official_failure (test_v06_outcomes.OutcomeTests.test_late_yes_is_auxiliary_positive_but_official_failure) ... ok
+test_non_ml_goal_control_cannot_be_selected_as_ml_candidate (test_v06_outcomes.OutcomeTests.test_non_ml_goal_control_cannot_be_selected_as_ml_candidate) ... ok
+test_nonfinite_auxiliary_head_and_invalid_factor_fail_loading (test_v06_outcomes.OutcomeTests.test_nonfinite_auxiliary_head_and_invalid_factor_fail_loading) ... ok
+test_null_second_response_is_not_a_negative_preference (test_v06_outcomes.OutcomeTests.test_null_second_response_is_not_a_negative_preference) ... ok
+test_observed_late_positive_updates_history_once (test_v06_outcomes.OutcomeTests.test_observed_late_positive_updates_history_once) ... ok
+test_official_label_function_is_unchanged_from_v05 (test_v06_outcomes.OutcomeTests.test_official_label_function_is_unchanged_from_v05) ... ok
+test_profile_hash_binds_new_history_implementation (test_v06_outcomes.OutcomeTests.test_profile_hash_binds_new_history_implementation) ... ok
+test_relative_loss_stop_without_kkt_restarts_before_export (test_v06_outcomes.OutcomeTests.test_relative_loss_stop_without_kkt_restarts_before_export) ... ok
+test_scheduled_hold_proxy_keeps_censoring_and_range (test_v06_outcomes.OutcomeTests.test_scheduled_hold_proxy_keeps_censoring_and_range) ... ok
+test_sparse_fit_recovers_signal_and_zeros_independent_noise (test_v06_outcomes.OutcomeTests.test_sparse_fit_recovers_signal_and_zeros_independent_noise) ... ok
+test_constant_ranker_skips_feature_work_without_changing_score (test_v07_ranking.RankingTests.test_constant_ranker_skips_feature_work_without_changing_score) ... ok
+test_contrasts_preserve_world_time_and_mirror (test_v07_ranking.RankingTests.test_contrasts_preserve_world_time_and_mirror) ... ok
+test_old_vectors_and_unmatured_labels_rejected (test_v07_ranking.RankingTests.test_old_vectors_and_unmatured_labels_rejected) ... ok
+test_projection_ignores_distractor_and_category_changes (test_v07_ranking.RankingTests.test_projection_ignores_distractor_and_category_changes) ... ok
+test_rank_asset_rejects_nonfinite_or_wrong_projection (test_v07_ranking.RankingTests.test_rank_asset_rejects_nonfinite_or_wrong_projection) ... ok
+test_rank_fit_recovers_relative_signal_without_probability_claim (test_v07_ranking.RankingTests.test_rank_fit_recovers_relative_signal_without_probability_claim) ... ok
+test_ranking_selection_rejects_partial_or_wrong_pilot (test_v07_ranking.RankingTests.test_ranking_selection_rejects_partial_or_wrong_pilot) ... ok
+test_snapshot_matches_uncached_actions_and_skips_repeated_disk_reads (test_v07_ranking.SnapshotTests.test_snapshot_matches_uncached_actions_and_skips_repeated_disk_reads) ... ok
+test_snapshot_rejects_wrong_subject_and_nested_scope (test_v07_ranking.SnapshotTests.test_snapshot_rejects_wrong_subject_and_nested_scope) ... ok
+test_cached_result_cannot_be_mutated_by_caller (test_v08_review.CompatibilityCacheTests.test_cached_result_cannot_be_mutated_by_caller) ... ok
+test_cold_path_is_original_function (test_v08_review.CompatibilityCacheTests.test_cold_path_is_original_function) ... ok
+test_reversed_pair_preserves_ordered_missing_ids_and_bound (test_v08_review.CompatibilityCacheTests.test_reversed_pair_preserves_ordered_missing_ids_and_bound) ... ok
+test_updated_constraints_and_public_member_values_invalidate (test_v08_review.CompatibilityCacheTests.test_updated_constraints_and_public_member_values_invalidate) ... ok
+test_each_projected_asset_validates_its_actual_schema (test_v08_review.ReviewResponseTests.test_each_projected_asset_validates_its_actual_schema) ... ok
+test_history_translation_cancels_and_half_rate_is_not_no_date (test_v08_review.ReviewResponseTests.test_history_translation_cancels_and_half_rate_is_not_no_date) ... ok
+test_legacy_control_can_compare_cross_score_without_changing_default (test_v08_review.ReviewResponseTests.test_legacy_control_can_compare_cross_score_without_changing_default) ... ok
+test_matching_uses_actual_seven_fields_and_retains_mirrors (test_v08_review.ReviewResponseTests.test_matching_uses_actual_seven_fields_and_retains_mirrors) ... ok
+test_reference_dimensions_and_nohistory_isolation (test_v08_review.ReviewResponseTests.test_reference_dimensions_and_nohistory_isolation) ... ok
+test_reference_reparameterization_preserves_missing_preference (test_v08_review.ReviewResponseTests.test_reference_reparameterization_preserves_missing_preference) ... ok
+
+----------------------------------------------------------------------
+Ran 96 tests in 3.437s
+
+OK
+test_ask_budget_atomic (test_kit.ContractTests.test_ask_budget_atomic) ... ok
+test_declined_stays_declined (test_kit.ContractTests.test_declined_stays_declined) ... ok
+test_invalid_match_atomic (test_kit.ContractTests.test_invalid_match_atomic) ... ok
+test_no_future_members (test_kit.ContractTests.test_no_future_members) ... ok
+test_no_latent_leak (test_kit.ContractTests.test_no_latent_leak) ... ok
+test_observation_is_copy (test_kit.ContractTests.test_observation_is_copy) ... ok
+test_order_independent_world_randomness (test_kit.ContractTests.test_order_independent_world_randomness) ... ok
+test_outcome_funnel (test_kit.ContractTests.test_outcome_funnel) ... ok
+test_reproducible (test_kit.ContractTests.test_reproducible) ... ok
+test_symmetric_feasibility (test_kit.ContractTests.test_symmetric_feasibility) ... ok
+test_temporal_integrity (test_kit.ContractTests.test_temporal_integrity) ... ok
+test_unknown_not_pass (test_kit.ContractTests.test_unknown_not_pass) ... ok
+test_empty_population_returns_zero_metrics (test_release.ReleaseTests.test_empty_population_returns_zero_metrics) ... ok
+test_episode_denominator_and_distinct_coverage (test_release.ReleaseTests.test_episode_denominator_and_distinct_coverage) ... ok
+test_one_successful_pair_is_one_outcome (test_release.ReleaseTests.test_one_successful_pair_is_one_outcome) ... ok
+test_container_has_no_host_mount (test_runner.RunnerTests.test_container_has_no_host_mount) ... ok
+test_empty_request_through_real_process (test_runner.RunnerTests.test_empty_request_through_real_process) ... ok
+test_equal_scenario_weights (test_runner.RunnerTests.test_equal_scenario_weights) ... ok
+test_malformed_output_rejected (test_runner.RunnerTests.test_malformed_output_rejected) ... ok
+test_nan_rejected (test_runner.RunnerTests.test_nan_rejected) ... ok
+test_observed_policy_never_receives_world_fields (test_runner.RunnerTests.test_observed_policy_never_receives_world_fields) ... ok
+test_timeout_rejected (test_runner.RunnerTests.test_timeout_rejected) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 1.345s
+
+OK

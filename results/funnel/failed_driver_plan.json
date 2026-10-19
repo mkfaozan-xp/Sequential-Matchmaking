@@ -1,0 +1,25 @@
+{
+  "candidate_refit": false,
+  "episodes": 24,
+  "families": [
+    "development",
+    "sparse",
+    "cold_start",
+    "delayed",
+    "shift",
+    "drift"
+  ],
+  "methods": [
+    "conservative",
+    "funnel"
+  ],
+  "original_subject_sha256": "22eb16211071cc8a9d0f8bf3275a84501202e90cfef174c907ef37e137311660",
+  "promotion": false,
+  "registered_before_outcomes": true,
+  "registered_utc": "2026-10-17T17:40:48.321165+00:00",
+  "release_sha256": "3ed0ae9975b8cb8070f688fd90a9b9a73d864d174483a7dccbba3d7a26d90898",
+  "seeds": [
+    6201,
+    6202
+  ]
+}

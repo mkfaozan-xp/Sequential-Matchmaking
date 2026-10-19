@@ -1,0 +1,33 @@
+{
+  "candidate_promoted": false,
+  "ci_executed": false,
+  "ci_prepared": true,
+  "complete_comparison_episodes": 708,
+  "confirmation_all_valid": true,
+  "confirmation_complete": true,
+  "confirmation_episodes": 480,
+  "confirmation_official_msmi": {
+    "conservative": 170,
+    "coordinated": 172
+  },
+  "constrained_docker": "unverified",
+  "frozen_at_utc": "2026-10-17T17:53:58.436858+00:00",
+  "github_blocker": "Project repository URL and connector access not yet available.",
+  "github_pushed": false,
+  "native_windows": "unverified",
+  "nested_zip_files": 0,
+  "remaining_external_work": [
+    "Actual native Windows and constrained Docker execution.",
+    "Publish and pin exact immutable submission bytes."
+  ],
+  "review_audit_verified": true,
+  "schema_version": 1,
+  "scope": "Complete experiment evidence; no statistically reliable candidate superiority or learning-specific advantage claimed.",
+  "source_and_assets_sha256": "22eb16211071cc8a9d0f8bf3275a84501202e90cfef174c907ef37e137311660",
+  "staged_model_decision": "rejected_for_deployment",
+  "staged_model_promoted": false,
+  "staged_pilot_complete": true,
+  "staged_pilot_valid_episodes": 24,
+  "submitted_mode": "conservative",
+  "target_450_of_480": "not_established"
+}

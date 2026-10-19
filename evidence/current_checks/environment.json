@@ -1,0 +1,11 @@
+{
+  "actual_constrained_docker_execution": false,
+  "actual_windows_execution": false,
+  "docker_cli": null,
+  "docker_socket_exists": false,
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "powershell": null,
+  "pwsh": null,
+  "python": "3.12.14",
+  "wsl": null
+}

@@ -1,0 +1,67 @@
+{
+  "cohorts": {
+    "auxiliary_label": {
+      "legacy_cross_score": 1904,
+      "legacy_forward_contrasts": 3005,
+      "matched_forward_contrasts": 2193,
+      "matched_positives": 549,
+      "raw_positives": 612
+    },
+    "label": {
+      "legacy_cross_score": 675,
+      "legacy_forward_contrasts": 1109,
+      "matched_forward_contrasts": 836,
+      "matched_positives": 207,
+      "raw_positives": 224
+    }
+  },
+  "corrections": [
+    "Reference coding yields32 dimensions, not28.",
+    "Dropping a dummy does not enforce agreement >= missing.",
+    "Constant translation cancels in contrasts.",
+    "History rate0.5 does not imply no past date.",
+    "Retirement/selected cohorts do not prove the cause of the pilot loss.",
+    "Official late failures remain official failures; auxiliary target is separate."
+  ],
+  "goal_observed_auxiliary_cohorts": {
+    "agree": {
+      "auxiliary_yes": 186,
+      "rows": 4852
+    },
+    "disagree": {
+      "auxiliary_yes": 75,
+      "rows": 4905
+    },
+    "missing": {
+      "auxiliary_yes": 351,
+      "rows": 11610
+    }
+  },
+  "goal_original_weights": {
+    "agree": 0.22123972453773358,
+    "disagree": -0.6117973913285518,
+    "missing": 0.39054885517053
+  },
+  "goal_reference_weights": {
+    "agree": -0.16930913063279643,
+    "disagree": -1.0023462464990818
+  },
+  "historical_source": "exact v0.7 archive; no new game-performance claim",
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "legacy_control_coefficients_identical": true,
+  "observed_rows": 21367,
+  "original_v07_allocation_seconds": 1390,
+  "packaging_amendment_coefficients_unchanged": true,
+  "reference_equivalence_max_logit_error": 2.220446049250313e-16,
+  "reference_feature_dimensions": 32
+}

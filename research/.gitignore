@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.log
+*.sqlite*
+.venv/
+public_snapshot/
+artifacts/training_cache/

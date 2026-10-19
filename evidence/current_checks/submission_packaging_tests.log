@@ -1,0 +1,11 @@
+test_changed_research_source_even_after_outer_rehash (__main__.SubmissionPackagingTests.test_changed_research_source_even_after_outer_rehash) ... ok
+test_clean_inventory (__main__.SubmissionPackagingTests.test_clean_inventory) ... ok
+test_incomplete_ablation_even_after_outer_rehash (__main__.SubmissionPackagingTests.test_incomplete_ablation_even_after_outer_rehash) ... ok
+test_incomplete_baseline_matrix_even_after_outer_rehash (__main__.SubmissionPackagingTests.test_incomplete_baseline_matrix_even_after_outer_rehash) ... ok
+test_mode_mismatch_even_after_outer_rehash (__main__.SubmissionPackagingTests.test_mode_mismatch_even_after_outer_rehash) ... ok
+test_unexpected_file (__main__.SubmissionPackagingTests.test_unexpected_file) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.076s
+
+OK

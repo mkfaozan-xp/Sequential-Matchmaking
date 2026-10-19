@@ -1,0 +1,2 @@
+# The conservative and learned-greedy inference paths use only Python standard library.
+# For fitting or the optional MILP solver: pip install -r requirements-train.txt

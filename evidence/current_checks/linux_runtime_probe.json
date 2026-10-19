@@ -1,0 +1,50 @@
+{
+  "constrained_docker_passed": false,
+  "constraints": {
+    "cap_drop": "ALL",
+    "cpus": 2,
+    "memory": "1g",
+    "memory_swap": "1g",
+    "network": "none",
+    "no_new_privileges": true,
+    "pids": 64,
+    "policy_timeout_seconds": 10,
+    "read_only": true,
+    "tmpfs": "64m",
+    "user": "65534:65534"
+  },
+  "elapsed_seconds": 1.0040562429999227,
+  "episodes": [],
+  "error": "ValueError: Docker CLI unavailable; start Docker Desktop with Linux containers",
+  "native_cli_passed": true,
+  "native_smoke": {
+    "actual_container_verification": false,
+    "default_mode": "conservative",
+    "files_verified": 36,
+    "passed": true,
+    "reference_python_family": true,
+    "rejected_invalid_inputs": 3,
+    "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+    "smoke_cases": 6
+  },
+  "native_windows": false,
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "proof_type": "Actual local execution, content hashes and immutable image ID; no external signature.",
+  "python": "3.12.14",
+  "root_dockerfile_sha256": "aeba7d51fcc90391901bf8337a51b39e14eed8cdbf842bbe7d3e0287b5b45838",
+  "run_id": "ebccee4a825c48f79c9beb4212dd862b",
+  "schema_version": 1,
+  "started_utc": "2026-10-17T14:23:15.884063+00:00",
+  "status": "unverified",
+  "subject": {
+    "files_verified": 654,
+    "manifest_sha256": "82ad8cf31e0c13dc983e9e1b7738685c7e1e4af19c9826940ef4d29176fad083",
+    "note": "Frozen contents verified; actual Windows/container evidence is separate and not implied.",
+    "passed": true,
+    "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+    "runtime_checks_closed": false,
+    "submitted_mode": "conservative"
+  },
+  "submitted_mode": "conservative",
+  "validated": false
+}

@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "independent_builds": 2,
+  "compiled_python_files": 134,
+  "manifest_and_bytecode_files_compared": 135,
+  "all_bytes_identical": true,
+  "reference_python": "3.12.14",
+  "scope": "Same reference environment and unchanged sources; no cross-toolchain guarantee."
+}

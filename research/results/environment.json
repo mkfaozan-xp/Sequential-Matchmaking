@@ -1,0 +1,89 @@
+{
+  "distributions": [
+    {
+      "expected_version": "2.3.5",
+      "license_expression": null,
+      "license_files": [
+        {
+          "path": "numpy-2.3.5.dist-info/LICENSE.txt",
+          "sha256": "2046a3130e50b11c01659b3a0d963e6ae0b7436ff8e89cbcfd9e87bc6112d595"
+        },
+        {
+          "path": "numpy/_core/include/numpy/random/LICENSE.txt",
+          "sha256": "fbc539f47d0cf83bc61378080fb873d5c14630126cacbfe754035c3926daa5ec"
+        },
+        {
+          "path": "numpy/ma/LICENSE",
+          "sha256": "05f3b88351988ecfad10abe92c0c50e5875c6452d5009a0084cc291551ffcca6"
+        },
+        {
+          "path": "numpy/random/LICENSE.md",
+          "sha256": "103166b62b80443afb9eb3488e052ea06be0cff566b908f199e561fde49af19f"
+        }
+      ],
+      "license_summary": [
+        "Copyright (c) 2005-2025, NumPy Developers."
+      ],
+      "mismatches": [],
+      "name": "numpy",
+      "record_hashes_checked": 903,
+      "valid": true,
+      "version": "2.3.5"
+    },
+    {
+      "expected_version": "1.17.0",
+      "license_expression": null,
+      "license_files": [
+        {
+          "path": "scipy-1.17.0.dist-info/LICENSE.txt",
+          "sha256": "4daf14e37432e7026165979ecb7a39930707a3e89bef4876cfaf9dad36ed364a"
+        },
+        {
+          "path": "scipy/_lib/_uarray/LICENSE",
+          "sha256": "c80c39b5fce06ba4897e14e0b0a88b54458334d951eb1361402ffad2cfb863b4"
+        },
+        {
+          "path": "scipy/fft/_pocketfft/LICENSE.md",
+          "sha256": "c254b2b5fd30ae3c89d36ba061730563b9760fca04f1b746a1b2c3157da2c789"
+        },
+        {
+          "path": "scipy/integrate/LICENSE_DOP",
+          "sha256": "ed9bf58c6d74d3fad9d92d1d67d9bff8141d8ab60de784516b0711364fd43357"
+        },
+        {
+          "path": "scipy/spatial/qhull_src/COPYING_QHULL.txt",
+          "sha256": "106d55c931fd6a84822e5345d900273d059f1c27310d02567ccb313c5d18c55d"
+        }
+      ],
+      "license_summary": [
+        "Copyright (c) 2001-2002 Enthought, Inc. 2003, SciPy Developers."
+      ],
+      "mismatches": [],
+      "name": "scipy",
+      "record_hashes_checked": 1426,
+      "valid": true,
+      "version": "1.17.0"
+    }
+  ],
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "runtime": {
+    "implementation": "CPython",
+    "machine": "x86_64",
+    "platform": "Linux",
+    "python": "3.12.14",
+    "reference_runtime": true,
+    "status": "reference family; inspect actual tests"
+  },
+  "scope": "installed RECORD integrity and licence inventory; not a vulnerability scan or complete legal audit",
+  "verified": true
+}

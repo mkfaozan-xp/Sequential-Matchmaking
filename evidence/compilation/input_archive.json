@@ -1,0 +1,5 @@
+{
+  "name": "Blackbox_Round2_Complete_v0_8_Submission_1.zip",
+  "sha256": "a4d4f64abd02671ccf8914e11ced313aebebfa627f2d708af130276ae39ce28d",
+  "changes": "Added compiled bytecode, loader, verification tools and distribution metadata. Research/runtime source and immutable assets unchanged."
+}

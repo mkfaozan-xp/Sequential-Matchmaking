@@ -1,0 +1,58 @@
+{
+  "games_with_success": 242,
+  "methods": {
+    "conservative": {
+      "dates": 2022,
+      "episodes": 240,
+      "games_with_success": 117,
+      "mean_episode_wall_seconds": 5.064532261808313,
+      "mean_inference_seconds": 3.0442674421332585,
+      "official_couples": 170,
+      "served_member_world_instances": 16168,
+      "valid": 240
+    },
+    "coordinated": {
+      "dates": 1978,
+      "episodes": 240,
+      "games_with_success": 125,
+      "mean_episode_wall_seconds": 21.764768655633315,
+      "mean_inference_seconds": 19.82889786643765,
+      "official_couples": 172,
+      "served_member_world_instances": 16195,
+      "valid": 240
+    }
+  },
+  "no_date_subdivision": {
+    "mutual_acceptance_but_no_completed_date": 3,
+    "no_mutual_introduction_acceptance": 4
+  },
+  "primary_scoring": "Official qualifying-couple MSMI, not merely valid execution or games with at least one point.",
+  "schema_version": 1,
+  "timing_math": {
+    "assumptions": "Fixed number of qualifying within-window recorded mutual-Yes dates; independent uniform delays. Not a calibrated forecast of a stateful policy or random date count.",
+    "both_timely_probability": 0.36,
+    "ideal_fixed_n_at_least_one_point": {
+      "1": 0.36,
+      "2": 0.5904,
+      "3": 0.737856,
+      "4": 0.83222784,
+      "5": 0.8926258175999999,
+      "6": 0.931280523264,
+      "7": 0.95601953488896
+    },
+    "individual_timely_probability": 0.6
+  },
+  "unsupported_causal_claims": [
+    "44 fewer dates proves waiting/continuation caused the gap",
+    "78 games are all explained by trait clash or hidden second bias",
+    "7 no-date games are explained by the 30-day scoring cutoff",
+    "dates must complete by decision day 60"
+  ],
+  "valid_episodes": 480,
+  "zero_score_games": 238,
+  "zero_score_partition": {
+    "completed_dates_without_qualifying_recorded_mutual_yes": 78,
+    "no_completed_date": 7,
+    "qualifying_recorded_mutual_yes_but_late_feedback": 153
+  }
+}

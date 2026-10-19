@@ -1,0 +1,28 @@
+{
+  "members": {
+    "artifacts/deployment.json": "16a0be7b39a5e7dddf2e257d5b0d95f27e40a24886ad709c33217610eeeec35e",
+    "artifacts/releases/dcaa3a2565892a51d4958dfee318bffaca3aa1262dfd5fb3d8ff4c0409ea9f68/answers.json": "065f8f12ab542850d8f750b9f4725f2bb26f4766946a3b6a42575662d0af489e",
+    "artifacts/releases/dcaa3a2565892a51d4958dfee318bffaca3aa1262dfd5fb3d8ff4c0409ea9f68/model.json": "96c20a8721a6397d96d998039d8ee1962f8c29c29e524042c25b475b6c13a9f7",
+    "blackbox/allocation.py": "cd04adec9374b97c29d6feabf2cda72b87175b7e5b96a358051dd6c1faf4d80b",
+    "blackbox/basis.py": "104ed45c6f4a81c0ceb5ec2842bc4303b498e54bac9a71810a228c0817a7e293",
+    "blackbox/cache.py": "92793335f9164d3281d5d3b73c0d3dc71700a87166677b2a03814ecb0bcb3734",
+    "blackbox/clarification.py": "01ad4bdf84d9fd9a20a5aa14bb44e48de7a8406d4c429d39829e039784dfaa4d",
+    "blackbox/contracts.py": "eb15734a8cd0d67f8832cbb17bd6801cd7366033221601a30638864aae36e158",
+    "blackbox/domain.py": "207dd3eeffd5d3d7c370e01162230522e7512230b004c3c0cd2345e7d39831dd",
+    "blackbox/experiment.py": "27bf8bc0abc0de8f0a59d4ad34fa68a226f6d23f37c8a65605c29c648fb1134e",
+    "blackbox/features.py": "ec50f105acd7297464321bd5316b743c3b5a5f9477fd11a7c1f1bc5362afda50",
+    "blackbox/labels.py": "1766743d92f1bfa2354a7317e86a1f8d28518859c3766d3d246fa29371cd0d1b",
+    "blackbox/model.py": "5cb4cd9e52ded4d829fb51d048f4f4364d58e1d7a547d0e0105d89977d33d150",
+    "blackbox/outcome_history.py": "39d4dfb7269f82c0dcba1ff8dbc5f991492998c9263184b06cf5041e36b0d6cf",
+    "blackbox/policy.py": "9927be0e818ca7a302db9b8c7f6df2751edbd46811fc10f34598f133e9aab98b",
+    "blackbox/registry.py": "c0014978347efc8dd2120858d07fdfb955c15bdd0bd57fef41990559235bafd9",
+    "blackbox/storage.py": "34048d6f41dbab1da92ab10db3a69c3aefe2dbf42fcf5d0a70ef54d1e1bce5f1",
+    "results/training.json": "2379d579756accaa78215dc54be822dc23b476a2b7658c1655d0927cbfe835f8",
+    "starter/kit.py": "f8d1c3c2edd62be8923f8b9364fd1d4c5dc4adf95b97ce8b95c4f6ea05022473",
+    "starter/policy.py": "a708862c369963bce169af8d7fc40dc28a4e59c595a175eea4d28eff57b58c78"
+  },
+  "original_archive_sha256": "d8c14e493f46c63613f0769050f432c524cf4cc4a710a3172d123faa44cf585a",
+  "original_release": "dcaa3a2565892a51d4958dfee318bffaca3aa1262dfd5fb3d8ff4c0409ea9f68",
+  "schema_version": 1,
+  "scope": "Required historical collector source and training metadata extracted after verifying the original archive SHA-256. No previous-version archives are shipped."
+}

@@ -1,0 +1,26 @@
+{
+  "candidate_refit": false,
+  "driver_correction": "results/funnel/DRIVER_CORRECTION.json; model and planner unchanged, new seeds registered before restart outcomes.",
+  "episodes": 24,
+  "families": [
+    "development",
+    "sparse",
+    "cold_start",
+    "delayed",
+    "shift",
+    "drift"
+  ],
+  "methods": [
+    "conservative",
+    "funnel"
+  ],
+  "original_subject_sha256": "22eb16211071cc8a9d0f8bf3275a84501202e90cfef174c907ef37e137311660",
+  "promotion": false,
+  "registered_before_outcomes": true,
+  "registered_utc": "2026-10-17T17:41:56.882164+00:00",
+  "release_sha256": "63453204f6a26e134bf6e21cbf5c2ae925fa1dd0702789c4db899ebc4838ebf4",
+  "seeds": [
+    6301,
+    6302
+  ]
+}

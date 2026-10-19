@@ -1,0 +1,17 @@
+{
+  "actual_docker": false,
+  "dockerfile_sha256": "da35b4291a1ae7abb7e11f73245cce9d878400d8ffa3992aea5b8c0870582f37",
+  "episodes": [],
+  "error": "ValueError: Docker CLI unavailable",
+  "host_windows": false,
+  "mode": "coordinated",
+  "model_id": "coordinated-b76b5aa08f1d17e1",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "proof_type": "Executed local Docker image ID and content hashes; no external digital signature.",
+  "schema_version": 1,
+  "source_and_assets_sha256": "22eb16211071cc8a9d0f8bf3275a84501202e90cfef174c907ef37e137311660",
+  "standalone_windows_policy_unverified": true,
+  "started_utc": "2026-10-17T16:37:40.770233+00:00",
+  "status": "unverified",
+  "validated": false
+}

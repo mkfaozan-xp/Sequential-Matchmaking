@@ -1,0 +1,9 @@
+ARG PYTHON_BASE=python:3.12.14-slim
+FROM ${PYTHON_BASE}
+ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1
+WORKDIR /app
+COPY runtime/ /app/runtime/
+COPY policy.py /app/policy.py
+COPY coordinated/__init__.py coordinated/engine.py coordinated/model.json coordinated/release.json /app/coordinated/
+USER 65534:65534
+ENTRYPOINT ["python", "-B", "/app/policy.py", "--mode", "coordinated"]

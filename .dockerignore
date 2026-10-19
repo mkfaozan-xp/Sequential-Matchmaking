@@ -1,0 +1,9 @@
+research
+compiled
+evidence
+results
+tools
+.git
+**/__pycache__
+*.log
+*.sha256

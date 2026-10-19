@@ -1,0 +1,5 @@
+{
+  "tests_run": 6,
+  "passed": true,
+  "scope": "Submission mode, baseline coverage, ablation completeness, source identity and inventory failure handling; no Docker simulation counted as actual execution."
+}

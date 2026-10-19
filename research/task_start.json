@@ -1,0 +1,7 @@
+{
+  "iteration": "v0.8",
+  "requested_unix": 1792222743.8019183,
+  "execution_budget_seconds": 7200,
+  "budget_scope": "new user-requested build; earlier v0.6/v0.7 accounting remains historical and unchanged",
+  "previous_v07_archive_sha256": "4c152ced222c8d066c26b6e6a10e707651737cdae82d5a86999f311cc8407685"
+}

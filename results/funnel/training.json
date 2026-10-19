@@ -1,0 +1,203 @@
+{
+  "accepted_pairs": 3269,
+  "auxiliary_oof": {
+    "bins": [
+      {
+        "hi": 0.02,
+        "lo": 0.01,
+        "n": 3318,
+        "observed": 0.013261000602772756,
+        "predicted": 0.016341931914870617
+      },
+      {
+        "hi": 0.04,
+        "lo": 0.02,
+        "n": 16487,
+        "observed": 0.02947777036452963,
+        "predicted": 0.029360007427918066
+      },
+      {
+        "hi": 0.08,
+        "lo": 0.04,
+        "n": 1562,
+        "observed": 0.052496798975672214,
+        "predicted": 0.046638056214478
+      }
+    ],
+    "brier": 0.027745022357589525,
+    "ece": 0.0009975871120157676,
+    "log_loss": 0.1285426058472746,
+    "n": 21367,
+    "positives": 612,
+    "prediction_quantiles": {
+      "0": 0.010945006867411174,
+      "0.05": 0.014868742137026967,
+      "0.5": 0.028891426655709866,
+      "0.95": 0.043208633919207415,
+      "1": 0.06345011890084461
+    },
+    "ranking": {
+      "auc": 0.5802481251072661,
+      "average_precision": 0.03867504967776732,
+      "n": 21367,
+      "prevalence": 0.028642298872092478,
+      "scope": "mature selected introductions; no population/counterfactual claim",
+      "top_decile_lift": 1.7156862745098043
+    },
+    "scope": "selected mature introductions only"
+  },
+  "auxiliary_positive_pairs": 612,
+  "elapsed_seconds": 5.562338283999452,
+  "features": {
+    "acceptance": 32,
+    "conversion": 18
+  },
+  "folds": [
+    {
+      "acceptance_converged": true,
+      "accepted_training_rows": 2697,
+      "conversion_converged": true,
+      "held_out_seeds": [
+        1101,
+        1107,
+        1113,
+        1119,
+        1125,
+        1131,
+        1137,
+        1143
+      ],
+      "training_rows": 17721
+    },
+    {
+      "acceptance_converged": true,
+      "accepted_training_rows": 2787,
+      "conversion_converged": true,
+      "held_out_seeds": [
+        1102,
+        1108,
+        1114,
+        1120,
+        1126,
+        1132,
+        1138,
+        1144
+      ],
+      "training_rows": 18040
+    },
+    {
+      "acceptance_converged": true,
+      "accepted_training_rows": 2760,
+      "conversion_converged": true,
+      "held_out_seeds": [
+        1103,
+        1109,
+        1115,
+        1121,
+        1127,
+        1133,
+        1139,
+        1145
+      ],
+      "training_rows": 18081
+    },
+    {
+      "acceptance_converged": true,
+      "accepted_training_rows": 2732,
+      "conversion_converged": true,
+      "held_out_seeds": [
+        1104,
+        1110,
+        1116,
+        1122,
+        1128,
+        1134,
+        1140,
+        1146
+      ],
+      "training_rows": 17732
+    },
+    {
+      "acceptance_converged": true,
+      "accepted_training_rows": 2728,
+      "conversion_converged": true,
+      "held_out_seeds": [
+        1105,
+        1111,
+        1117,
+        1123,
+        1129,
+        1135,
+        1141,
+        1147
+      ],
+      "training_rows": 17721
+    },
+    {
+      "acceptance_converged": true,
+      "accepted_training_rows": 2641,
+      "conversion_converged": true,
+      "held_out_seeds": [
+        1106,
+        1112,
+        1118,
+        1124,
+        1130,
+        1136,
+        1142,
+        1148
+      ],
+      "training_rows": 17540
+    }
+  ],
+  "model_sha256": "ec5208ac97c15a3feabdc81dde298bac971ea94eb257e14f88497ea87b4a24bf",
+  "official_oof": {
+    "bins": [
+      {
+        "hi": 0.01,
+        "lo": 0,
+        "n": 7128,
+        "observed": 0.00855780022446689,
+        "predicted": 0.007612003466219597
+      },
+      {
+        "hi": 0.02,
+        "lo": 0.01,
+        "n": 14115,
+        "observed": 0.011477151965993623,
+        "predicted": 0.011819186878287615
+      },
+      {
+        "hi": 0.04,
+        "lo": 0.02,
+        "n": 124,
+        "observed": 0.008064516129032258,
+        "predicted": 0.02164101038356417
+      }
+    ],
+    "brier": 0.010366902376868938,
+    "ece": 0.0006202530709682389,
+    "log_loss": 0.05786151795977129,
+    "n": 21367,
+    "positives": 224,
+    "prediction_quantiles": {
+      "0": 0.003989912862024392,
+      "0.05": 0.005434981472157583,
+      "0.5": 0.010586382629565187,
+      "0.95": 0.01580922833958237,
+      "1": 0.02368640802294586
+    },
+    "ranking": {
+      "auc": 0.5605614573550178,
+      "average_precision": 0.013630051740775063,
+      "n": 21367,
+      "prevalence": 0.01048345579632143,
+      "scope": "mature selected introductions; no population/counterfactual claim",
+      "top_decile_lift": 1.6517857142857146
+    },
+    "scope": "selected mature introductions only"
+  },
+  "official_positive_pairs": 224,
+  "rows": 21367,
+  "scope": "Whole-seed training-only diagnostics, not policy-win evidence."
+}

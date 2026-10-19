@@ -1,0 +1,12 @@
+{"completed": 1, "expected": 12, "mode": "conservative", "variant": "development"}
+{"completed": 2, "expected": 12, "mode": "rank_aux", "variant": "development"}
+{"completed": 3, "expected": 12, "mode": "conservative", "variant": "sparse"}
+{"completed": 4, "expected": 12, "mode": "rank_aux", "variant": "sparse"}
+{"completed": 5, "expected": 12, "mode": "conservative", "variant": "cold_start"}
+{"completed": 6, "expected": 12, "mode": "rank_aux", "variant": "cold_start"}
+{"completed": 7, "expected": 12, "mode": "conservative", "variant": "delayed"}
+{"completed": 8, "expected": 12, "mode": "rank_aux", "variant": "delayed"}
+{"completed": 9, "expected": 12, "mode": "conservative", "variant": "shift"}
+{"completed": 10, "expected": 12, "mode": "rank_aux", "variant": "shift"}
+{"completed": 11, "expected": 12, "mode": "conservative", "variant": "drift"}
+{"completed": 12, "expected": 12, "mode": "rank_aux", "variant": "drift"}

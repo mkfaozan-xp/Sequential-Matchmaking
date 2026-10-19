@@ -1,0 +1,140 @@
+{
+  "actual_docker_unverified": true,
+  "actual_windows_unverified": true,
+  "all_actions_and_outcomes_identical": true,
+  "elapsed_seconds": 112.6491468260001,
+  "episodes": 12,
+  "fields_compared": [
+    "action_sha256",
+    "assignments",
+    "mutual_acceptances",
+    "dates",
+    "mutual_second_meeting_intention",
+    "ask_cost",
+    "served_members",
+    "unserved_members",
+    "first_introduction_wait_days",
+    "coverage",
+    "unserved_exposure_days",
+    "service_slices",
+    "policy_invocations",
+    "missing_feedback",
+    "max_request_bytes",
+    "max_response_bytes"
+  ],
+  "new_efficacy_evaluation": false,
+  "new_training": false,
+  "passed": true,
+  "policy_invocations": 1440,
+  "rows": [
+    {
+      "action_sha256": "80767bb760c12b2bc4429744f51f73ae408826cb16902d7fdf58d0025bb77e75",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.2314706799998021,
+      "mode": "conservative",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "cold_start"
+    },
+    {
+      "action_sha256": "90c02e035c5473d78e88987bf99f218aa8bbff4e15bf6ade446109bafe9d6f81",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.20895032199996422,
+      "mode": "rank_aux",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "cold_start"
+    },
+    {
+      "action_sha256": "1d2c3f54b7d58f5b5eb09fbcb36ca351814affe9b14e11d9c2f06c8b9f182f8a",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.16609479600037957,
+      "mode": "conservative",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "delayed"
+    },
+    {
+      "action_sha256": "c1c09b499942d999173ec850377f128ea2cbd40ff4f06e7139953b0e4fcf4529",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.16502154100044208,
+      "mode": "rank_aux",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "delayed"
+    },
+    {
+      "action_sha256": "12a0e6d409b7498dd75b8b272ef924aafd54faa797bfd942230719f372b9565e",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.1723011700000825,
+      "mode": "conservative",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "development"
+    },
+    {
+      "action_sha256": "a06cd4866afb4c10c456f3e419d08f2c1df62f2e646f6028b9fa67b3b69a59af",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.21415416299987555,
+      "mode": "rank_aux",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "development"
+    },
+    {
+      "action_sha256": "a740507b46c573a93220aea42e88fe5f3e5034ccf2ac88bd462ba8a30f426090",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.1777653970002575,
+      "mode": "conservative",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "drift"
+    },
+    {
+      "action_sha256": "a06cd4866afb4c10c456f3e419d08f2c1df62f2e646f6028b9fa67b3b69a59af",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.17790067399982945,
+      "mode": "rank_aux",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "drift"
+    },
+    {
+      "action_sha256": "a49cdf3bbda47c3c4ba92d47cd8d58157899f80fc9e11cf8fe2ceee596ae3091",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.17660714299972824,
+      "mode": "conservative",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "shift"
+    },
+    {
+      "action_sha256": "1e222e07d878410a2c0717c76f8b25864f9f1191b6bc6b7ac4c1cc99edb011c6",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.1758276640002805,
+      "mode": "rank_aux",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "shift"
+    },
+    {
+      "action_sha256": "fc33659566f94ca56e7d2e244e0bd2ae6d125ade47afd5de2240efbba0d5599e",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.17202658399992288,
+      "mode": "conservative",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "sparse"
+    },
+    {
+      "action_sha256": "4ed6bc43b56ac8ef45322d9ba3fe41b168291e9a60b5d3c843fce47515ef0080",
+      "all_comparison_fields_identical": true,
+      "max_call_seconds": 0.16966967200005456,
+      "mode": "rank_aux",
+      "policy_invocations": 120,
+      "seed": 101,
+      "variant": "sparse"
+    }
+  ],
+  "scope": "Replayed six seed-101 families for conservative/rank_aux through verified bytecode; transport parity only."
+}

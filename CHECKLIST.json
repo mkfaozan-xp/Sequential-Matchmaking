@@ -1,0 +1,81 @@
+{
+  "active_mode": "conservative",
+  "candidate": "coordinated",
+  "items": [
+    {
+      "item": "Shared asking/matching/deferral objective with learned reward and hold models",
+      "path": "COORDINATED_DESIGN.md",
+      "status": "implemented"
+    },
+    {
+      "item": "Complete research and source-bound inference assets",
+      "path": "research/",
+      "status": "included"
+    },
+    {
+      "item": "Three supplied baselines and two component ablations on fresh matched worlds",
+      "path": "results/coordinated/validation.json",
+      "status": "complete_valid_84_episodes"
+    },
+    {
+      "item": "Separate frozen 60-world final",
+      "path": "results/coordinated/final.json",
+      "status": "complete_valid_120_episodes"
+    },
+    {
+      "item": "Larger independent registered confirmation",
+      "path": "results/coordinated/confirmation.json",
+      "status": "complete_valid_480_episodes"
+    },
+    {
+      "item": "Compiled/source whole-game transport parity",
+      "path": "results/coordinated/transport.json",
+      "status": "passed_720_cold_calls"
+    },
+    {
+      "item": "First-introduction waits and unserved counts",
+      "path": "results/coordinated/waiting_times.json",
+      "status": "included"
+    },
+    {
+      "item": "Actual Windows and constrained Docker",
+      "path": "tools/validate_coordinated_container.py",
+      "status": "unverified"
+    },
+    {
+      "item": "Trusted external signature and immutable public submission URL",
+      "status": "not_provided_by_private_authoring_environment"
+    },
+    {
+      "item": "No nested previous-version ZIPs",
+      "status": "verified_zero",
+      "path": "evidence/PACKAGE_CLEANUP.json"
+    },
+    {
+      "item": "Archive-free model refit",
+      "status": "passed_identical_model_release_bytes",
+      "path": "evidence/coordinated/flat_training_reproduction.json"
+    },
+    {
+      "item": "Clean-package regression checks",
+      "status": "passed_118_foundation_13_planning_14_cli",
+      "path": "evidence/coordinated/clean_build_checks.json"
+    },
+    {
+      "item": "Staged scorer experiment",
+      "status": "training_improved_but_full_game_pilot_lost_rejected_for_deployment",
+      "path": "results/funnel/REPORT.md"
+    },
+    {
+      "item": "Gemini claims reconciled with raw records and simulator",
+      "status": "machine_checked_counts_and_documented_causal_limits",
+      "path": "GEMINI_REVIEW_AUDIT.md"
+    },
+    {
+      "item": "Windows/Linux Docker CI",
+      "status": "prepared_unexecuted",
+      "path": "publishing/verify-submission.yml"
+    }
+  ],
+  "source": "evidence/official_submission_requirements.md"
+}

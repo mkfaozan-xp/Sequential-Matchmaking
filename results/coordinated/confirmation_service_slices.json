@@ -1,0 +1,60 @@
+{
+  "conservative": {
+    "complete": {
+      "coverage": 0.5135288911366798,
+      "mean_episode_group_p95_days": 17.083333333333332,
+      "member_world_instances": 15818,
+      "quantile_scope": "Mean of group p95 values from individual episodes, not a pooled group p95.",
+      "served": 8123,
+      "unserved": 7695,
+      "unserved_exposure_days": 436805
+    },
+    "low": {
+      "coverage": 0.24441321634219906,
+      "mean_episode_group_p95_days": 23.983333333333334,
+      "member_world_instances": 29176,
+      "quantile_scope": "Mean of group p95 values from individual episodes, not a pooled group p95.",
+      "served": 7131,
+      "unserved": 22045,
+      "unserved_exposure_days": 1253645
+    },
+    "partial": {
+      "coverage": 0.3040585495675316,
+      "mean_episode_group_p95_days": 17.324786324786324,
+      "member_world_instances": 3006,
+      "quantile_scope": "Mean of group p95 values from individual episodes, not a pooled group p95.",
+      "served": 914,
+      "unserved": 2092,
+      "unserved_exposure_days": 119901
+    }
+  },
+  "coordinated": {
+    "complete": {
+      "coverage": 0.5096725249715514,
+      "mean_episode_group_p95_days": 18.216666666666665,
+      "member_world_instances": 15818,
+      "quantile_scope": "Mean of group p95 values from individual episodes, not a pooled group p95.",
+      "served": 8062,
+      "unserved": 7756,
+      "unserved_exposure_days": 440325
+    },
+    "low": {
+      "coverage": 0.24729229503701672,
+      "mean_episode_group_p95_days": 19.741666666666667,
+      "member_world_instances": 29176,
+      "quantile_scope": "Mean of group p95 values from individual episodes, not a pooled group p95.",
+      "served": 7215,
+      "unserved": 21961,
+      "unserved_exposure_days": 1249105
+    },
+    "partial": {
+      "coverage": 0.30538922155688625,
+      "mean_episode_group_p95_days": 14.484978540772532,
+      "member_world_instances": 3006,
+      "quantile_scope": "Mean of group p95 values from individual episodes, not a pooled group p95.",
+      "served": 918,
+      "unserved": 2088,
+      "unserved_exposure_days": 119661
+    }
+  }
+}

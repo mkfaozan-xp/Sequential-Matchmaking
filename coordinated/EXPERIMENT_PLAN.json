@@ -1,0 +1,98 @@
+{
+  "budget_seconds": 7200,
+  "candidate": "coordinated",
+  "episodes": {
+    "decision_days": 60,
+    "follow_up_days": 40,
+    "members": 200
+  },
+  "failure_behavior": "Keep incumbent, preserve failures, do not redefine plan after results.",
+  "final": {
+    "episodes": 120,
+    "methods": [
+      "conservative",
+      "coordinated"
+    ],
+    "seeds": [
+      4201,
+      4202,
+      4203,
+      4204,
+      4205,
+      4206,
+      4207,
+      4208,
+      4209,
+      4210
+    ],
+    "variants": [
+      "development",
+      "sparse",
+      "cold_start",
+      "delayed",
+      "shift",
+      "drift"
+    ]
+  },
+  "frozen_before_new_outcomes": true,
+  "numerical_threads": 1,
+  "objective": "Expected official MSMI from current introductions plus remaining-horizon member continuation value. Same objective used for asking and matching.",
+  "planner": {
+    "answer_draws": 3,
+    "candidate_bundles": 12,
+    "inference_rng": "coordinated-answer-v1 plus day/sample/member; no world seed or hidden state",
+    "matching_exchange_passes": 2,
+    "question_cost": 3,
+    "response_prior": "Beta(1,1) updated only from observed constraint ask logs",
+    "soft_questions": false,
+    "work_caps_only": true
+  },
+  "policy_selection": "One fixed candidate; no pilot-based refit or switching.",
+  "promotion": {
+    "actual_exact_mode_docker": true,
+    "all_episodes_valid": true,
+    "coverage_drop_max": 0.05,
+    "minimum_seed_blocks": 10,
+    "no_family_mean_regression": true,
+    "paired_lower_ci_strictly_positive": true,
+    "probability_oof_logloss_no_worse_than_constant": true
+  },
+  "schema_version": 1,
+  "training": {
+    "features": 32,
+    "folds": 6,
+    "hold": "ridge least squares scheduled hold proxy",
+    "hold_l2": 1000,
+    "new_collection_episodes": 0,
+    "projection": "reference",
+    "reward": "ridge logistic auxiliary mutual recorded Yes times empirical training-only timeliness factor",
+    "reward_l2": 100,
+    "selection": "Fixed estimators; folds are diagnostics and do not choose candidate.",
+    "source": "research/artifacts/datasets/v06_observations.json.gz"
+  },
+  "validation": {
+    "episodes": 84,
+    "methods": [
+      "baseline_greedy",
+      "baseline_no_asks",
+      "baseline_random",
+      "conservative",
+      "coordinated",
+      "coordinated_myopic",
+      "coordinated_constant"
+    ],
+    "seeds": [
+      4011,
+      4012
+    ],
+    "variants": [
+      "development",
+      "sparse",
+      "cold_start",
+      "delayed",
+      "shift",
+      "drift"
+    ]
+  },
+  "workers": 2
+}

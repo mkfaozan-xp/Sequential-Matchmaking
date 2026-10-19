@@ -1,0 +1,9 @@
+{
+  "reason": "Completed futures were not removed from the pending set; the same two actual episodes were counted repeatedly. This invalid attempt is not efficacy evidence.",
+  "invalid_result_sha256": "72904d440ba5ac705f7d7c3e0c0e8fb760914034c515f3b5f92de6ac5582028c",
+  "recorded_rows": 465,
+  "unique_actual_episodes": 2,
+  "models_changed": false,
+  "valid_restart": "New fixed seeds 6301 and 6302; no score-based selection.",
+  "discarded_for_performance_analysis": true
+}

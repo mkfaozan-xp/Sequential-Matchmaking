@@ -1,0 +1,10 @@
+{
+  "model_id": "coordinated-b76b5aa08f1d17e1",
+  "model_sha256": "4c5a026961e079afbf58cd4e3269f6d0d6af22c2e51dbe32fc2fed9320b5695d",
+  "original_inherited_artifacts_unchanged": true,
+  "runtime_source": {
+    "__init__.py": "d2e98e5a8135c849668e3e724cca86c8f3345ab162b638e9a9e783801d2eea4b",
+    "engine.py": "6b4fd81fa950c98650ed477e1af9aeb484dafe73d5b103f04d5c0aaf3ee6a39d"
+  },
+  "status": "experimental_not_promoted"
+}

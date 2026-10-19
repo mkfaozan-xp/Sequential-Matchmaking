@@ -1,0 +1,8 @@
+test_complementary_endpoints_are_selected_together (__main__.JointQuestionTests.test_complementary_endpoints_are_selected_together) ... ok
+test_response_learning_ignores_future_log_entries (__main__.JointQuestionTests.test_response_learning_ignores_future_log_entries) ... ok
+test_unaffordable_complementary_batch_is_not_half_asked (__main__.JointQuestionTests.test_unaffordable_complementary_batch_is_not_half_asked) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.002s
+
+OK

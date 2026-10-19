@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0.0",
+  "phase": "ask",
+  "state": {
+    "schema_version": "1.0.0",
+    "synthetic": true,
+    "day": 0,
+    "ask_budget_remaining": 12,
+    "members": [],
+    "introductions": [],
+    "feedback": [],
+    "ask_log": []
+  },
+  "memory": null
+}

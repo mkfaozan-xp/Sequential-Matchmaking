@@ -1,0 +1,21 @@
+{
+  "historical_known_seed_count": 151,
+  "new_validation_seeds": [
+    4011,
+    4012
+  ],
+  "new_final_seeds": [
+    4201,
+    4202,
+    4203,
+    4204,
+    4205,
+    4206,
+    4207,
+    4208,
+    4209,
+    4210
+  ],
+  "overlap_with_retained_historical_json": [],
+  "scope": "All JSON in the retained research tree; no claim about external unpublished experiments."
+}

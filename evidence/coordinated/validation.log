@@ -1,0 +1,9 @@
+{"completed": 1, "expected": 84, "seed": 4011, "variant": "development", "mode": "baseline_greedy", "valid": true, "msmi": 0, "error": null}
+{"completed": 2, "expected": 84, "seed": 4011, "variant": "development", "mode": "baseline_no_asks", "valid": true, "msmi": 0, "error": null}
+{"completed": 3, "expected": 84, "seed": 4011, "variant": "development", "mode": "baseline_random", "valid": true, "msmi": 0, "error": null}
+{"completed": 4, "expected": 84, "seed": 4011, "variant": "development", "mode": "conservative", "valid": true, "msmi": 0, "error": null}
+{"completed": 5, "expected": 84, "seed": 4011, "variant": "development", "mode": "coordinated", "valid": true, "msmi": 2, "error": null}
+{"completed": 6, "expected": 84, "seed": 4011, "variant": "development", "mode": "coordinated_myopic", "valid": true, "msmi": 0, "error": null}
+{"completed": 7, "expected": 84, "seed": 4011, "variant": "sparse", "mode": "baseline_greedy", "valid": true, "msmi": 1, "error": null}
+{"completed": 8, "expected": 84, "seed": 4011, "variant": "sparse", "mode": "baseline_no_asks", "valid": true, "msmi": 0, "error": null}
+{"completed": 9, "expected": 84, "seed": 4011, "variant": "sparse", "mode": "baseline_random", "valid": true, "msmi": 1, "error": null}

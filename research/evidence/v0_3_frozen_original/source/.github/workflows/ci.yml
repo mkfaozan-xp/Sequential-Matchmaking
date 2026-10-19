@@ -1,0 +1,30 @@
+name: exact-release-validation
+on: [push, pull_request]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        mode: [conservative, learned]
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.14'
+      - run: python -m pip install -r requirements-train.txt
+      - run: python scripts/run_tests.py
+      - run: python scripts/audit_data.py
+      - run: python evaluate.py --seeds 2101,2102 --variants all --output results/validation.json
+      - run: python validate_container.py --mode ${{ matrix.mode }} --image blackbox:ci-${{ matrix.mode }}
+      - run: python scripts/release_gate.py --mode ${{ matrix.mode }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: evidence-${{ matrix.mode }}
+          path: results/

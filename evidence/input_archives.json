@@ -1,0 +1,12 @@
+[
+  {
+    "archive": "Blackbox_ML_Prototype_v0_8_Clean.zip",
+    "profile": "research",
+    "sha256": "2fbffc7920cefa7950b559941e9227f4cb29a89d17b85704cab71caa4fab1dde"
+  },
+  {
+    "archive": "Blackbox_v0_8_Runtime_Reviewed.zip",
+    "profile": "runtime",
+    "sha256": "87c68f968885521a76083af344e6821b0d1eb86b369ef86f3c1ef5ff88a204b8"
+  }
+]

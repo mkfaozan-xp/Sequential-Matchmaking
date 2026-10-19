@@ -1,0 +1,82 @@
+{
+  "actual_docker_unverified": true,
+  "actual_windows_unverified": true,
+  "compiled_files_verified": 134,
+  "compiled_model_module_loaders": {
+    "blackbox": "SourcelessFileLoader",
+    "blackbox.allocation": "SourcelessFileLoader",
+    "blackbox.basis": "SourcelessFileLoader",
+    "blackbox.clarification": "SourcelessFileLoader",
+    "blackbox.compatibility": "SourcelessFileLoader",
+    "blackbox.contracts": "SourcelessFileLoader",
+    "blackbox.domain": "SourcelessFileLoader",
+    "blackbox.features": "SourcelessFileLoader",
+    "blackbox.model": "SourcelessFileLoader",
+    "blackbox.outcome_history": "SourcelessFileLoader",
+    "blackbox.policy": "SourcelessFileLoader",
+    "blackbox.ranking": "SourcelessFileLoader",
+    "blackbox.registry": "SourcelessFileLoader",
+    "blackbox.storage": "SourcelessFileLoader"
+  },
+  "compiler_python": "3.12.14",
+  "corrupt_package_checks": [
+    {
+      "case": "changed_bytecode",
+      "rejected": true
+    },
+    {
+      "case": "changed_source",
+      "rejected": true
+    },
+    {
+      "case": "missing_bytecode",
+      "rejected": true
+    }
+  ],
+  "default_mode": "conservative",
+  "invalid_requests_rejected": [
+    "missing_contract",
+    "nonfinite",
+    "oversized"
+  ],
+  "model_id": "ranking-v08-02e8fb6d08fd2617",
+  "model_outputs_compared": 640,
+  "model_vectors_compared": 64,
+  "new_efficacy_evaluation": false,
+  "numerical_outputs_exactly_equal": true,
+  "passed": true,
+  "smoke_cases": [
+    {
+      "example": "empty_request.json",
+      "identical": true,
+      "mode": "conservative"
+    },
+    {
+      "example": "day0_request.json",
+      "identical": true,
+      "mode": "conservative"
+    },
+    {
+      "example": "refreshed_match_request.json",
+      "identical": true,
+      "mode": "conservative"
+    },
+    {
+      "example": "empty_request.json",
+      "identical": true,
+      "mode": "rank_aux"
+    },
+    {
+      "example": "day0_request.json",
+      "identical": true,
+      "mode": "rank_aux"
+    },
+    {
+      "example": "refreshed_match_request.json",
+      "identical": true,
+      "mode": "rank_aux"
+    }
+  ],
+  "target": "CPython 3.12 bytecode",
+  "weights_retrained": false
+}

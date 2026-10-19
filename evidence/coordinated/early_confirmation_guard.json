@@ -1,0 +1,8 @@
+{
+  "passed": true,
+  "case": "Reject an unfinished registered confirmation, with no report changes",
+  "completed_at_probe": 184,
+  "required": 480,
+  "verifier_exit_code": 2,
+  "report_unchanged": true
+}

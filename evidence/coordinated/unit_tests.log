@@ -1,0 +1,15 @@
+test_adding_disclosed_options_cannot_reduce_same_objective (__main__.CoordinatedTests.test_adding_disclosed_options_cannot_reduce_same_objective) ... ok
+test_allocator_accounts_for_displaced_pairs (__main__.CoordinatedTests.test_allocator_accounts_for_displaced_pairs) ... ok
+test_continuation_shrinks_with_remaining_horizon (__main__.CoordinatedTests.test_continuation_shrinks_with_remaining_horizon) ... ok
+test_myopic_is_the_declared_component_ablation (__main__.CoordinatedTests.test_myopic_is_the_declared_component_ablation) ... ok
+test_no_endpoint_is_used_twice (__main__.CoordinatedTests.test_no_endpoint_is_used_twice) ... ok
+test_no_hypothetical_answer_is_disclosed_in_real_state (__main__.CoordinatedTests.test_no_hypothetical_answer_is_disclosed_in_real_state) ... ok
+test_predictions_are_finite_and_feature_support_is_clean (__main__.CoordinatedTests.test_predictions_are_finite_and_feature_support_is_clean) ... ok
+test_refreshed_actions_ignore_forged_optimistic_memory (__main__.CoordinatedTests.test_refreshed_actions_ignore_forged_optimistic_memory) ... ok
+test_response_estimate_uses_only_current_logs (__main__.CoordinatedTests.test_response_estimate_uses_only_current_logs) ... ok
+test_wait_is_an_explicit_outside_option (__main__.CoordinatedTests.test_wait_is_an_explicit_outside_option) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.431s
+
+OK

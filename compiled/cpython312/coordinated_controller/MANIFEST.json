@@ -1,0 +1,24 @@
+{
+  "files": [
+    {
+      "bytecode": "policy.pyc",
+      "bytecode_sha256": "315eceed9f2afedb7a4a26371e86f54fa983f7b018a9ade7c4d4e704e9be3d77",
+      "source": "policy.py",
+      "source_sha256": "06cd5161c5be301e304c1ba92a9e28e95ab6e1c104854c0ad0d334b1acc87c75"
+    },
+    {
+      "bytecode": "coordinated/__init__.pyc",
+      "bytecode_sha256": "9e932b5045aa1a0e0aba8ede815eb91a46532b908bf281fedbb290c7f1455c6e",
+      "source": "coordinated/__init__.py",
+      "source_sha256": "d2e98e5a8135c849668e3e724cca86c8f3345ab162b638e9a9e783801d2eea4b"
+    },
+    {
+      "bytecode": "coordinated/engine.pyc",
+      "bytecode_sha256": "df4c0739171979c7d25ebc1a7a317324929141fa98c507baef8fb30feb136091",
+      "source": "coordinated/engine.py",
+      "source_sha256": "6b4fd81fa950c98650ed477e1af9aeb484dafe73d5b103f04d5c0aaf3ee6a39d"
+    }
+  ],
+  "magic_hex": "cb0d0d0a",
+  "target": "CPython 3.12"
+}

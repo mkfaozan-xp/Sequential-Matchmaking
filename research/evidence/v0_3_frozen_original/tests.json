@@ -1,0 +1,56 @@
+{
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "729ca785dcb175066ad9f209e08882385cf8c4386c175ca0fcac1873e309a796",
+        "schema_version": 2
+      },
+      "manifest_sha256": "3f1114e8d866e95f835a6013f5be364f0ce8635e9fbf3c01ae557b33ca171bbc"
+    },
+    "source_sha256": "153f3ae756683b3484721be78a5bc53d2cada84c6a0bf2f3f6e698c03be7051e"
+  },
+  "schema_version": 2,
+  "success": true,
+  "suites": [
+    {
+      "errors": 0,
+      "failures": 0,
+      "identity": {
+        "inference_release": {
+          "deployment": {
+            "mode": "conservative",
+            "release_id": "729ca785dcb175066ad9f209e08882385cf8c4386c175ca0fcac1873e309a796",
+            "schema_version": 2
+          },
+          "manifest_sha256": "3f1114e8d866e95f835a6013f5be364f0ce8635e9fbf3c01ae557b33ca171bbc"
+        },
+        "source_sha256": "153f3ae756683b3484721be78a5bc53d2cada84c6a0bf2f3f6e698c03be7051e"
+      },
+      "skipped": 0,
+      "success": true,
+      "suite": "project",
+      "tests_run": 48
+    },
+    {
+      "errors": 0,
+      "failures": 0,
+      "identity": {
+        "inference_release": {
+          "deployment": {
+            "mode": "conservative",
+            "release_id": "729ca785dcb175066ad9f209e08882385cf8c4386c175ca0fcac1873e309a796",
+            "schema_version": 2
+          },
+          "manifest_sha256": "3f1114e8d866e95f835a6013f5be364f0ce8635e9fbf3c01ae557b33ca171bbc"
+        },
+        "source_sha256": "153f3ae756683b3484721be78a5bc53d2cada84c6a0bf2f3f6e698c03be7051e"
+      },
+      "skipped": 0,
+      "success": true,
+      "suite": "starter",
+      "tests_run": 22
+    }
+  ],
+  "tests_run": 70
+}

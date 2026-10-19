@@ -1,0 +1,23 @@
+{
+  "checksum_manifest_sha256": "b1432b0ea95b3e76f056cfc49c1372b62bbc7eaaca5247aa7bb82a28c9b24bcd",
+  "counts": {
+    "conversations": 1129,
+    "feedback": 1270,
+    "introductions": 613,
+    "members": 2000
+  },
+  "files": 71,
+  "identity": {
+    "inference_release": {
+      "deployment": {
+        "mode": "conservative",
+        "release_id": "2f58302651f1d80bb7990a78654d8598e014e7860bc29c365c195b9881dea7a9",
+        "schema_version": 2
+      },
+      "manifest_sha256": "413d2ac58dcadccd67ab0e654c50ca621b59b1bbd69c708ab5e61ae5054b4f0e"
+    },
+    "source_sha256": "65e2d14ab9d468a902af97ea79780b2523306d7b12b9414ebf7d90e9d5595bf4"
+  },
+  "schema_version": 2,
+  "verified": true
+}

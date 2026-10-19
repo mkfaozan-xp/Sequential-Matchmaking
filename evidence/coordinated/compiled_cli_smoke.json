@@ -1,0 +1,36 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "mode": "conservative",
+      "example": "empty_request.json",
+      "identical": true
+    },
+    {
+      "mode": "conservative",
+      "example": "day0_request.json",
+      "identical": true
+    },
+    {
+      "mode": "conservative",
+      "example": "refreshed_match_request.json",
+      "identical": true
+    },
+    {
+      "mode": "coordinated",
+      "example": "empty_request.json",
+      "identical": true
+    },
+    {
+      "mode": "coordinated",
+      "example": "day0_request.json",
+      "identical": true
+    },
+    {
+      "mode": "coordinated",
+      "example": "refreshed_match_request.json",
+      "identical": true
+    }
+  ],
+  "compiled_new_source_files": 3
+}
